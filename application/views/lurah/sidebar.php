@@ -13,23 +13,18 @@
                       <li><a href="<?= site_url()?>/admin/index">Dashboard</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-edit"></i>Kependudukan<span class="fa fa-chevron-down"></span></a>
+                  <!-- <li><a><i class="fa fa-edit"></i>Kependudukan<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="<?= site_url()?>/admin/input_data_penduduk">Input Data Penduduk</a></li>
                         <li><a href="<?= site_url()?>/admin/list_data_penduduk">List Data Penduduk</a></li>
                     </ul>
-                  </li>
+                  </li> -->
                 </br>
                   <h3>Surat Menyurat</h3>
                 </br>
                   <li><a><i class="fa fa-edit"></i>Layanan Penduduk<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a>Kelahiran</a>
-                        <ul class="nav child_menu">
-                            <li><a href="<?= site_url()?>/admin/surat_kelahiran">Input</a></li>
-                        <li><a href="<?= site_url()?>/admin/list_surat_kelahiran">View</a></li>
-                        </ul>
-                      </li>
+                      <li><a href="<?= site_url()?>/lurah/list_surat_kelahiran">Kelahiran</a></li>
                       <li><a href="<?= site_url()?>/admin/slider2">Keterangan</a></li>
                       <li><a href="<?= site_url()?>/admin/slider3">Kematian</a></li>
                       <li><a href="<?= site_url()?>/admin/premium_service">Bepergian</a></li>

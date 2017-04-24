@@ -11,7 +11,7 @@
  *
  * @author NVM Team Creative
  */
-class Admin extends CI_Controller {
+class Lurah extends CI_Controller {
     //put your code here
 var $assets;
 var $css;
@@ -44,18 +44,18 @@ var $js;
 	}
 	public function index()
 	{
-                $data['title']='Admin';
+                $data['title']='Lurah';
 		$data['assets']=$this->assets;
 		$data['css']=$this->css;
 		$data['js']=$this->js;
-                $data['head']=$this->load->view('admin/head',$data, true);
-                $data['menu_profile']=$this->load->view('admin/menu_profile',$data, true);
-                $data['menu_footer']=$this->load->view('admin/menu_footer',$data, true);
-                $data['sidebar']=$this->load->view('admin/sidebar',$data, true);
-                $data['top_navigation']=$this->load->view('admin/top_navigation',$data, true);
-                $data['content']=$this->load->view('admin/content_dashboard',$data, true);
-                $data['footer_content']=$this->load->view('admin/footer_content',$data, true);
-		$this->load->view('admin/index',$data);
+                $data['head']=$this->load->view('lurah/head',$data, true);
+                $data['menu_profile']=$this->load->view('lurah/menu_profile',$data, true);
+                $data['menu_footer']=$this->load->view('lurah/menu_footer',$data, true);
+                $data['sidebar']=$this->load->view('lurah/sidebar',$data, true);
+                $data['top_navigation']=$this->load->view('lurah/top_navigation',$data, true);
+                $data['content']=$this->load->view('lurah/content_dashboard',$data, true);
+                $data['footer_content']=$this->load->view('lurah/footer_content',$data, true);
+		$this->load->view('lurah/index',$data);
 	}
         public function login()
 	{
@@ -63,22 +63,6 @@ var $js;
 		$data['assets']=base_url().'assets/login/';
                 $data['img']=base_url().'assets/images/';
                 $this->load->view('login/index',$data);
-	}
-        public function input_data_penduduk()
-	{
-                $data['title']='Admin';
-								$data['sub']='Input';
-		$data['assets']=$this->assets;
-		$data['css']=$this->css;
-		$data['js']=$this->js;
-                $data['head']=$this->load->view('admin/head',$data, true);
-                $data['menu_profile']=$this->load->view('admin/menu_profile',$data, true);
-                $data['menu_footer']=$this->load->view('admin/menu_footer',$data, true);
-                $data['sidebar']=$this->load->view('admin/sidebar',$data, true);
-                $data['top_navigation']=$this->load->view('admin/top_navigation',$data, true);
-                $data['content']=$this->load->view('admin/content_input_data_penduduk',$data, true);
-                $data['footer_content']=$this->load->view('admin/footer_content',$data, true);
-		$this->load->view('admin/index',$data);
 	}
 	public function list_data_penduduk()
 {
@@ -96,73 +80,21 @@ var $js;
 					$data['footer_content']=$this->load->view('admin/footer_content',$data, true);
 					$this->load->view('admin/index',$data);
 }
-public function update_data_penduduk($id)
-{
-				$where = array('nik' => $id);
-				$data['penduduk'] = $this->m_data->edit_data($where,'tb_penduduk')->result();
-				$data['title']='Admin';
-				$data['sub']='Update';
-				$data['assets']=$this->assets;
-				$data['css']=$this->css;
-				$data['js']=$this->js;
-				$data['head']=$this->load->view('admin/head',$data, true);
-				$data['menu_profile']=$this->load->view('admin/menu_profile',$data, true);
-				$data['menu_footer']=$this->load->view('admin/menu_footer',$data, true);
-				$data['sidebar']=$this->load->view('admin/sidebar',$data, true);
-				$data['top_navigation']=$this->load->view('admin/top_navigation',$data, true);
-				$data['content']=$this->load->view('admin/content_input_data_penduduk',$data, true);
-				$data['footer_content']=$this->load->view('admin/footer_content',$data, true);
-$this->load->view('admin/index',$data);
-}
-        public function surat_kelahiran()
-	{
-		$data['title']='Admin';
-		$data['sub']='Input';
-$data['assets']=$this->assets;
-$data['css']=$this->css;
-$data['js']=$this->js;
-		$data['head']=$this->load->view('admin/head',$data, true);
-		$data['menu_profile']=$this->load->view('admin/menu_profile',$data, true);
-		$data['menu_footer']=$this->load->view('admin/menu_footer',$data, true);
-		$data['sidebar']=$this->load->view('admin/sidebar',$data, true);
-		$data['top_navigation']=$this->load->view('admin/top_navigation',$data, true);
-		$data['content']=$this->load->view('admin/content_surat_kelahiran',$data, true);
-		$data['footer_content']=$this->load->view('admin/footer_content',$data, true);
-$this->load->view('admin/index',$data);
-	}
-	public function list_surat_kelahiran()
+public function list_surat_kelahiran()
 	{
 					$data['surat'] = $this->m_data->tampil_data_surat_kelahiran()->result();
-					$data['title']='Admin';
+					$data['title']='Lurah';
 					$data['assets']=$this->assets;
 					$data['css']=$this->css;
 					$data['js']=$this->js;
-					$data['head']=$this->load->view('admin/head',$data, true);
-					$data['menu_profile']=$this->load->view('admin/menu_profile',$data, true);
-					$data['menu_footer']=$this->load->view('admin/menu_footer',$data, true);
-					$data['sidebar']=$this->load->view('admin/sidebar',$data, true);
-					$data['top_navigation']=$this->load->view('admin/top_navigation',$data, true);
-					$data['content']=$this->load->view('admin/content_list_surat_kelahiran',$data, true);
-					$data['footer_content']=$this->load->view('admin/footer_content',$data, true);
-					$this->load->view('admin/index',$data);
-	}
-	public function update_surat_kelahiran($id)
-	{
-					$where = array('id_surat' => $id);
-					$data['surat'] = $this->m_data->edit_data($where,'surat_kelahiran')->result();
-					$data['title']='Admin';
-					$data['sub']='Update';
-					$data['assets']=$this->assets;
-					$data['css']=$this->css;
-					$data['js']=$this->js;
-					$data['head']=$this->load->view('admin/head',$data, true);
-					$data['menu_profile']=$this->load->view('admin/menu_profile',$data, true);
-					$data['menu_footer']=$this->load->view('admin/menu_footer',$data, true);
-					$data['sidebar']=$this->load->view('admin/sidebar',$data, true);
-					$data['top_navigation']=$this->load->view('admin/top_navigation',$data, true);
-					$data['content']=$this->load->view('admin/content_surat_kelahiran',$data, true);
-					$data['footer_content']=$this->load->view('admin/footer_content',$data, true);
-	$this->load->view('admin/index',$data);
+					$data['head']=$this->load->view('lurah/head',$data, true);
+					$data['menu_profile']=$this->load->view('lurah/menu_profile',$data, true);
+					$data['menu_footer']=$this->load->view('lurah/menu_footer',$data, true);
+					$data['sidebar']=$this->load->view('lurah/sidebar',$data, true);
+					$data['top_navigation']=$this->load->view('lurah/top_navigation',$data, true);
+					$data['content']=$this->load->view('lurah/content_list_surat_kelahiran',$data, true);
+					$data['footer_content']=$this->load->view('lurah/footer_content',$data, true);
+					$this->load->view('lurah/index',$data);
 	}
 
         public function slider2()
