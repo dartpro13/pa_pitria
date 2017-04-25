@@ -96,6 +96,22 @@ public function list_surat_kelahiran()
 					$data['footer_content']=$this->load->view('lurah/footer_content',$data, true);
 					$this->load->view('lurah/index',$data);
 	}
+	public function list_surat_kematian()
+	{
+					$data['surat'] = $this->m_data->tampil_data_surat_kematian()->result();
+					$data['title']='Lurah';
+					$data['assets']=$this->assets;
+					$data['css']=$this->css;
+					$data['js']=$this->js;
+					$data['head']=$this->load->view('lurah/head',$data, true);
+					$data['menu_profile']=$this->load->view('lurah/menu_profile',$data, true);
+					$data['menu_footer']=$this->load->view('lurah/menu_footer',$data, true);
+					$data['sidebar']=$this->load->view('lurah/sidebar',$data, true);
+					$data['top_navigation']=$this->load->view('lurah/top_navigation',$data, true);
+					$data['content']=$this->load->view('lurah/content_list_surat_kematian',$data, true);
+					$data['footer_content']=$this->load->view('lurah/footer_content',$data, true);
+					$this->load->view('lurah/index',$data);
+	}
 
         public function slider2()
 	{

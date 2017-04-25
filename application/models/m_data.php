@@ -7,6 +7,9 @@ class M_data extends CI_Model{
 	function tampil_data_surat_kelahiran(){
 		return $this->db->get('surat_kelahiran');
 	}
+	function tampil_data_surat_kematian(){
+		return $this->db->get('surat_kematian');
+	}
 
 	function input_data($data,$table){
 		$this->db->insert($table,$data);

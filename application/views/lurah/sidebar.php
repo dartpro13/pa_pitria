@@ -25,8 +25,8 @@
                   <li><a><i class="fa fa-edit"></i>Layanan Penduduk<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<?= site_url()?>/lurah/list_surat_kelahiran">Kelahiran</a></li>
-                      <li><a href="<?= site_url()?>/admin/slider2">Keterangan</a></li>
-                      <li><a href="<?= site_url()?>/admin/slider3">Kematian</a></li>
+                      <li><a href="<?= site_url()?>/lurah/slider2">Keterangan</a></li>
+                      <li><a href="<?= site_url()?>/lurah/list_surat_kematian">Kematian</a></li>
                       <li><a href="<?= site_url()?>/admin/premium_service">Bepergian</a></li>
                       <li><a href="<?= site_url()?>/admin/global_solution">KTP / KTP Sementara</a></li>
                       <li><a href="<?= site_url()?>/admin/expertise">Tidak Mampu</a></li>

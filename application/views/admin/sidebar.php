@@ -32,7 +32,12 @@
                         </ul>
                       </li>
                       <li><a href="<?= site_url()?>/admin/slider2">Keterangan</a></li>
-                      <li><a href="<?= site_url()?>/admin/slider3">Kematian</a></li>
+                      <li><a>Kematian</a>
+                        <ul class="nav child_menu">
+                            <li><a href="<?= site_url()?>/admin/surat_kematian">Input</a></li>
+                        <li><a href="<?= site_url()?>/admin/list_surat_kematian">View</a></li>
+                        </ul>
+                      </li>
                       <li><a href="<?= site_url()?>/admin/premium_service">Bepergian</a></li>
                       <li><a href="<?= site_url()?>/admin/global_solution">KTP / KTP Sementara</a></li>
                       <li><a href="<?= site_url()?>/admin/expertise">Tidak Mampu</a></li>

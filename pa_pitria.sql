@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 25 Apr 2017 pada 02.32
+-- Generation Time: 25 Apr 2017 pada 18.43
 -- Versi Server: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -46,7 +46,43 @@ CREATE TABLE IF NOT EXISTS `surat_kelahiran` (
 --
 
 INSERT INTO `surat_kelahiran` (`id_surat`, `nomor_surat`, `nama`, `tempat_tanggal_lahir`, `jenis_kelamin`, `pekerjaan`, `alamat`, `nama_ayah_kandung`, `nama_ibu_kandung`, `anak_ke`, `tanggal_pembuatan`, `status`) VALUES
-(1, 'SKL-001-2017', 'Benjamin Jr', 'Bandung, 10 Januari 1971', 'Laki-Laki', 'Programmer', 'Jalan Sukapura No 1, Bandung', 'Benjamin Sr', 'Elisabet', '1', '2017-04-25', 'Di Setujui');
+(1, 'SKL-001-2017', 'Benjamin Jr', 'Bandung, 10 Januari 1971', 'Laki-Laki', 'Programmer', 'Jalan Sukapura No 1, Bandung', 'Benjamin Sr', 'Elisabet', '1', '2017-04-25', 'Di Setujui'),
+(2, 'SKL-003-2017', 'Sutejo', 'Bojongsoang 10 Januari 2010', 'Laki-Laki', '-', 'Jalan Bojongsoang Bandung', 'Sukirman', 'Sukijah', '4', '2017-04-25', 'Belum di setujui');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `surat_kematian`
+--
+
+CREATE TABLE IF NOT EXISTS `surat_kematian` (
+`id_surat` int(11) NOT NULL,
+  `nomor_surat` varchar(100) NOT NULL,
+  `terlapor_nama` varchar(100) NOT NULL,
+  `terlapor_jenis_kelamin` varchar(100) NOT NULL,
+  `terlapor_tanggal_lahir` date NOT NULL,
+  `terlapor_agama` varchar(100) NOT NULL,
+  `terlapor_alamat` text NOT NULL,
+  `meninggal_hari` varchar(100) NOT NULL,
+  `meninggal_tanggal` date NOT NULL,
+  `meninggal_pukul` time NOT NULL,
+  `meninggal_tempat` varchar(100) NOT NULL,
+  `meninggal_penyebab` varchar(100) NOT NULL,
+  `pelapor_nama` varchar(100) NOT NULL,
+  `pelapor_nik` varchar(100) NOT NULL,
+  `pelapor_tanggal_lahir` date NOT NULL,
+  `pelapor_pekerjaan` varchar(100) NOT NULL,
+  `pelapor_alamat` text NOT NULL,
+  `tanggal_pembuatan` date NOT NULL,
+  `status` varchar(100) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data untuk tabel `surat_kematian`
+--
+
+INSERT INTO `surat_kematian` (`id_surat`, `nomor_surat`, `terlapor_nama`, `terlapor_jenis_kelamin`, `terlapor_tanggal_lahir`, `terlapor_agama`, `terlapor_alamat`, `meninggal_hari`, `meninggal_tanggal`, `meninggal_pukul`, `meninggal_tempat`, `meninggal_penyebab`, `pelapor_nama`, `pelapor_nik`, `pelapor_tanggal_lahir`, `pelapor_pekerjaan`, `pelapor_alamat`, `tanggal_pembuatan`, `status`) VALUES
+(1, 'SKM-001-2017', 'Aziz Abdur Roziq', 'Laki-Laki', '0000-00-00', 'Islam', 'Makassar', 'Senin', '0000-00-00', '00:00:10', 'Bojongsoang', 'Kebanyakan berbohong', 'Yudi Prasetya', '123123123123', '0000-00-00', 'Ketua PSI', 'Padang', '2017-04-25', 'Di Setujui');
 
 -- --------------------------------------------------------
 
@@ -99,6 +135,12 @@ ALTER TABLE `surat_kelahiran`
  ADD PRIMARY KEY (`id_surat`), ADD UNIQUE KEY `nomor_surat` (`nomor_surat`);
 
 --
+-- Indexes for table `surat_kematian`
+--
+ALTER TABLE `surat_kematian`
+ ADD PRIMARY KEY (`id_surat`), ADD UNIQUE KEY `nomor_surat` (`nomor_surat`);
+
+--
 -- Indexes for table `tb_penduduk`
 --
 ALTER TABLE `tb_penduduk`
@@ -119,6 +161,11 @@ ALTER TABLE `tb_user`
 --
 ALTER TABLE `surat_kelahiran`
 MODIFY `id_surat` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `surat_kematian`
+--
+ALTER TABLE `surat_kematian`
+MODIFY `id_surat` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `tb_user`
 --

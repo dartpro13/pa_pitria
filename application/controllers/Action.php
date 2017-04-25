@@ -147,6 +147,11 @@ function hapus_surat_kelahiran($id){
 	$this->m_data->hapus_data($where,'surat_kelahiran');
 	redirect('admin/list_surat_kelahiran');
 }
+function hapus_surat_kematian($id){
+	$where = array('id_surat' => $id);
+	$this->m_data->hapus_data($where,'surat_kematian');
+	redirect('admin/list_surat_kematian');
+}
 function approve_surat_kelahiran($id){
 	$data = array(
 		'status' => 'Di Setujui'
@@ -214,5 +219,103 @@ function import_from_excel_data_penduduk(){
 
 	            }
 	        redirect('admin/list_data_penduduk');
+}
+function input_surat_kematian(){
+	$nomor_surat = $this->input->post('nomor_surat');
+	$terlapor_nama = $this->input->post('terlapor_nama');
+	$terlapor_jenis_kelamin = $this->input->post('terlapor_jenis_kelamin');
+	$terlapor_tanggal_lahir = $this->input->post('terlapor_tanggal_lahir');
+	$terlapor_agama = $this->input->post('terlapor_agama');
+	$terlapor_alamat = $this->input->post('terlapor_alamat');
+	$meninggal_hari = $this->input->post('meninggal_hari');
+	$meninggal_tanggal = $this->input->post('meninggal_tanggal');
+	$meninggal_pukul = $this->input->post('meninggal_pukul');
+	$meninggal_tempat = $this->input->post('meninggal_tempat');
+	$meninggal_penyebab = $this->input->post('meninggal_penyebab');
+	$pelapor_nama = $this->input->post('pelapor_nama');
+	$pelapor_nik = $this->input->post('pelapor_nik');
+	$pelapor_tanggal_lahir = $this->input->post('pelapor_tanggal_lahir');
+	$pelapor_pekerjaan = $this->input->post('pelapor_pekerjaan');
+	$pelapor_alamat = $this->input->post('pelapor_alamat');
+
+	$data = array(
+		'id_surat' => null,
+		'nomor_surat' => $nomor_surat,
+		'terlapor_nama' => $terlapor_nama,
+		'terlapor_jenis_kelamin' => $terlapor_jenis_kelamin,
+		'terlapor_tanggal_lahir' => $terlapor_tanggal_lahir,
+		'terlapor_agama' => $terlapor_agama,
+		'terlapor_alamat' => $terlapor_alamat,
+		'meninggal_hari' => $meninggal_hari,
+		'meninggal_tanggal' => $meninggal_tanggal,
+		'meninggal_pukul' => $meninggal_pukul,
+		'meninggal_tempat' => $meninggal_tempat,
+		'meninggal_penyebab' => $meninggal_penyebab,
+		'pelapor_nama' => $pelapor_nama,
+		'pelapor_nik' => $pelapor_nik,
+		'pelapor_tanggal_lahir' => $pelapor_tanggal_lahir,
+		'pelapor_pekerjaan' => $pelapor_pekerjaan,
+		'pelapor_alamat' => $pelapor_alamat,
+		'tanggal_pembuatan' => date('Y-m-d'),
+		'status' => 'Belum di setujui'
+		);
+	$this->m_data->input_data($data,'surat_kematian');
+	redirect('admin/list_surat_kematian');
+}
+function update_surat_kematian(){
+	$nomor_surat = $this->input->post('nomor_surat');
+	$terlapor_nama = $this->input->post('terlapor_nama');
+	$terlapor_jenis_kelamin = $this->input->post('terlapor_jenis_kelamin');
+	$terlapor_tanggal_lahir = $this->input->post('terlapor_tanggal_lahir');
+	$terlapor_agama = $this->input->post('terlapor_agama');
+	$terlapor_alamat = $this->input->post('terlapor_alamat');
+	$meninggal_hari = $this->input->post('meninggal_hari');
+	$meninggal_tanggal = $this->input->post('meninggal_tanggal');
+	$meninggal_pukul = $this->input->post('meninggal_pukul');
+	$meninggal_tempat = $this->input->post('meninggal_tempat');
+	$meninggal_penyebab = $this->input->post('meninggal_penyebab');
+	$pelapor_nama = $this->input->post('pelapor_nama');
+	$pelapor_nik = $this->input->post('pelapor_nik');
+	$pelapor_tanggal_lahir = $this->input->post('pelapor_tanggal_lahir');
+	$pelapor_pekerjaan = $this->input->post('pelapor_pekerjaan');
+	$pelapor_alamat = $this->input->post('pelapor_alamat');
+
+	$data = array(
+		'terlapor_nama' => $terlapor_nama,
+		'terlapor_jenis_kelamin' => $terlapor_jenis_kelamin,
+		'terlapor_tanggal_lahir' => $terlapor_tanggal_lahir,
+		'terlapor_agama' => $terlapor_agama,
+		'terlapor_alamat' => $terlapor_alamat,
+		'meninggal_hari' => $meninggal_hari,
+		'meninggal_tanggal' => $meninggal_tanggal,
+		'meninggal_pukul' => $meninggal_pukul,
+		'meninggal_tempat' => $meninggal_tempat,
+		'meninggal_penyebab' => $meninggal_penyebab,
+		'pelapor_nama' => $pelapor_nama,
+		'pelapor_nik' => $pelapor_nik,
+		'pelapor_tanggal_lahir' => $pelapor_tanggal_lahir,
+		'pelapor_pekerjaan' => $pelapor_pekerjaan,
+		'pelapor_alamat' => $pelapor_alamat,
+		'tanggal_pembuatan' => date('Y-m-d'),
+		);
+
+$where = array(
+	'nomor_surat' => $nomor_surat
+);
+
+$this->m_data->update_data($where,$data,'surat_kematian');
+redirect('admin/list_surat_kematian');
+}
+function approve_surat_kematian($id){
+	$data = array(
+		'status' => 'Di Setujui'
+		);
+
+$where = array(
+	'id_surat' => $id
+);
+
+$this->m_data->update_data($where,$data,'surat_kematian');
+redirect('lurah/list_surat_kematian');
 }
 }

@@ -180,6 +180,56 @@ $this->load->view('admin/index',$data);
                 $data['footer_content']=$this->load->view('admin/footer_content',$data, true);
 		$this->load->view('admin/index',$data);
 	}
+	public function surat_kematian()
+{
+$data['title']='Admin';
+$data['sub']='Input';
+$data['assets']=$this->assets;
+$data['css']=$this->css;
+$data['js']=$this->js;
+$data['head']=$this->load->view('admin/head',$data, true);
+$data['menu_profile']=$this->load->view('admin/menu_profile',$data, true);
+$data['menu_footer']=$this->load->view('admin/menu_footer',$data, true);
+$data['sidebar']=$this->load->view('admin/sidebar',$data, true);
+$data['top_navigation']=$this->load->view('admin/top_navigation',$data, true);
+$data['content']=$this->load->view('admin/content_surat_kematian',$data, true);
+$data['footer_content']=$this->load->view('admin/footer_content',$data, true);
+$this->load->view('admin/index',$data);
+}
+public function list_surat_kematian()
+{
+				$data['surat'] = $this->m_data->tampil_data_surat_kematian()->result();
+				$data['title']='Admin';
+				$data['assets']=$this->assets;
+				$data['css']=$this->css;
+				$data['js']=$this->js;
+				$data['head']=$this->load->view('admin/head',$data, true);
+				$data['menu_profile']=$this->load->view('admin/menu_profile',$data, true);
+				$data['menu_footer']=$this->load->view('admin/menu_footer',$data, true);
+				$data['sidebar']=$this->load->view('admin/sidebar',$data, true);
+				$data['top_navigation']=$this->load->view('admin/top_navigation',$data, true);
+				$data['content']=$this->load->view('admin/content_list_surat_kematian',$data, true);
+				$data['footer_content']=$this->load->view('admin/footer_content',$data, true);
+				$this->load->view('admin/index',$data);
+}
+public function update_surat_kematian($id)
+{
+				$where = array('id_surat' => $id);
+				$data['surat'] = $this->m_data->edit_data($where,'surat_kematian')->result();
+				$data['title']='Admin';
+				$data['sub']='Update';
+				$data['assets']=$this->assets;
+				$data['css']=$this->css;
+				$data['js']=$this->js;
+				$data['head']=$this->load->view('admin/head',$data, true);
+				$data['menu_profile']=$this->load->view('admin/menu_profile',$data, true);
+				$data['menu_footer']=$this->load->view('admin/menu_footer',$data, true);
+				$data['sidebar']=$this->load->view('admin/sidebar',$data, true);
+				$data['top_navigation']=$this->load->view('admin/top_navigation',$data, true);
+				$data['content']=$this->load->view('admin/content_surat_kematian',$data, true);
+				$data['footer_content']=$this->load->view('admin/footer_content',$data, true);
+$this->load->view('admin/index',$data);
+}
         public function slider3()
 	{
                 $data['title']='Admin';
