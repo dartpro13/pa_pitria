@@ -165,18 +165,18 @@ $this->load->view('admin/index',$data);
 	$this->load->view('admin/index',$data);
 	}
 
-        public function slider2()
+        public function import_from_excel_data_penduduk()
 	{
                 $data['title']='Admin';
-		$data['assets']=$this->assets;
-		$data['css']=$this->css;
-		$data['js']=$this->js;
+								$data['assets']=$this->assets;
+								$data['css']=$this->css;
+								$data['js']=$this->js;
                 $data['head']=$this->load->view('admin/head',$data, true);
                 $data['menu_profile']=$this->load->view('admin/menu_profile',$data, true);
                 $data['menu_footer']=$this->load->view('admin/menu_footer',$data, true);
                 $data['sidebar']=$this->load->view('admin/sidebar',$data, true);
                 $data['top_navigation']=$this->load->view('admin/top_navigation',$data, true);
-                $data['content']=$this->load->view('admin/content_slider2',$data, true);
+                $data['content']=$this->load->view('admin/content_import_from_excel_data_penduduk',$data, true);
                 $data['footer_content']=$this->load->view('admin/footer_content',$data, true);
 		$this->load->view('admin/index',$data);
 	}

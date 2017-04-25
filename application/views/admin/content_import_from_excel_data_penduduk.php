@@ -1,6 +1,6 @@
 <?php
 
-/* 
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -11,7 +11,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Section 1 / Slider 2</h3>
+                <h3>Kependudukan / import from excel</h3>
               </div>
 
             </div>
@@ -20,7 +20,7 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Digital Art Project <small>detail of slider 2</small></h2>
+                    <h2>e-Government <small>import from excel</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -40,28 +40,15 @@
                   </div>
                   <div class="x_content">
                     <br />
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="<?php echo base_url();?>index.php/action/import_from_excel_data_penduduk" method="post" enctype="multipart/form-data">
 
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Title <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Description <span class="required">*</span></label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="middle-name" class="form-control col-md-7 col-xs-12" required="required" type="text" name="middle-name">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Image <span class="required">*</span></label>
+                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">File Data Penduduk <span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <div class="custom-input">
                               <span></span>
                             <span>
-                                <input type="file" accept="image/*" class="form-control" required="required"><button type="button" class="btn btn-primary">Browse File</button>
+                                <input type="file" accept=".xls,.xlsx,.csv" class="form-control" name="file" required="required"><button type="button" class="btn btn-primary">Browse File</button>
                             </span>
                           </div>
                         </div>
@@ -79,7 +66,7 @@
                 </div>
               </div>
             </div>
-               
+
           </div>
         </div>
 <script>

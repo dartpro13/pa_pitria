@@ -7,7 +7,8 @@ class Action extends CI_Controller{
 		parent::__construct();
 		$this->load->model('m_data');
 		$this->load->helper('url');
-
+		$this->load->helper("file");
+		$this->load->library(array('PHPExcel','PHPExcel/IOFactory'));
 	}
 
 	function index(){
@@ -157,5 +158,61 @@ $where = array(
 
 $this->m_data->update_data($where,$data,'surat_kelahiran');
 redirect('lurah/list_surat_kelahiran');
+}
+function import_from_excel_data_penduduk(){
+	$fileName = time().$_FILES['file']['name'];
+
+	        $config['upload_path'] = './assets/'; //buat folder dengan nama assets di root folder
+	        $config['file_name'] = $fileName;
+	        $config['allowed_types'] = 'xls|xlsx|csv';
+	        $config['max_size'] = 10000;
+
+	        $this->load->library('upload');
+	        $this->upload->initialize($config);
+
+	        if(! $this->upload->do_upload('file') )
+	        $this->upload->display_errors();
+
+	        $media = $this->upload->data('file');
+	        $inputFileName = 'assets/'.$config['file_name'];
+
+	        try {
+	                $inputFileType = IOFactory::identify($inputFileName);
+	                $objReader = IOFactory::createReader($inputFileType);
+	                $objPHPExcel = $objReader->load($inputFileName);
+	            } catch(Exception $e) {
+	                die('Error loading file "'.pathinfo($inputFileName,PATHINFO_BASENAME).'": '.$e->getMessage());
+	            }
+
+	            $sheet = $objPHPExcel->getSheet(0);
+	            $highestRow = $sheet->getHighestRow();
+	            $highestColumn = $sheet->getHighestColumn();
+
+	            for ($row = 2; $row <= $highestRow; $row++){                  //  Read a row of data into an array
+	                $rowData = $sheet->rangeToArray('A' . $row . ':' . $highestColumn . $row,
+	                                                NULL,
+	                                                TRUE,
+	                                                FALSE);
+
+	                //Sesuaikan sama nama kolom tabel di database
+	                 $data = array(
+	                    "nik"=> $rowData[0][0],
+	                    "nama"=> $rowData[0][1],
+											"j_kelamin"=> $rowData[0][2],
+											"agama"=> $rowData[0][3],
+											"tmp_lahir"=> $rowData[0][4],
+											"tgl_lahir"=> $rowData[0][5],
+	                    "alamat"=> $rowData[0][6],
+											"status_perkawinan"=> $rowData[0][7],
+											"kewarganegaraan"=> $rowData[0][8],
+											"pekerjaan"=> $rowData[0][9]
+	                );
+
+	                //sesuaikan nama dengan nama tabel
+	                $insert = $this->db->insert("tb_penduduk",$data);
+	                delete_files($media['file_path']);
+
+	            }
+	        redirect('admin/list_data_penduduk');
 }
 }

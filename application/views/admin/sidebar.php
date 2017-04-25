@@ -16,6 +16,7 @@
                   <li><a><i class="fa fa-edit"></i>Kependudukan<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="<?= site_url()?>/admin/input_data_penduduk">Input Data Penduduk</a></li>
+                            <li><a href="<?= site_url()?>/admin/import_from_excel_data_penduduk">Import Data Penduduk</a></li>
                         <li><a href="<?= site_url()?>/admin/list_data_penduduk">List Data Penduduk</a></li>
                     </ul>
                   </li>
