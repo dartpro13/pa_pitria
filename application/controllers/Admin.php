@@ -230,6 +230,23 @@ public function update_surat_kematian($id)
 				$data['footer_content']=$this->load->view('admin/footer_content',$data, true);
 $this->load->view('admin/index',$data);
 }
+    
+    function _gen_pdf($html,$paper='A4')
+    {
+     ob_end_clean();
+     $CI =& get_instance();
+     $CI->load->library('MPDF56/mpdf');
+     $mpdf=new mPDF('utf-8', $paper );
+     $mpdf->debug = true;
+     $mpdf->WriteHTML($html);
+     $mpdf->Output();
+     }
+    public function doprint($pdf=false)
+    {
+     $data['tes'] = 'ini print dari HTML ke PDF';
+     $output = $this->load->view('template_surat/surat_kelahiran',$data, true);
+     return $this->_gen_pdf($output);
+     }
         public function slider3()
 	{
                 $data['title']='Admin';
