@@ -4,8 +4,27 @@ class M_data extends CI_Model{
 	function tampil_data_penduduk(){
 		return $this->db->get('tb_penduduk');
 	}
+    function hitung_data($table){
+        return $this->db->count_all($table);
+    }
+    function hitung_data_laki(){
+        $this->db->like('j_kelamin', 'laki-laki');
+        $this->db->from('tb_penduduk');
+        return $this->db->count_all_results();
+    }
+    function hitung_data_wanita(){
+        $this->db->like('j_kelamin', 'perempuan');
+        $this->db->from('tb_penduduk');
+        return $this->db->count_all_results();
+    }
 	function tampil_data_surat_kelahiran(){
 		return $this->db->get('surat_kelahiran');
+	}
+    function tampil_data_surat_keterangan_ktp(){
+		return $this->db->get('surat_keterangan_ktp');
+	}
+    function tampil_data_surat_keterangan_kk(){
+		return $this->db->get('surat_keterangan_kk');
 	}
 	function tampil_data_surat_kematian(){
 		return $this->db->get('surat_kematian');

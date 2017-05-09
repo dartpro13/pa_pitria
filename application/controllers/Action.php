@@ -152,6 +152,16 @@ function hapus_surat_kematian($id){
 	$this->m_data->hapus_data($where,'surat_kematian');
 	redirect('admin/list_surat_kematian');
 }
+    function hapus_surat_keterangan_ktp($id){
+	$where = array('id_surat' => $id);
+	$this->m_data->hapus_data($where,'surat_keterangan_ktp');
+	redirect('admin/list_surat_keterangan_ktp');
+}
+    function hapus_surat_keterangan_kk($id){
+	$where = array('id_surat' => $id);
+	$this->m_data->hapus_data($where,'surat_keterangan_kk');
+	redirect('admin/list_surat_keterangan_kk');
+}
 function approve_surat_kelahiran($id){
 	$data = array(
 		'status' => 'Di Setujui'
@@ -317,5 +327,128 @@ $where = array(
 
 $this->m_data->update_data($where,$data,'surat_kematian');
 redirect('lurah/list_surat_kematian');
+}
+///////////////////////////////////////////////////////////////
+    
+    function input_surat_keterangan_ktp(){
+        $nama_lengkap = $this->input->post('nama_lengkap');
+        $jenis_kelamin = $this->input->post('jenis_kelamin');
+        $tempat_tanggal_lahir = $this->input->post('tempat_tanggal_lahir');
+        $bangsa_agama = $this->input->post('bangsa_agama');
+        $pekerjaan = $this->input->post('pekerjaan');
+        $alamat = $this->input->post('alamat');
+	$data = array(
+		'id_surat' => null,
+		'nama_lengkap' => $nama_lengkap,
+		'jenis_kelamin' => $jenis_kelamin,
+		'tempat_tanggal_lahir' => $tempat_tanggal_lahir,
+		'bangsa_agama' => $bangsa_agama,
+		'pekerjaan' => $pekerjaan,
+		'alamat' => $alamat,
+		'tanggal' => date('Y-m-d'),
+		'status' => 'Belum di setujui'
+		);
+	$this->m_data->input_data($data,'surat_keterangan_ktp');
+	redirect('admin/list_surat_keterangan_ktp');
+    }
+    function update_surat_keterangan_ktp(){
+        $id_surat = $this->input->post('id_surat');
+        $nama_lengkap = $this->input->post('nama_lengkap');
+        $jenis_kelamin = $this->input->post('jenis_kelamin');
+        $tempat_tanggal_lahir = $this->input->post('tempat_tanggal_lahir');
+        $bangsa_agama = $this->input->post('bangsa_agama');
+        $pekerjaan = $this->input->post('pekerjaan');
+        $alamat = $this->input->post('alamat');
+
+        $data = array(
+        'nama_lengkap' => $nama_lengkap,
+		'jenis_kelamin' => $jenis_kelamin,
+		'tempat_tanggal_lahir' => $tempat_tanggal_lahir,
+		'bangsa_agama' => $bangsa_agama,
+		'pekerjaan' => $pekerjaan,
+		'alamat' => $alamat,
+		'tanggal' => date('Y-m-d'),
+		'status' => 'Belum di setujui'
+            );
+
+$where = array(
+	'id_surat' => $id_surat
+);
+
+$this->m_data->update_data($where,$data,'surat_keterangan_ktp');
+redirect('admin/list_surat_keterangan_ktp');
+}
+function approve_surat_keterangan_ktp($id){
+	$data = array(
+		'status' => 'Di Setujui'
+		);
+
+$where = array(
+	'id_surat' => $id
+);
+
+$this->m_data->update_data($where,$data,'surat_keterangan_ktp');
+redirect('lurah/list_surat_keterangan_ktp');
+}
+    /////////////////////////////////////////////////////////////////////////////
+function input_surat_keterangan_kk(){
+        $nama_lengkap = $this->input->post('nama_lengkap');
+        $jenis_kelamin = $this->input->post('jenis_kelamin');
+        $tempat_tanggal_lahir = $this->input->post('tempat_tanggal_lahir');
+        $bangsa_agama = $this->input->post('bangsa_agama');
+        $pekerjaan = $this->input->post('pekerjaan');
+        $alamat = $this->input->post('alamat');
+	$data = array(
+		'id_surat' => null,
+		'nama_lengkap' => $nama_lengkap,
+		'jenis_kelamin' => $jenis_kelamin,
+		'tempat_tanggal_lahir' => $tempat_tanggal_lahir,
+		'bangsa_agama' => $bangsa_agama,
+		'pekerjaan' => $pekerjaan,
+		'alamat' => $alamat,
+		'tanggal' => date('Y-m-d'),
+		'status' => 'Belum di setujui'
+		);
+	$this->m_data->input_data($data,'surat_keterangan_kk');
+	redirect('admin/list_surat_keterangan_kk');
+    }
+    function update_surat_keterangan_kk(){
+        $id_surat = $this->input->post('id_surat');
+        $nama_lengkap = $this->input->post('nama_lengkap');
+        $jenis_kelamin = $this->input->post('jenis_kelamin');
+        $tempat_tanggal_lahir = $this->input->post('tempat_tanggal_lahir');
+        $bangsa_agama = $this->input->post('bangsa_agama');
+        $pekerjaan = $this->input->post('pekerjaan');
+        $alamat = $this->input->post('alamat');
+
+        $data = array(
+        'nama_lengkap' => $nama_lengkap,
+		'jenis_kelamin' => $jenis_kelamin,
+		'tempat_tanggal_lahir' => $tempat_tanggal_lahir,
+		'bangsa_agama' => $bangsa_agama,
+		'pekerjaan' => $pekerjaan,
+		'alamat' => $alamat,
+		'tanggal' => date('Y-m-d'),
+		'status' => 'Belum di setujui'
+            );
+
+$where = array(
+	'id_surat' => $id_surat
+);
+
+$this->m_data->update_data($where,$data,'surat_keterangan_kk');
+redirect('admin/list_surat_keterangan_kk');
+}
+function approve_surat_keterangan_kk($id){
+	$data = array(
+		'status' => 'Di Setujui'
+		);
+
+$where = array(
+	'id_surat' => $id
+);
+
+$this->m_data->update_data($where,$data,'surat_keterangan_kk');
+redirect('lurah/list_surat_keterangan_kk');
 }
 }

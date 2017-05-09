@@ -11,7 +11,7 @@
  *
  * @author NVM Team Creative
  */
-class Lurah extends CI_Controller {
+class Camat extends CI_Controller {
     //put your code here
 var $assets;
 var $css;
@@ -51,9 +51,9 @@ var $js;
 	{
         $data = array(
 					'error' => '',
-					'username' => $this->session->userdata('username'), 'active'=>'lurah'
+					'username' => $this->session->userdata('username'), 'active'=>'camat'
 				);
-        $data['title']='Lurah';
+        $data['title']='Camat';
 		$data['assets']=$this->assets;
 		$data['css']=$this->css;
 		$data['js']=$this->js;
@@ -62,8 +62,8 @@ var $js;
                 $data['menu_footer']=$this->load->view('template/menu_footer',$data, true);
                 $data['top_navigation']=$this->load->view('template/top_navigation',$data, true);
                 $data['footer_content']=$this->load->view('template/footer_content',$data, true);   
-                $data['sidebar']=$this->load->view('lurah/sidebar',$data, true);
-                $data['content']=$this->load->view('lurah/content_dashboard',$data, true);
+                $data['sidebar']=$this->load->view('camat/sidebar',$data, true);
+                $data['content']=$this->load->view('camat/content_dashboard',$data, true);
 		$this->load->view('template/index',$data);
 	}
     public function logout() {
@@ -76,7 +76,7 @@ var $js;
 {
         $data = array(
 					'error' => '',
-					'username' => $this->session->userdata('username'), 'active'=>'lurah'
+					'username' => $this->session->userdata('username'), 'active'=>'camat'
 				);
 					$data['penduduk'] = $this->m_data->tampil_data_penduduk()->result();
 					$data['title']='Admin';
@@ -96,19 +96,19 @@ public function list_surat_kelahiran()
 	{
     $data = array(
 					'error' => '',
-					'username' => $this->session->userdata('username'), 'active'=>'lurah'
+					'username' => $this->session->userdata('username'), 'active'=>'camat'
 				);
 					$data['surat'] = $this->m_data->tampil_data_surat_kelahiran()->result();
-					$data['title']='Lurah';
+					$data['title']='Camat';
 					$data['assets']=$this->assets;
 					$data['css']=$this->css;
 					$data['js']=$this->js;
 					$data['head']=$this->load->view('template/head',$data, true);
 					$data['menu_profile']=$this->load->view('template/menu_profile',$data, true);
 					$data['menu_footer']=$this->load->view('template/menu_footer',$data, true);
-					$data['sidebar']=$this->load->view('lurah/sidebar',$data, true);
+					$data['sidebar']=$this->load->view('camat/sidebar',$data, true);
 					$data['top_navigation']=$this->load->view('template/top_navigation',$data, true);
-					$data['content']=$this->load->view('lurah/content_list_surat_kelahiran',$data, true);
+					$data['content']=$this->load->view('camat/content_list_surat_kelahiran',$data, true);
 					$data['footer_content']=$this->load->view('template/footer_content',$data, true);
 					$this->load->view('template/index',$data);
 	}
@@ -116,19 +116,19 @@ public function list_surat_kelahiran()
 	{
         $data = array(
 					'error' => '',
-					'username' => $this->session->userdata('username'), 'active'=>'lurah'
+					'username' => $this->session->userdata('username'), 'active'=>'camat'
 				);
 					$data['surat'] = $this->m_data->tampil_data_surat_kematian()->result();
-					$data['title']='Lurah';
+					$data['title']='Camat';
 					$data['assets']=$this->assets;
 					$data['css']=$this->css;
 					$data['js']=$this->js;
 					$data['head']=$this->load->view('template/head',$data, true);
 					$data['menu_profile']=$this->load->view('template/menu_profile',$data, true);
 					$data['menu_footer']=$this->load->view('template/menu_footer',$data, true);
-					$data['sidebar']=$this->load->view('lurah/sidebar',$data, true);
+					$data['sidebar']=$this->load->view('camat/sidebar',$data, true);
 					$data['top_navigation']=$this->load->view('template/top_navigation',$data, true);
-					$data['content']=$this->load->view('lurah/content_list_surat_kematian',$data, true);
+					$data['content']=$this->load->view('camat/content_list_surat_kematian',$data, true);
 					$data['footer_content']=$this->load->view('template/footer_content',$data, true);
 					$this->load->view('template/index',$data);
 	}

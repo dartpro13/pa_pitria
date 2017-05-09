@@ -13,43 +13,20 @@
                       <li><a href="<?= site_url()?>/admin/index">Dashboard</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-edit"></i>Kependudukan<span class="fa fa-chevron-down"></span></a>
+                  <!-- <li><a><i class="fa fa-edit"></i>Kependudukan<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="<?= site_url()?>/admin/input_data_penduduk">Input Data Penduduk</a></li>
-                            <li><a href="<?= site_url()?>/admin/import_from_excel_data_penduduk">Import Data Penduduk</a></li>
                         <li><a href="<?= site_url()?>/admin/list_data_penduduk">List Data Penduduk</a></li>
                     </ul>
-                  </li>
+                  </li> -->
                 </br>
                   <h3>Surat Menyurat</h3>
                 </br>
                   <li><a><i class="fa fa-edit"></i>Layanan Penduduk<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a>KTP</a>
-                        <ul class="nav child_menu">
-                            <li><a href="<?= site_url()?>/admin/surat_keterangan_ktp">Input</a></li>
-                        <li><a href="<?= site_url()?>/admin/list_surat_keterangan_ktp">View</a></li>
-                        </ul>
-                      </li>
-                      <li><a>KK</a>
-                        <ul class="nav child_menu">
-                            <li><a href="<?= site_url()?>/admin/surat_keterangan_kk">Input</a></li>
-                        <li><a href="<?= site_url()?>/admin/list_surat_keterangan_kk">View</a></li>
-                        </ul>
-                      </li>
-                        <li><a>Kelahiran</a>
-                        <ul class="nav child_menu">
-                            <li><a href="<?= site_url()?>/admin/surat_kelahiran">Input</a></li>
-                        <li><a href="<?= site_url()?>/admin/list_surat_kelahiran">View</a></li>
-                        </ul>
-                      </li>
-                      <li><a>Kematian</a>
-                        <ul class="nav child_menu">
-                            <li><a href="<?= site_url()?>/admin/surat_kematian">Input</a></li>
-                        <li><a href="<?= site_url()?>/admin/list_surat_kematian">View</a></li>
-                        </ul>
-                      </li>
-<!--
+                      <li><a href="<?= site_url()?>/lurah/list_surat_kelahiran">Kelahiran</a></li>
+                      <li><a href="<?= site_url()?>/lurah/slider2">Keterangan</a></li>
+                      <li><a href="<?= site_url()?>/lurah/list_surat_kematian">Kematian</a></li>
                       <li><a href="<?= site_url()?>/admin/premium_service">Bepergian</a></li>
                       <li><a href="<?= site_url()?>/admin/global_solution">KTP / KTP Sementara</a></li>
                       <li><a href="<?= site_url()?>/admin/expertise">Tidak Mampu</a></li>
@@ -62,10 +39,8 @@
                       <li><a href="<?= site_url()?>/admin/research">Jual Beli Tanah</a></li>
                       <li><a href="<?= site_url()?>/admin/research">Ahli Waris</a></li>
                       <li><a href="<?= site_url()?>/admin/research">Kop Surat dll</a></li>
--->
                     </ul>
                   </li>
-<!--
                   <li><a><i class="fa fa-edit"></i>Pernikahan <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<?= site_url()?>/admin/profile_desc">Profile Description</a></li>
@@ -85,10 +60,8 @@
                       <li><a href="<?= site_url()?>/admin/motivate">Motivate</a></li>
                     </ul>
                   </li>
--->
                 </ul>
               </div>
-<!--
               <div class="menu_section">
                 <h3>Live On</h3>
                 <ul class="nav side-menu">
@@ -131,6 +104,5 @@
                   <li><a href="javascript:void(0)"><i class="fa fa-laptop"></i> Landing Page <span class="label label-success pull-right">Coming Soon</span></a></li>
                 </ul>
               </div>
--->
 
             </div>

@@ -89,13 +89,41 @@
         <hr>
         <br>
         <br>
-        <section class="center bold underline f12 ">SURAT KELAHIRAN</section>
-        <section class="center f12">Nomor: 479 / SKL / Des / XII / 2008</section>
+        <section class="center bold underline f12 ">SURAT KEMATIAN</section>
+        <section class="center f12">Nomor: 479 / SKM / Des / XII / 2008</section>
         <br>
         <section class="justify f12">
         <p class="paragraf">Yang bertanda tangan di bawah ini menerangkan bahwa :</p>
         </section>
         <br>
+        <section class="paragraf">
+            <table>
+                <tr>
+                    <td class="f12 tdleft">Nama Lengkap</td>
+                    <td class="f12 tdright">: DIAH PURBASARI</td>
+                </tr>
+                <tr>
+                    <td class="f12 tdleft">Jenis Kelamin</td>
+                    <td class="f12 tdright">: Perempuan</td>
+                </tr>
+                <tr>
+                    <td class="f12 tdleft">Umur</td>
+                    <td class="f12 tdright">: 21 Thn</td>
+                </tr>
+                <tr>
+                    <td class="f12 tdleft">Pekerjaan</td>
+                    <td class="f12 tdright">: Wiraswasta</td>
+                </tr>
+                <tr>
+                    <td class="f12 tdleft">Alamat</td>
+                    <td class="f12 tdright">: Jl. Sutawinangun Gg. Tawekal No.5 RT.03 RW.06</td>
+                </tr>
+            </table>
+        </section>
+        <section class="justify f12">
+        <p class="paragraf">Telah meninggal dunia pada:</p>
+        </section>
+        
         <section class="paragraf">
             <table>
                 <tr>
@@ -110,43 +138,9 @@
                     <td class="f12 tdleft">Di</td>
                     <td class="f12 tdright">: Rumah</td>
                 </tr>
-            </table>
-        </section>
-        <section class="justify f12">
-        <p class="paragraf">Telah lahir seorang anak: PEREMPUAN</p>
-        <p class="paragraf">Bernama: SYASYA</p>
-            <p class="paragraf">Dari seorang ibu bernama: RARA</p>
-        </section>
-        
-        <section class="paragraf">
-            <table>
                 <tr>
-                    <td class="f12 tdleft">Umur</td>
-                    <td class="f12 tdright">: 21 Thn</td>
-                </tr>
-                <tr>
-                    <td class="f12 tdleft">Agama</td>
-                    <td class="f12 tdright">: Islam</td>
-                </tr>
-                <tr>
-                    <td class="f12 tdleft">Istri dari</td>
-                    <td class="f12 tdright">: ASEP</td>
-                </tr>
-                <tr>
-                    <td class="f12 tdleft">Umur</td>
-                    <td class="f12 tdright">: 21 Thn</td>
-                </tr>
-                <tr>
-                    <td class="f12 tdleft">Agama</td>
-                    <td class="f12 tdright">: Islam</td>
-                </tr>
-                <tr>
-                    <td class="f12 tdleft">Pekerjaan</td>
-                    <td class="f12 tdright">: Wiraswasta</td>
-                </tr>
-                <tr>
-                    <td class="f12 tdleft">Alamat</td>
-                    <td class="f12 tdright">: Jl. Sutawinangun Gg. Tawekal No.5 RT.03 RW.06</td>
+                    <td class="f12 tdleft">Disebabkan karena</td>
+                    <td class="f12 tdright">: Sakit</td>
                 </tr>
             </table>
         </section>

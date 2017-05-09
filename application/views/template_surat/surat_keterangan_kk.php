@@ -89,70 +89,55 @@
         <hr>
         <br>
         <br>
-        <section class="center bold underline f12 ">SURAT KELAHIRAN</section>
-        <section class="center f12">Nomor: 479 / SKL / Des / XII / 2008</section>
+        <?php foreach ($surat as $row) {} ?> 
+        <section class="center bold underline f12 ">SURAT KETERANGAN KARTU KELUARGA</section>
+        <section class="center f12">Nomor: <?= $row->id_surat; ?> / SKKK / Des / XII / 2008</section>
         <br>
         <section class="justify f12">
-        <p class="paragraf">Yang bertanda tangan di bawah ini menerangkan bahwa :</p>
+        <p class="paragraf">Yang bertanda tangan di bawah ini Kuwu Desa Sutawinangun Kecamatan Kedawung Kabupaten Cirebon, dengan ini menerangkan :</p>
         </section>
         <br>
         <section class="paragraf">
             <table>
                 <tr>
-                    <td class="f12 tdleft">Hari</td>
-                    <td class="f12 tdright">: Sabtu</td>
+                    <td class="f12 tdleft">Nama Lengkap</td>
+                    <td class="f12 tdright">: <?= $row->nama_lengkap; ?></td>
                 </tr>
                 <tr>
-                    <td class="f12 tdleft">Tanggal</td>
-                    <td class="f12 tdright">: 26 Maret 2016</td>
+                    <td class="f12 tdleft">Jenis Kelamin</td>
+                    <td class="f12 tdright">: <?= $row->jenis_kelamin; ?></td>
                 </tr>
                 <tr>
-                    <td class="f12 tdleft">Di</td>
-                    <td class="f12 tdright">: Rumah</td>
-                </tr>
-            </table>
-        </section>
-        <section class="justify f12">
-        <p class="paragraf">Telah lahir seorang anak: PEREMPUAN</p>
-        <p class="paragraf">Bernama: SYASYA</p>
-            <p class="paragraf">Dari seorang ibu bernama: RARA</p>
-        </section>
-        
-        <section class="paragraf">
-            <table>
-                <tr>
-                    <td class="f12 tdleft">Umur</td>
-                    <td class="f12 tdright">: 21 Thn</td>
+                    <td class="f12 tdleft">Tempat, tanggal lahir</td>
+                    <td class="f12 tdright">: <?= $row->tempat_tanggal_lahir; ?></td>
                 </tr>
                 <tr>
-                    <td class="f12 tdleft">Agama</td>
-                    <td class="f12 tdright">: Islam</td>
-                </tr>
-                <tr>
-                    <td class="f12 tdleft">Istri dari</td>
-                    <td class="f12 tdright">: ASEP</td>
-                </tr>
-                <tr>
-                    <td class="f12 tdleft">Umur</td>
-                    <td class="f12 tdright">: 21 Thn</td>
-                </tr>
-                <tr>
-                    <td class="f12 tdleft">Agama</td>
-                    <td class="f12 tdright">: Islam</td>
+                    <td class="f12 tdleft">Bangsa / Agama</td>
+                    <td class="f12 tdright">: <?= $row->bangsa_agama; ?></td>
                 </tr>
                 <tr>
                     <td class="f12 tdleft">Pekerjaan</td>
-                    <td class="f12 tdright">: Wiraswasta</td>
+                    <td class="f12 tdright">: <?= $row->pekerjaan; ?></td>
                 </tr>
                 <tr>
                     <td class="f12 tdleft">Alamat</td>
-                    <td class="f12 tdright">: Jl. Sutawinangun Gg. Tawekal No.5 RT.03 RW.06</td>
+                    <td class="f12 tdright">: <?= $row->alamat; ?></td>
                 </tr>
             </table>
         </section>
         <section class="justify f12">
+        <p class="paragraf" justify>Berdasarkan Surat Keterangan dari Ketua RW :  06 Pecilon Timur</p>
+            <p class="paragraf">
+            Tanggal: <?= $format = date('d F Y', strtotime($row->tanggal)); ?>
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                Nomor: <?= $row->id_surat; ?>
+            </p>
+            <p class="paragraf justify">Nama orang tersebut benar-benar warga ke RT an kami, surat keterangan ini kami berikan sehubungan yang bersangkutan akan membuat Kartu Keluarga (KK).</p>
             <p class="paragraf justify">
-            Surat keterangan ini dibuat atas dasar yang sebenarnya.
+            Demikian surat pengantar ini kami buat dengan sebenarnya, agar yang berkepentingan menjadi tahu dan menjadi bahan selanjutnya.
             </p>
         </section>
         <br>
@@ -161,7 +146,7 @@
         <br>
         
         <section class="pengesahan f12 floatright">
-        Sutawinangun, 19 Desember 2008<br>
+        Sutawinangun, <?= $format = date('d F Y', strtotime($row->tanggal)); ?><br>
             Kuwu Sutawinangun,
             <br><br>
             <br><br>

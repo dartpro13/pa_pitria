@@ -2,7 +2,7 @@
   <div class="">
     <div class="page-title">
       <div class="title_left">
-        <h3>Surat Layanan Penduduk <small>/ List Surat Kematian</small></h3>
+        <h3>Kependudukan <small>/ List Data Penduduk</small></h3>
       </div>
 
       <div class="title_right">
@@ -23,7 +23,7 @@
       <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
           <div class="x_title">
-            <h2>e-Government <small>list surat kematian</small></h2>
+            <h2>e-Government <small>list data penduduk</small></h2>
             <ul class="nav navbar-right panel_toolbox">
               <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
               </li>
@@ -49,34 +49,39 @@
               <thead>
                 <tr>
                   <th>No.</th>
-                  <th>Nomor Surat</th>
-                  <th>Nama Pelapor</th>
-                  <th>Nama Orang Yang Meninggal</th>
-                  <th>Hari Kematian</th>
-                  <th>Tanggal Kematian</th>
-                  <th>Penyebab Kematian</th>
-                  <th>Status</th>
+                  <th>NIK</th>
+                  <th>Nama</th>
+                  <th>Jenis Kelamin</th>
+                  <th>Agama</th>
+                  <th>Tempat Lahir</th>
+                  <th>Tanggal Lahir</th>
+                  <th>Alamat</th>
+                  <th>Status Perkawinan</th>
+                  <th>kewarganegaraan</th>
+                  <th>Pekerjaan</th>
                   <th>Aksi</th>
                 </tr>
               </thead>
               <tbody>
                 <?php
                 $no=1;
-                foreach ($surat as $row) {
+                foreach ($penduduk as $row) {
                 ?>
                 <tr>
                   <td><?= $no++;?></td>
-                  <td><?= $row->nomor_surat;?></td>
-                  <td><?= $row->pelapor_nama;?></td>
-                  <td><?= $row->terlapor_nama;?></td>
-                  <td><?= $row->meninggal_hari;?></td>
-                  <td><?= $row->meninggal_tanggal;?></td>
-                  <td><?= $row->meninggal_penyebab;?></td>
-                  <td><?= $row->status;?></td>
+                  <td><?= $row->nik;?></td>
+                  <td><?= $row->nama;?></td>
+                  <td><?= $row->j_kelamin;?></td>
+                  <td><?= $row->agama;?></td>
+                  <td><?= $row->tmp_lahir;?></td>
+                  <td><?= $row->tgl_lahir;?></td>
+                  <td><?= $row->alamat;?></td>
+                  <td><?= $row->status_perkawinan;?></td>
+                  <td><?= $row->kewarganegaraan;?></td>
+                  <td><?= $row->pekerjaan;?></td>
                   <td>
-                      <a target="_blank" href="<?php echo base_url(). 'index.php/admin/doprint_skm/'.$row->id_surat.'/'; ?>" style="background-color:cornflowerblue;color:white;padding:5px;border-radius:10px;">print</a><br/><br/>
-                    <a href="<?php echo base_url(). 'index.php/admin/update_surat_kematian/'.$row->id_surat; ?>" style="background-color:cornflowerblue;color:white;padding:5px;border-radius:10px;">update</a><br/><br/>
-                    <a href="<?php echo base_url(). 'index.php/action/hapus_surat_kematian/'.$row->id_surat; ?>" style="background-color:crimson;color:white;padding:5px;border-radius:10px;">delete</a>
+                    <a href="<?php echo base_url(). 'index.php/admin/update_data_penduduk/'.$row->nik; ?>" style="background-color:cornflowerblue;color:white;padding:5px;border-radius:10px;">update</a><br/><br/>
+                    <a href="<?php echo base_url(). 'index.php/action/hapus_data_penduduk/'.$row->nik; ?>" style="background-color:crimson;color:white;padding:5px;border-radius:10px;">delete</a>
                   </td>
                 </tr>
                 <?php

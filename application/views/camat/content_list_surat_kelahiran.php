@@ -2,7 +2,7 @@
   <div class="">
     <div class="page-title">
       <div class="title_left">
-        <h3>Surat Layanan Penduduk <small>/ List Surat Kematian</small></h3>
+        <h3>Surat Layanan Penduduk <small>/ List Surat Kelahiran</small></h3>
       </div>
 
       <div class="title_right">
@@ -23,7 +23,7 @@
       <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
           <div class="x_title">
-            <h2>e-Government <small>list surat kematian</small></h2>
+            <h2>e-Government <small>list surat kelahiran</small></h2>
             <ul class="nav navbar-right panel_toolbox">
               <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
               </li>
@@ -50,11 +50,15 @@
                 <tr>
                   <th>No.</th>
                   <th>Nomor Surat</th>
-                  <th>Nama Pelapor</th>
-                  <th>Nama Orang Yang Meninggal</th>
-                  <th>Hari Kematian</th>
-                  <th>Tanggal Kematian</th>
-                  <th>Penyebab Kematian</th>
+                  <th>Nama Pemohon</th>
+                  <th>Tempat Tanggal Lahir</th>
+                  <th>Jenis Kelamin</th>
+                  <th>Pekerjaan</th>
+                  <th>Alamat</th>
+                  <th>Nama Ayah Kandung</th>
+                  <th>Nama Ibu Kandung</th>
+                  <th>Anak ke</th>
+                  <th>Tanggal Pembuatan</th>
                   <th>Status</th>
                   <th>Aksi</th>
                 </tr>
@@ -67,16 +71,18 @@
                 <tr>
                   <td><?= $no++;?></td>
                   <td><?= $row->nomor_surat;?></td>
-                  <td><?= $row->pelapor_nama;?></td>
-                  <td><?= $row->terlapor_nama;?></td>
-                  <td><?= $row->meninggal_hari;?></td>
-                  <td><?= $row->meninggal_tanggal;?></td>
-                  <td><?= $row->meninggal_penyebab;?></td>
+                  <td><?= $row->nama;?></td>
+                  <td><?= $row->tempat_tanggal_lahir;?></td>
+                  <td><?= $row->jenis_kelamin;?></td>
+                  <td><?= $row->pekerjaan;?></td>
+                  <td><?= $row->alamat;?></td>
+                  <td><?= $row->nama_ayah_kandung;?></td>
+                  <td><?= $row->nama_ibu_kandung;?></td>
+                  <td><?= $row->anak_ke;?></td>
+                  <td><?= $row->tanggal_pembuatan;?></td>
                   <td><?= $row->status;?></td>
                   <td>
-                      <a target="_blank" href="<?php echo base_url(). 'index.php/admin/doprint_skm/'.$row->id_surat.'/'; ?>" style="background-color:cornflowerblue;color:white;padding:5px;border-radius:10px;">print</a><br/><br/>
-                    <a href="<?php echo base_url(). 'index.php/admin/update_surat_kematian/'.$row->id_surat; ?>" style="background-color:cornflowerblue;color:white;padding:5px;border-radius:10px;">update</a><br/><br/>
-                    <a href="<?php echo base_url(). 'index.php/action/hapus_surat_kematian/'.$row->id_surat; ?>" style="background-color:crimson;color:white;padding:5px;border-radius:10px;">delete</a>
+                    <a href="<?php echo base_url(). 'index.php/action/approve_surat_kelahiran/'.$row->id_surat; ?>" style="background-color:cornflowerblue;color:white;padding:5px;border-radius:10px;">Setujui</a>
                   </td>
                 </tr>
                 <?php
