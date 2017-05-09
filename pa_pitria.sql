@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 25 Apr 2017 pada 18.43
+-- Generation Time: 09 Mei 2017 pada 05.48
 -- Versi Server: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS `surat_kelahiran` (
 
 INSERT INTO `surat_kelahiran` (`id_surat`, `nomor_surat`, `nama`, `tempat_tanggal_lahir`, `jenis_kelamin`, `pekerjaan`, `alamat`, `nama_ayah_kandung`, `nama_ibu_kandung`, `anak_ke`, `tanggal_pembuatan`, `status`) VALUES
 (1, 'SKL-001-2017', 'Benjamin Jr', 'Bandung, 10 Januari 1971', 'Laki-Laki', 'Programmer', 'Jalan Sukapura No 1, Bandung', 'Benjamin Sr', 'Elisabet', '1', '2017-04-25', 'Di Setujui'),
-(2, 'SKL-003-2017', 'Sutejo', 'Bojongsoang 10 Januari 2010', 'Laki-Laki', '-', 'Jalan Bojongsoang Bandung', 'Sukirman', 'Sukijah', '4', '2017-04-25', 'Belum di setujui');
+(2, 'SKL-003-2017', 'Sutejo', 'Bojongsoang 10 Januari 2010', 'Laki-Laki', '-', 'Jalan Bojongsoang Bandung', 'Sukirman', 'Sukijah', '4', '2017-04-25', 'Di Setujui');
 
 -- --------------------------------------------------------
 
@@ -87,6 +87,42 @@ INSERT INTO `surat_kematian` (`id_surat`, `nomor_surat`, `terlapor_nama`, `terla
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `surat_keterangan_kk`
+--
+
+CREATE TABLE IF NOT EXISTS `surat_keterangan_kk` (
+`id_surat` int(11) NOT NULL,
+  `nama_lengkap` varchar(100) NOT NULL,
+  `jenis_kelamin` varchar(100) NOT NULL,
+  `tempat_tanggal_lahir` text NOT NULL,
+  `bangsa_agama` text NOT NULL,
+  `pekerjaan` text NOT NULL,
+  `alamat` text NOT NULL,
+  `tanggal` date NOT NULL,
+  `status` text NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `surat_keterangan_ktp`
+--
+
+CREATE TABLE IF NOT EXISTS `surat_keterangan_ktp` (
+`id_surat` int(11) NOT NULL,
+  `nama_lengkap` varchar(100) NOT NULL,
+  `jenis_kelamin` varchar(100) NOT NULL,
+  `tempat_tanggal_lahir` text NOT NULL,
+  `bangsa_agama` text NOT NULL,
+  `pekerjaan` text NOT NULL,
+  `alamat` text NOT NULL,
+  `tanggal` date NOT NULL,
+  `status` text NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `tb_penduduk`
 --
 
@@ -114,15 +150,24 @@ INSERT INTO `tb_penduduk` (`nik`, `nama`, `j_kelamin`, `agama`, `tmp_lahir`, `tg
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_user`
+-- Struktur dari tabel `user`
 --
 
-CREATE TABLE IF NOT EXISTS `tb_user` (
-`id_user` int(11) NOT NULL,
-  `username` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL,
-  `type` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+CREATE TABLE IF NOT EXISTS `user` (
+`id` bigint(20) NOT NULL,
+  `username` varchar(30) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `level` enum('admin','lurah','camat') NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data untuk tabel `user`
+--
+
+INSERT INTO `user` (`id`, `username`, `password`, `level`) VALUES
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin'),
+(2, 'lurah', '04960f28e4129aac5bdc9da32056560d', 'lurah'),
+(3, 'camat', 'e0dc1c969db5fa159c0e3ccc290e2314', 'camat');
 
 --
 -- Indexes for dumped tables
@@ -141,16 +186,28 @@ ALTER TABLE `surat_kematian`
  ADD PRIMARY KEY (`id_surat`), ADD UNIQUE KEY `nomor_surat` (`nomor_surat`);
 
 --
+-- Indexes for table `surat_keterangan_kk`
+--
+ALTER TABLE `surat_keterangan_kk`
+ ADD PRIMARY KEY (`id_surat`);
+
+--
+-- Indexes for table `surat_keterangan_ktp`
+--
+ALTER TABLE `surat_keterangan_ktp`
+ ADD PRIMARY KEY (`id_surat`);
+
+--
 -- Indexes for table `tb_penduduk`
 --
 ALTER TABLE `tb_penduduk`
  ADD PRIMARY KEY (`nik`);
 
 --
--- Indexes for table `tb_user`
+-- Indexes for table `user`
 --
-ALTER TABLE `tb_user`
- ADD PRIMARY KEY (`id_user`);
+ALTER TABLE `user`
+ ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -167,10 +224,20 @@ MODIFY `id_surat` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 ALTER TABLE `surat_kematian`
 MODIFY `id_surat` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT for table `tb_user`
+-- AUTO_INCREMENT for table `surat_keterangan_kk`
 --
-ALTER TABLE `tb_user`
-MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `surat_keterangan_kk`
+MODIFY `id_surat` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `surat_keterangan_ktp`
+--
+ALTER TABLE `surat_keterangan_ktp`
+MODIFY `id_surat` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
