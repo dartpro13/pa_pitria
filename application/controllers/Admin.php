@@ -45,6 +45,8 @@ var $js;
 			redirect('login');
 		}elseif($this->session->userdata('level') == 'lurah'){
 			redirect('lurah/');
+		}elseif($this->session->userdata('level') == 'camat'){
+			redirect('camat/');
 		}
 	}
 	public function index()
@@ -407,6 +409,68 @@ public function update_surat_keterangan_kk($id)
 				$data['sidebar']=$this->load->view('admin/sidebar',$data, true);
 				$data['top_navigation']=$this->load->view('template/top_navigation',$data, true);
 				$data['content']=$this->load->view('admin/content_surat_keterangan_kk',$data, true);
+				$data['footer_content']=$this->load->view('template/footer_content',$data, true);
+$this->load->view('template/index',$data);
+}
+    public function surat_keterangan_pindah()
+{
+        $data = array(
+					'error' => '',
+					'username' => $this->session->userdata('username'),'active' =>'admin'
+				);
+$data['title']='Admin';
+$data['sub']='Input';
+$data['assets']=$this->assets;
+$data['css']=$this->css;
+$data['js']=$this->js;
+$data['head']=$this->load->view('template/head',$data, true);
+$data['menu_profile']=$this->load->view('template/menu_profile',$data, true);
+$data['menu_footer']=$this->load->view('template/menu_footer',$data, true);
+$data['sidebar']=$this->load->view('admin/sidebar',$data, true);
+$data['top_navigation']=$this->load->view('template/top_navigation',$data, true);
+$data['content']=$this->load->view('admin/content_surat_keterangan_pindah',$data, true);
+$data['footer_content']=$this->load->view('template/footer_content',$data, true);
+$this->load->view('template/index',$data);
+}
+public function list_surat_keterangan_pindah()
+{
+    $data = array(
+					'error' => '',
+					'username' => $this->session->userdata('username'),'active' =>'admin'
+				);
+				$data['surat'] = $this->m_data->tampil_data_surat_keterangan_pindah()->result();
+				$data['title']='Admin';
+				$data['assets']=$this->assets;
+				$data['css']=$this->css;
+				$data['js']=$this->js;
+				$data['head']=$this->load->view('template/head',$data, true);
+				$data['menu_profile']=$this->load->view('template/menu_profile',$data, true);
+				$data['menu_footer']=$this->load->view('template/menu_footer',$data, true);
+				$data['sidebar']=$this->load->view('admin/sidebar',$data, true);
+				$data['top_navigation']=$this->load->view('template/top_navigation',$data, true);
+				$data['content']=$this->load->view('admin/content_list_surat_keterangan_kk',$data, true);
+				$data['footer_content']=$this->load->view('template/footer_content',$data, true);
+				$this->load->view('template/index',$data);
+}
+public function update_surat_keterangan_pindah ($id)
+{
+    $data = array(
+					'error' => '',
+					'username' => $this->session->userdata('username'),'active' =>'admin'
+				);
+				$where = array('id_surat' => $id);
+				$data['surat'] = $this->m_data->edit_data($where,'surat_keterangan_pindah')->result();
+				$data['title']='Admin';
+				$data['sub']='Update';
+				$data['assets']=$this->assets;
+				$data['css']=$this->css;
+				$data['js']=$this->js;
+				$data['head']=$this->load->view('template/head',$data, true);
+				$data['menu_profile']=$this->load->view('template/menu_profile',$data, true);
+				$data['menu_footer']=$this->load->view('template/menu_footer',$data, true);
+				$data['sidebar']=$this->load->view('admin/sidebar',$data, true);
+				$data['top_navigation']=$this->load->view('template/top_navigation',$data, true);
+				$data['content']=$this->load->view('admin/content_surat_keterangan_pindah',$data, true);
 				$data['footer_content']=$this->load->view('template/footer_content',$data, true);
 $this->load->view('template/index',$data);
 }

@@ -45,6 +45,8 @@ var $js;
 			redirect('login');
 		}elseif($this->session->userdata('level') == 'admin'){
 			redirect('admin/');
+		}elseif($this->session->userdata('level') == 'lurah'){
+			redirect('lurah/');
 		}
 	}
 	public function index()
@@ -53,6 +55,14 @@ var $js;
 					'error' => '',
 					'username' => $this->session->userdata('username'), 'active'=>'camat'
 				);
+        $data['jumlah_penduduk']=$this->m_data->hitung_data('tb_penduduk');
+        $data['jumlah_pria']=$this->m_data->hitung_data_laki();
+        $data['jumlah_wanita']=$this->m_data->hitung_data_wanita();
+        $skl=$this->m_data->hitung_data('surat_kelahiran');
+        $skm=$this->m_data->hitung_data('surat_kematian');
+        $skkk=$this->m_data->hitung_data('surat_keterangan_kk');
+        $skktp=$this->m_data->hitung_data('surat_keterangan_ktp');
+        $data['total_surat']=$skl+$skm+$skkk+$skktp;
         $data['title']='Camat';
 		$data['assets']=$this->assets;
 		$data['css']=$this->css;
@@ -76,331 +86,37 @@ var $js;
 {
         $data = array(
 					'error' => '',
-					'username' => $this->session->userdata('username'), 'active'=>'camat'
+					'username' => $this->session->userdata('username'),'active' =>'camat'
 				);
 					$data['penduduk'] = $this->m_data->tampil_data_penduduk()->result();
-					$data['title']='Admin';
+					$data['title']='Camat';
 					$data['assets']=$this->assets;
 					$data['css']=$this->css;
 					$data['js']=$this->js;
-					$data['head']=$this->load->view('admin/head',$data, true);
-					$data['menu_profile']=$this->load->view('admin/menu_profile',$data, true);
-					$data['menu_footer']=$this->load->view('admin/menu_footer',$data, true);
-					$data['sidebar']=$this->load->view('admin/sidebar',$data, true);
-					$data['top_navigation']=$this->load->view('admin/top_navigation',$data, true);
-					$data['content']=$this->load->view('admin/content_list_data_penduduk',$data, true);
-					$data['footer_content']=$this->load->view('admin/footer_content',$data, true);
-					$this->load->view('admin/index',$data);
+					$data['head']=$this->load->view('template/head',$data, true);
+					$data['menu_profile']=$this->load->view('template/menu_profile',$data, true);
+					$data['menu_footer']=$this->load->view('template/menu_footer',$data, true);
+					$data['sidebar']=$this->load->view('camat/sidebar',$data, true);
+					$data['top_navigation']=$this->load->view('template/top_navigation',$data, true);
+					$data['content']=$this->load->view('camat/content_list_data_penduduk',$data, true);
+					$data['footer_content']=$this->load->view('template/footer_content',$data, true);
+					$this->load->view('template/index',$data);
 }
-public function list_surat_kelahiran()
-	{
-    $data = array(
-					'error' => '',
-					'username' => $this->session->userdata('username'), 'active'=>'camat'
-				);
-					$data['surat'] = $this->m_data->tampil_data_surat_kelahiran()->result();
-					$data['title']='Camat';
-					$data['assets']=$this->assets;
-					$data['css']=$this->css;
-					$data['js']=$this->js;
-					$data['head']=$this->load->view('template/head',$data, true);
-					$data['menu_profile']=$this->load->view('template/menu_profile',$data, true);
-					$data['menu_footer']=$this->load->view('template/menu_footer',$data, true);
-					$data['sidebar']=$this->load->view('camat/sidebar',$data, true);
-					$data['top_navigation']=$this->load->view('template/top_navigation',$data, true);
-					$data['content']=$this->load->view('camat/content_list_surat_kelahiran',$data, true);
-					$data['footer_content']=$this->load->view('template/footer_content',$data, true);
-					$this->load->view('template/index',$data);
-	}
-	public function list_surat_kematian()
-	{
-        $data = array(
-					'error' => '',
-					'username' => $this->session->userdata('username'), 'active'=>'camat'
-				);
-					$data['surat'] = $this->m_data->tampil_data_surat_kematian()->result();
-					$data['title']='Camat';
-					$data['assets']=$this->assets;
-					$data['css']=$this->css;
-					$data['js']=$this->js;
-					$data['head']=$this->load->view('template/head',$data, true);
-					$data['menu_profile']=$this->load->view('template/menu_profile',$data, true);
-					$data['menu_footer']=$this->load->view('template/menu_footer',$data, true);
-					$data['sidebar']=$this->load->view('camat/sidebar',$data, true);
-					$data['top_navigation']=$this->load->view('template/top_navigation',$data, true);
-					$data['content']=$this->load->view('camat/content_list_surat_kematian',$data, true);
-					$data['footer_content']=$this->load->view('template/footer_content',$data, true);
-					$this->load->view('template/index',$data);
-	}
-
-        public function slider2()
-	{
-                $data['title']='Admin';
-		$data['assets']=$this->assets;
-		$data['css']=$this->css;
-		$data['js']=$this->js;
-                $data['head']=$this->load->view('admin/head',$data, true);
-                $data['menu_profile']=$this->load->view('admin/menu_profile',$data, true);
-                $data['menu_footer']=$this->load->view('admin/menu_footer',$data, true);
-                $data['sidebar']=$this->load->view('admin/sidebar',$data, true);
-                $data['top_navigation']=$this->load->view('admin/top_navigation',$data, true);
-                $data['content']=$this->load->view('admin/content_slider2',$data, true);
-                $data['footer_content']=$this->load->view('admin/footer_content',$data, true);
-		$this->load->view('admin/index',$data);
-	}
-        public function slider3()
-	{
-                $data['title']='Admin';
-		$data['assets']=$this->assets;
-		$data['css']=$this->css;
-		$data['js']=$this->js;
-                $data['head']=$this->load->view('admin/head',$data, true);
-                $data['menu_profile']=$this->load->view('admin/menu_profile',$data, true);
-                $data['menu_footer']=$this->load->view('admin/menu_footer',$data, true);
-                $data['sidebar']=$this->load->view('admin/sidebar',$data, true);
-                $data['top_navigation']=$this->load->view('admin/top_navigation',$data, true);
-                $data['content']=$this->load->view('admin/content_slider3',$data, true);
-                $data['footer_content']=$this->load->view('admin/footer_content',$data, true);
-		$this->load->view('admin/index',$data);
-	}
-        public function premium_service()
-	{
-                $data['title']='Admin';
-		$data['assets']=$this->assets;
-		$data['css']=$this->css;
-		$data['js']=$this->js;
-                $data['head']=$this->load->view('admin/head',$data, true);
-                $data['menu_profile']=$this->load->view('admin/menu_profile',$data, true);
-                $data['menu_footer']=$this->load->view('admin/menu_footer',$data, true);
-                $data['sidebar']=$this->load->view('admin/sidebar',$data, true);
-                $data['top_navigation']=$this->load->view('admin/top_navigation',$data, true);
-                $data['content']=$this->load->view('admin/content_premium_service',$data, true);
-                $data['footer_content']=$this->load->view('admin/footer_content',$data, true);
-		$this->load->view('admin/index',$data);
-	}
-        public function global_solution()
-	{
-                $data['title']='Admin';
-		$data['assets']=$this->assets;
-		$data['css']=$this->css;
-		$data['js']=$this->js;
-                $data['head']=$this->load->view('admin/head',$data, true);
-                $data['menu_profile']=$this->load->view('admin/menu_profile',$data, true);
-                $data['menu_footer']=$this->load->view('admin/menu_footer',$data, true);
-                $data['sidebar']=$this->load->view('admin/sidebar',$data, true);
-                $data['top_navigation']=$this->load->view('admin/top_navigation',$data, true);
-                $data['content']=$this->load->view('admin/content_global_solution',$data, true);
-                $data['footer_content']=$this->load->view('admin/footer_content',$data, true);
-		$this->load->view('admin/index',$data);
-	}
-        public function expertise()
-	{
-                $data['title']='Admin';
-		$data['assets']=$this->assets;
-		$data['css']=$this->css;
-		$data['js']=$this->js;
-                $data['head']=$this->load->view('admin/head',$data, true);
-                $data['menu_profile']=$this->load->view('admin/menu_profile',$data, true);
-                $data['menu_footer']=$this->load->view('admin/menu_footer',$data, true);
-                $data['sidebar']=$this->load->view('admin/sidebar',$data, true);
-                $data['top_navigation']=$this->load->view('admin/top_navigation',$data, true);
-                $data['content']=$this->load->view('admin/content_expertise',$data, true);
-                $data['footer_content']=$this->load->view('admin/footer_content',$data, true);
-		$this->load->view('admin/index',$data);
-	}
-        public function resources()
-	{
-                $data['title']='Admin';
-		$data['assets']=$this->assets;
-		$data['css']=$this->css;
-		$data['js']=$this->js;
-                $data['head']=$this->load->view('admin/head',$data, true);
-                $data['menu_profile']=$this->load->view('admin/menu_profile',$data, true);
-                $data['menu_footer']=$this->load->view('admin/menu_footer',$data, true);
-                $data['sidebar']=$this->load->view('admin/sidebar',$data, true);
-                $data['top_navigation']=$this->load->view('admin/top_navigation',$data, true);
-                $data['content']=$this->load->view('admin/content_resources',$data, true);
-                $data['footer_content']=$this->load->view('admin/footer_content',$data, true);
-		$this->load->view('admin/index',$data);
-	}
-        public function research()
-	{
-                $data['title']='Admin';
-		$data['assets']=$this->assets;
-		$data['css']=$this->css;
-		$data['js']=$this->js;
-                $data['head']=$this->load->view('admin/head',$data, true);
-                $data['menu_profile']=$this->load->view('admin/menu_profile',$data, true);
-                $data['menu_footer']=$this->load->view('admin/menu_footer',$data, true);
-                $data['sidebar']=$this->load->view('admin/sidebar',$data, true);
-                $data['top_navigation']=$this->load->view('admin/top_navigation',$data, true);
-                $data['content']=$this->load->view('admin/content_research',$data, true);
-                $data['footer_content']=$this->load->view('admin/footer_content',$data, true);
-		$this->load->view('admin/index',$data);
-	}
-        public function profile_desc()
-	{
-                $data['title']='Admin';
-		$data['assets']=$this->assets;
-		$data['css']=$this->css;
-		$data['js']=$this->js;
-                $data['head']=$this->load->view('admin/head',$data, true);
-                $data['menu_profile']=$this->load->view('admin/menu_profile',$data, true);
-                $data['menu_footer']=$this->load->view('admin/menu_footer',$data, true);
-                $data['sidebar']=$this->load->view('admin/sidebar',$data, true);
-                $data['top_navigation']=$this->load->view('admin/top_navigation',$data, true);
-                $data['content']=$this->load->view('admin/content_profile_desc',$data, true);
-                $data['footer_content']=$this->load->view('admin/footer_content',$data, true);
-		$this->load->view('admin/index',$data);
-	}
-        public function service1()
-	{
-                $data['title']='Admin';
-		$data['assets']=$this->assets;
-		$data['css']=$this->css;
-		$data['js']=$this->js;
-                $data['head']=$this->load->view('admin/head',$data, true);
-                $data['menu_profile']=$this->load->view('admin/menu_profile',$data, true);
-                $data['menu_footer']=$this->load->view('admin/menu_footer',$data, true);
-                $data['sidebar']=$this->load->view('admin/sidebar',$data, true);
-                $data['top_navigation']=$this->load->view('admin/top_navigation',$data, true);
-                $data['content']=$this->load->view('admin/content_service1',$data, true);
-                $data['footer_content']=$this->load->view('admin/footer_content',$data, true);
-		$this->load->view('admin/index',$data);
-	}
-        public function service2()
-	{
-                $data['title']='Admin';
-		$data['assets']=$this->assets;
-		$data['css']=$this->css;
-		$data['js']=$this->js;
-                $data['head']=$this->load->view('admin/head',$data, true);
-                $data['menu_profile']=$this->load->view('admin/menu_profile',$data, true);
-                $data['menu_footer']=$this->load->view('admin/menu_footer',$data, true);
-                $data['sidebar']=$this->load->view('admin/sidebar',$data, true);
-                $data['top_navigation']=$this->load->view('admin/top_navigation',$data, true);
-                $data['content']=$this->load->view('admin/content_service2',$data, true);
-                $data['footer_content']=$this->load->view('admin/footer_content',$data, true);
-		$this->load->view('admin/index',$data);
-	}
-        public function service3()
-	{
-                $data['title']='Admin';
-		$data['assets']=$this->assets;
-		$data['css']=$this->css;
-		$data['js']=$this->js;
-                $data['head']=$this->load->view('admin/head',$data, true);
-                $data['menu_profile']=$this->load->view('admin/menu_profile',$data, true);
-                $data['menu_footer']=$this->load->view('admin/menu_footer',$data, true);
-                $data['sidebar']=$this->load->view('admin/sidebar',$data, true);
-                $data['top_navigation']=$this->load->view('admin/top_navigation',$data, true);
-                $data['content']=$this->load->view('admin/content_service3',$data, true);
-                $data['footer_content']=$this->load->view('admin/footer_content',$data, true);
-		$this->load->view('admin/index',$data);
-	}
-        public function service4()
-	{
-                $data['title']='Admin';
-		$data['assets']=$this->assets;
-		$data['css']=$this->css;
-		$data['js']=$this->js;
-                $data['head']=$this->load->view('admin/head',$data, true);
-                $data['menu_profile']=$this->load->view('admin/menu_profile',$data, true);
-                $data['menu_footer']=$this->load->view('admin/menu_footer',$data, true);
-                $data['sidebar']=$this->load->view('admin/sidebar',$data, true);
-                $data['top_navigation']=$this->load->view('admin/top_navigation',$data, true);
-                $data['content']=$this->load->view('admin/content_service4',$data, true);
-                $data['footer_content']=$this->load->view('admin/footer_content',$data, true);
-		$this->load->view('admin/index',$data);
-	}
-        public function image()
-	{
-                $data['title']='Admin';
-		$data['assets']=$this->assets;
-		$data['css']=$this->css;
-		$data['js']=$this->js;
-                $data['head']=$this->load->view('admin/head',$data, true);
-                $data['menu_profile']=$this->load->view('admin/menu_profile',$data, true);
-                $data['menu_footer']=$this->load->view('admin/menu_footer',$data, true);
-                $data['sidebar']=$this->load->view('admin/sidebar',$data, true);
-                $data['top_navigation']=$this->load->view('admin/top_navigation',$data, true);
-                $data['content']=$this->load->view('admin/content_image',$data, true);
-                $data['footer_content']=$this->load->view('admin/footer_content',$data, true);
-		$this->load->view('admin/index',$data);
-	}
-        public function motivate()
-	{
-                $data['title']='Admin';
-		$data['assets']=$this->assets;
-		$data['css']=$this->css;
-		$data['js']=$this->js;
-                $data['head']=$this->load->view('admin/head',$data, true);
-                $data['menu_profile']=$this->load->view('admin/menu_profile',$data, true);
-                $data['menu_footer']=$this->load->view('admin/menu_footer',$data, true);
-                $data['sidebar']=$this->load->view('admin/sidebar',$data, true);
-                $data['top_navigation']=$this->load->view('admin/top_navigation',$data, true);
-                $data['content']=$this->load->view('admin/content_motivate',$data, true);
-                $data['footer_content']=$this->load->view('admin/footer_content',$data, true);
-		$this->load->view('admin/index',$data);
-	}
-        public function clients()
-	{
-                $data['title']='Admin';
-		$data['assets']=$this->assets;
-		$data['css']=$this->css;
-		$data['js']=$this->js;
-                $data['head']=$this->load->view('admin/head',$data, true);
-                $data['menu_profile']=$this->load->view('admin/menu_profile',$data, true);
-                $data['menu_footer']=$this->load->view('admin/menu_footer',$data, true);
-                $data['sidebar']=$this->load->view('admin/sidebar',$data, true);
-                $data['top_navigation']=$this->load->view('admin/top_navigation',$data, true);
-                $data['content']=$this->load->view('admin/content_clients',$data, true);
-                $data['footer_content']=$this->load->view('admin/footer_content',$data, true);
-		$this->load->view('admin/index',$data);
-	}
-        public function team()
-	{
-                $data['title']='Admin';
-		$data['assets']=$this->assets;
-		$data['css']=$this->css;
-		$data['js']=$this->js;
-                $data['head']=$this->load->view('admin/head',$data, true);
-                $data['menu_profile']=$this->load->view('admin/menu_profile',$data, true);
-                $data['menu_footer']=$this->load->view('admin/menu_footer',$data, true);
-                $data['sidebar']=$this->load->view('admin/sidebar',$data, true);
-                $data['top_navigation']=$this->load->view('admin/top_navigation',$data, true);
-                $data['content']=$this->load->view('admin/content_team',$data, true);
-                $data['footer_content']=$this->load->view('admin/footer_content',$data, true);
-		$this->load->view('admin/index',$data);
-	}
-        public function relations()
-	{
-                $data['title']='Admin';
-		$data['assets']=$this->assets;
-		$data['css']=$this->css;
-		$data['js']=$this->js;
-                $data['head']=$this->load->view('admin/head',$data, true);
-                $data['menu_profile']=$this->load->view('admin/menu_profile',$data, true);
-                $data['menu_footer']=$this->load->view('admin/menu_footer',$data, true);
-                $data['sidebar']=$this->load->view('admin/sidebar',$data, true);
-                $data['top_navigation']=$this->load->view('admin/top_navigation',$data, true);
-                $data['content']=$this->load->view('admin/content_relations',$data, true);
-                $data['footer_content']=$this->load->view('admin/footer_content',$data, true);
-		$this->load->view('admin/index',$data);
-	}
-        public function privacy_police()
-	{
-                $data['title']='Admin';
-		$data['assets']=$this->assets;
-		$data['css']=$this->css;
-		$data['js']=$this->js;
-                $data['head']=$this->load->view('admin/head',$data, true);
-                $data['menu_profile']=$this->load->view('admin/menu_profile',$data, true);
-                $data['menu_footer']=$this->load->view('admin/menu_footer',$data, true);
-                $data['sidebar']=$this->load->view('admin/sidebar',$data, true);
-                $data['top_navigation']=$this->load->view('admin/top_navigation',$data, true);
-                $data['content']=$this->load->view('admin/content_privacy_police',$data, true);
-                $data['footer_content']=$this->load->view('admin/footer_content',$data, true);
-		$this->load->view('admin/index',$data);
-	}
+    function _gen_pdf($html,$paper='A4')
+    {
+     ob_end_clean();
+     $CI =& get_instance();
+     $CI->load->library('MPDF56/mpdf');
+     $mpdf=new mPDF('utf-8', $paper );
+     $mpdf->debug = true;
+     $mpdf->WriteHTML($html);
+     $mpdf->Output();
+     }
+    public function doprint_laporan_penduduk($pdf=false)
+    {
+        $data['penduduk'] = $this->m_data->tampil_data_penduduk()->result();
+        $data['tes'] = 'ini print dari HTML ke PDF';
+        $output = $this->load->view('template_surat/laporan_penduduk',$data, true);
+        return $this->_gen_pdf($output);
+     }
 }

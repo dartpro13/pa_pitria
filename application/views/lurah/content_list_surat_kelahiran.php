@@ -82,7 +82,11 @@
                   <td><?= $row->tanggal_pembuatan;?></td>
                   <td><?= $row->status;?></td>
                   <td>
-                    <a href="<?php echo base_url(). 'index.php/action/approve_surat_kelahiran/'.$row->id_surat; ?>" style="background-color:cornflowerblue;color:white;padding:5px;border-radius:10px;">Setujui</a>
+                    <a target="_blank" href="<?php echo base_url(). 'index.php/lurah/doprint_skl/'.$row->id_surat.'/'; ?>" style="background-color:cornflowerblue;color:white;padding:5px;border-radius:10px;">print</a><br/><br/>
+<!--
+                      <a href="<?php echo base_url(). 'index.php/admin/update_surat_kelahiran/'.$row->id_surat; ?>" style="background-color:cornflowerblue;color:white;padding:5px;border-radius:10px;">update</a><br/><br/>
+                    <a href="<?php echo base_url(). 'index.php/action/hapus_surat_kelahiran/'.$row->id_surat; ?>" style="background-color:crimson;color:white;padding:5px;border-radius:10px;">delete</a>
+-->
                   </td>
                 </tr>
                 <?php

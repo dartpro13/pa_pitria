@@ -89,8 +89,9 @@
         <hr>
         <br>
         <br>
+        <?php foreach ($surat as $row) {} ?> 
         <section class="center bold underline f12 ">SURAT KEMATIAN</section>
-        <section class="center f12">Nomor: 479 / SKM / Des / XII / 2008</section>
+        <section class="center f12">Nomor: <?= $row->id_surat; ?> / SKM / Des / XII / 2008</section>
         <br>
         <section class="justify f12">
         <p class="paragraf">Yang bertanda tangan di bawah ini menerangkan bahwa :</p>
@@ -100,23 +101,23 @@
             <table>
                 <tr>
                     <td class="f12 tdleft">Nama Lengkap</td>
-                    <td class="f12 tdright">: DIAH PURBASARI</td>
+                    <td class="f12 tdright">: <?= $row->terlapor_nama; ?></td>
                 </tr>
                 <tr>
                     <td class="f12 tdleft">Jenis Kelamin</td>
-                    <td class="f12 tdright">: Perempuan</td>
+                    <td class="f12 tdright">: <?= $row->terlapor_jenis_kelamin; ?></td>
                 </tr>
                 <tr>
-                    <td class="f12 tdleft">Umur</td>
-                    <td class="f12 tdright">: 21 Thn</td>
+                    <td class="f12 tdleft">Tanggal Lahir</td>
+                    <td class="f12 tdright">: <?= $row->terlapor_tanggal_lahir; ?></td>
                 </tr>
                 <tr>
-                    <td class="f12 tdleft">Pekerjaan</td>
-                    <td class="f12 tdright">: Wiraswasta</td>
+                    <td class="f12 tdleft">Agama</td>
+                    <td class="f12 tdright">: <?= $row->terlapor_agama; ?></td>
                 </tr>
                 <tr>
                     <td class="f12 tdleft">Alamat</td>
-                    <td class="f12 tdright">: Jl. Sutawinangun Gg. Tawekal No.5 RT.03 RW.06</td>
+                    <td class="f12 tdright">: <?= $row->terlapor_alamat; ?></td>
                 </tr>
             </table>
         </section>
@@ -128,19 +129,23 @@
             <table>
                 <tr>
                     <td class="f12 tdleft">Hari</td>
-                    <td class="f12 tdright">: Sabtu</td>
+                    <td class="f12 tdright">: <?= $row->meninggal_hari; ?></td>
                 </tr>
                 <tr>
                     <td class="f12 tdleft">Tanggal</td>
-                    <td class="f12 tdright">: 26 Maret 2016</td>
+                    <td class="f12 tdright">: <?= $row->meninggal_tanggal; ?></td>
+                </tr>
+                <tr>
+                    <td class="f12 tdleft">Pukul</td>
+                    <td class="f12 tdright">: <?= $row->meninggal_pukul; ?></td>
                 </tr>
                 <tr>
                     <td class="f12 tdleft">Di</td>
-                    <td class="f12 tdright">: Rumah</td>
+                    <td class="f12 tdright">: <?= $row->meninggal_tempat; ?></td>
                 </tr>
                 <tr>
                     <td class="f12 tdleft">Disebabkan karena</td>
-                    <td class="f12 tdright">: Sakit</td>
+                    <td class="f12 tdright">:  <?= $row->meninggal_penyebab; ?></td>
                 </tr>
             </table>
         </section>
@@ -155,7 +160,7 @@
         <br>
         
         <section class="pengesahan f12 floatright">
-        Sutawinangun, 19 Desember 2008<br>
+        Sutawinangun, <?= $format = date('d F Y', strtotime($row->tanggal_pembuatan)); ?><br>
             Kuwu Sutawinangun,
             <br><br>
             <br><br>
