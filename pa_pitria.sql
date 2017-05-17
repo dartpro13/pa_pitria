@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 09 Mei 2017 pada 05.48
+-- Generation Time: 17 Mei 2017 pada 20.48
 -- Versi Server: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -100,7 +100,7 @@ CREATE TABLE IF NOT EXISTS `surat_keterangan_kk` (
   `alamat` text NOT NULL,
   `tanggal` date NOT NULL,
   `status` text NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -118,7 +118,50 @@ CREATE TABLE IF NOT EXISTS `surat_keterangan_ktp` (
   `alamat` text NOT NULL,
   `tanggal` date NOT NULL,
   `status` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `surat_keterangan_pindah`
+--
+
+CREATE TABLE IF NOT EXISTS `surat_keterangan_pindah` (
+`id_surat` int(11) NOT NULL,
+  `nomor_kartu_keluarga` varchar(100) NOT NULL,
+  `nama_kepala_keluarga` varchar(100) NOT NULL,
+  `alamat_asal` text NOT NULL,
+  `rt_asal` text NOT NULL,
+  `rw_asal` text NOT NULL,
+  `dusun_asal` text NOT NULL,
+  `nik_pemohon` varchar(100) NOT NULL,
+  `nama_lengkap` varchar(100) NOT NULL,
+  `alasan_pindah` text NOT NULL,
+  `alamat_tujuan` text NOT NULL,
+  `rt_tujuan` text NOT NULL,
+  `rw_tujuan` text NOT NULL,
+  `dusun_tujuan` text NOT NULL,
+  `desa_tujuan` text NOT NULL,
+  `kecamatan_tujuan` text NOT NULL,
+  `kabupaten_tujuan` text NOT NULL,
+  `provinsi_tujuan` text NOT NULL,
+  `jenis_kepindahan` varchar(100) NOT NULL,
+  `status_kk_yang_tidak_pindah` varchar(100) NOT NULL,
+  `status_kk_yang_pindah` varchar(100) NOT NULL,
+  `nik_keluarga_yang_pindah` varchar(100) NOT NULL,
+  `nama_keluarga_yang_pindah` varchar(100) NOT NULL,
+  `masa_berlaku_ktp` date NOT NULL,
+  `shdk` varchar(100) NOT NULL,
+  `tanggal_pembuatan` date NOT NULL,
+  `status` varchar(100) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data untuk tabel `surat_keterangan_pindah`
+--
+
+INSERT INTO `surat_keterangan_pindah` (`id_surat`, `nomor_kartu_keluarga`, `nama_kepala_keluarga`, `alamat_asal`, `rt_asal`, `rw_asal`, `dusun_asal`, `nik_pemohon`, `nama_lengkap`, `alasan_pindah`, `alamat_tujuan`, `rt_tujuan`, `rw_tujuan`, `dusun_tujuan`, `desa_tujuan`, `kecamatan_tujuan`, `kabupaten_tujuan`, `provinsi_tujuan`, `jenis_kepindahan`, `status_kk_yang_tidak_pindah`, `status_kk_yang_pindah`, `nik_keluarga_yang_pindah`, `nama_keluarga_yang_pindah`, `masa_berlaku_ktp`, `shdk`, `tanggal_pembuatan`, `status`) VALUES
+(1, '3209201208080002', 'Misyono', 'Jl. Pramuka Pecilon Duku', '003', '001', '', '3209205708900011', 'Desi Silvyanti Agustin', 'Keluarga', 'Blok Bebekan', '004', '004', '', 'Kemlaka Gede', 'Tengah Tani', 'Cirebon', 'Jawa Barat', 'Anggota Keluarga', 'Nomor KK Tetap', 'Membuat KK Baru', '3209205708900011', 'Desi Silvyanti Agustin', '2017-08-17', 'A', '2017-05-13', 'belum disetujui');
 
 -- --------------------------------------------------------
 
@@ -198,6 +241,12 @@ ALTER TABLE `surat_keterangan_ktp`
  ADD PRIMARY KEY (`id_surat`);
 
 --
+-- Indexes for table `surat_keterangan_pindah`
+--
+ALTER TABLE `surat_keterangan_pindah`
+ ADD PRIMARY KEY (`id_surat`);
+
+--
 -- Indexes for table `tb_penduduk`
 --
 ALTER TABLE `tb_penduduk`
@@ -227,11 +276,16 @@ MODIFY `id_surat` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 -- AUTO_INCREMENT for table `surat_keterangan_kk`
 --
 ALTER TABLE `surat_keterangan_kk`
-MODIFY `id_surat` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `id_surat` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `surat_keterangan_ktp`
 --
 ALTER TABLE `surat_keterangan_ktp`
+MODIFY `id_surat` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `surat_keterangan_pindah`
+--
+ALTER TABLE `surat_keterangan_pindah`
 MODIFY `id_surat` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `user`
