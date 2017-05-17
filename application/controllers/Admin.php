@@ -517,4 +517,12 @@ $this->load->view('template/index',$data);
      $output = $this->load->view('template_surat/surat_keterangan_ktp',$data, true);
      return $this->_gen_pdf($output);
      }
+    public function doprint_skp($id,$pdf=false)
+    {
+         $where = array('id_surat' => $id);
+				$data['surat'] = $this->m_data->edit_data($where,'surat_keterangan_pindah')->result();
+     $data['tes'] = 'ini print dari HTML ke PDF';
+     $output = $this->load->view('template_surat/surat_keterangan_pindah',$data, true);
+     return $this->_gen_pdf($output);
+     }
 }
