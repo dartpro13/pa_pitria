@@ -2,13 +2,13 @@
   <div class="">
     <div class="page-title">
       <div class="title_left">
-        <h3>Surat Layanan Penduduk <small>/ List Surat Kelahiran</small></h3>
+        <h3>Surat Layanan Penduduk <small>/ List Surat Keterangan KTP</small></h3>
       </div>
 
       <div class="title_right">
         <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
           <div class="input-group">
-            <input type="text" id="myInput" class="form-control" onkeyup="myFunction()" placeholder="Search for names..">
+             <input type="text" id="myInput" class="form-control" onkeyup="myFunction()" placeholder="Search for names..">
             <span class="input-group-btn">
               <button class="btn btn-default" type="button">Go!</button>
             </span>
@@ -23,7 +23,7 @@
       <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
           <div class="x_title">
-            <h2>e-Government <small>list surat kelahiran</small></h2>
+            <h2>e-Government <small>list surat keterangan ktp</small></h2>
             <ul class="nav navbar-right panel_toolbox">
               <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
               </li>
@@ -49,16 +49,11 @@
               <thead>
                 <tr>
                   <th>No.</th>
-                  <th>Nomor Surat</th>
-                  <th>Nama Pemohon</th>
-                  <th>Tempat Tanggal Lahir</th>
-                  <th>Jenis Kelamin</th>
-                  <th>Pekerjaan</th>
-                  <th>Alamat</th>
-                  <th>Nama Ayah Kandung</th>
-                  <th>Nama Ibu Kandung</th>
-                  <th>Anak ke</th>
-                  <th>Tanggal Pembuatan</th>
+                  <th>Nama Lengkapr</th>
+                  <th>Alasan Pindah</th>
+                  <th>Nama Kepala Keluarga</th>
+                  <th>Alamat Sebelumnya</th>
+                  <th>Pindah Ke</th>
                   <th>Status</th>
                   <th>Aksi</th>
                 </tr>
@@ -70,22 +65,17 @@
                 ?>
                 <tr>
                   <td><?= $no++;?></td>
-                  <td><?= $row->nomor_surat;?></td>
-                  <td><?= $row->nama;?></td>
-                  <td><?= $row->tempat_tanggal_lahir;?></td>
-                  <td><?= $row->jenis_kelamin;?></td>
-                  <td><?= $row->pekerjaan;?></td>
-                  <td><?= $row->alamat;?></td>
-                  <td><?= $row->nama_ayah_kandung;?></td>
-                  <td><?= $row->nama_ibu_kandung;?></td>
-                  <td><?= $row->anak_ke;?></td>
-                  <td><?= $row->tanggal_pembuatan;?></td>
+                  <td><?= $row->nama_lengkap;?></td>
+                  <td><?= $row->alasan_pindah;?></td>
+                  <td><?= $row->nama_kepala_keluarga;?></td>
+                  <td><?= $row->alamat_asal;?> RT.<?= $row->rt_asal;?> RW.<?= $row->rw_asal;?></td>
+                  <td><?= $row->alamat_tujuan;?> RT.<?= $row->rt_tujuan;?> RW.<?= $row->rw_tujuan;?></td>
                   <td><?= $row->status;?></td>
                   <td>
                       <?php 
                             if($row->status=="Di Setujui"){
                                 $button='target="_blank" href="';
-                                $button.=base_url(). 'index.php/admin/doprint_skl/'.$row->id_surat.'/"';;
+                                $button.=base_url(). 'index.php/admin/doprint_skp/'.$row->id_surat.'/"';;
                             }else{
                                 $button='href=""';
                                 $button.='onClick="';
@@ -94,8 +84,8 @@
                             }
                       ?>
                     <a <?=$button;?> style="background-color:cornflowerblue;color:white;padding:5px;border-radius:10px;">print</a><br/><br/>
-                      <a href="<?php echo base_url(). 'index.php/admin/update_surat_kelahiran/'.$row->id_surat; ?>" style="background-color:cornflowerblue;color:white;padding:5px;border-radius:10px;">update</a><br/><br/>
-                    <a href="<?php echo base_url(). 'index.php/action/hapus_surat_kelahiran/'.$row->id_surat; ?>" style="background-color:crimson;color:white;padding:5px;border-radius:10px;">delete</a>
+                    <a href="<?php echo base_url(). 'index.php/admin/update_surat_keterangan_pindah/'.$row->id_surat; ?>" style="background-color:cornflowerblue;color:white;padding:5px;border-radius:10px;">update</a><br/><br/>
+                    <a href="<?php echo base_url(). 'index.php/action/hapus_surat_keterangan_pindah/'.$row->id_surat; ?>" style="background-color:crimson;color:white;padding:5px;border-radius:10px;">delete</a>
                   </td>
                 </tr>
                 <?php
@@ -121,7 +111,7 @@ function myFunction() {
 
   // Loop through all table rows, and hide those who don't match the search query
   for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[2];
+    td = tr[i].getElementsByTagName("td")[1];
     if (td) {
       if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
         tr[i].style.display = "";

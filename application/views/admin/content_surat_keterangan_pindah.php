@@ -93,7 +93,7 @@
                         $status_kk_yang_pindah=$row->status_kk_yang_pindah;
                         $nik_keluarga_yang_pindah=$row->nik_keluarga_yang_pindah;
                         $nama_keluarga_yang_pindah=$row->nama_keluarga_yang_pindah;
-                        $masa_berlaku_ktp=$row->masa_berlaku;
+                        $masa_berlaku_ktp=$row->masa_berlaku_ktp;
                         $shdk=$row->shdk;
                       $ro="readonly";
                       $url=base_url(). 'index.php/action/update_surat_keterangan_pindah';

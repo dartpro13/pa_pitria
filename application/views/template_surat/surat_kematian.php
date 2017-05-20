@@ -89,9 +89,23 @@
         <hr>
         <br>
         <br>
-        <?php foreach ($surat as $row) {} ?> 
+        <?php foreach ($surat as $row) {} 
+        $array1=explode("-",$row->tanggal_pembuatan);
+        $tahun=$array1[0];
+        $bulan=$array1[1];
+        $sisa1=$array1[2];
+        $array2=explode(" ",$sisa1);
+        $tanggal=$array2[0];
+        $array_bulan = array(1=>"I","II","III", "IV", "V","VI","VII","VIII","IX","X", "XI","XII");
+        if($bulan>10){
+            $bulan = $array_bulan[$bulan];
+        }else{
+            $bulan = $array_bulan[$bulan[1]];
+        }
+             
+        ?>  
         <section class="center bold underline f12 ">SURAT KEMATIAN</section>
-        <section class="center f12">Nomor: <?= $row->id_surat; ?> / SKM / Des / XII / 2008</section>
+        <section class="center f12">Nomor: 142 /<?= $tanggal.$row->id_surat; ?> / <?=$bulan?> / Des / <?=$tahun?></section>
         <br>
         <section class="justify f12">
         <p class="paragraf">Yang bertanda tangan di bawah ini menerangkan bahwa :</p>

@@ -100,13 +100,16 @@
                       <div class="form-group">
                         <label for="terlapor_jenis_kelamin" class="control-label col-md-3 col-sm-3 col-xs-12">Jenis Kelamin <span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="terlapor_jenis_kelamin" class="form-control col-md-7 col-xs-12" required="required" type="text" name="terlapor_jenis_kelamin" value="<?=$terlapor_jenis_kelamin;?>">
+                          <select class="form-control" id="sel1" name="terlapor_jenis_kelamin">
+                            <option value="Laki-Laki">Laki-Laki</option>
+                            <option value="Perempuan">Perempuan</option>
+                          </select>
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="terlapor_tanggal_lahir" class="control-label col-md-3 col-sm-3 col-xs-12">Tanggal Lahir <span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="terlapor_tanggal_lahir" class="form-control col-md-7 col-xs-12" required="required" type="text" name="terlapor_tanggal_lahir" value="<?=$terlapor_tanggal_lahir;?>">
+                          <input id="terlapor_tanggal_lahir" class="form-control col-md-7 col-xs-12" required="required" type="date" name="terlapor_tanggal_lahir">
                         </div>
                       </div>
                       <div class="form-group">
@@ -131,13 +134,13 @@
                       <div class="form-group">
                         <label for="meninggal_tanggal" class="control-label col-md-3 col-sm-3 col-xs-12">Tanggal <span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="meninggal_tanggal" name="meninggal_tanggal" class="form-control col-md-7 col-xs-12" required="required" type="text" value="<?=$meninggal_tanggal;?>">
+                          <input id="meninggal_tanggal" name="meninggal_tanggal" class="form-control col-md-7 col-xs-12" required="required" type="date">
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="meninggal_pukul" class="control-label col-md-3 col-sm-3 col-xs-12">Pukul <span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="meninggal_pukul" name="meninggal_pukul" class="form-control col-md-7 col-xs-12" required="required" type="text" value="<?=$meninggal_pukul;?>">
+                          <input id="meninggal_pukul" name="meninggal_pukul" class="form-control col-md-7 col-xs-12" required="required" type="time">
                         </div>
                       </div>
                       <div class="form-group">
@@ -168,7 +171,7 @@
                       <div class="form-group">
                         <label for="pelapor_tanggal_lahir" class="control-label col-md-3 col-sm-3 col-xs-12">Tanggal Lahir<span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="pelapor_tanggal_lahir" name="pelapor_tanggal_lahir" class="form-control col-md-7 col-xs-12" required="required" type="text" value="<?=$pelapor_tanggal_lahir;?>">
+                          <input id="pelapor_tanggal_lahir" name="pelapor_tanggal_lahir" class="form-control col-md-7 col-xs-12" required="required" type="date">
                         </div>
                       </div>
                       <div class="form-group">

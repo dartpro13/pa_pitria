@@ -448,7 +448,7 @@ public function list_surat_keterangan_pindah()
 				$data['menu_footer']=$this->load->view('template/menu_footer',$data, true);
 				$data['sidebar']=$this->load->view('admin/sidebar',$data, true);
 				$data['top_navigation']=$this->load->view('template/top_navigation',$data, true);
-				$data['content']=$this->load->view('admin/content_list_surat_keterangan_kk',$data, true);
+				$data['content']=$this->load->view('admin/content_list_surat_keterangan_pindah',$data, true);
 				$data['footer_content']=$this->load->view('template/footer_content',$data, true);
 				$this->load->view('template/index',$data);
 }
