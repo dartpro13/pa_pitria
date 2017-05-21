@@ -74,13 +74,16 @@
                       <div class="form-group">
                         <label for="jenis_kelamin" class="control-label col-md-3 col-sm-3 col-xs-12">Jenis Kelamin <span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="jenis_kelamin" class="form-control col-md-7 col-xs-12" required="required" type="text" name="jenis_kelamin" value="<?=$jenis_kelamin;?>">
+                          <select class="form-control" id="sel1" name="jenis_kelamin">
+                            <option value="Laki-Laki">Laki-Laki</option>
+                            <option value="Perempuan">Perempuan</option>
+                          </select>
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="tempat_tanggal_lahir" class="control-label col-md-3 col-sm-3 col-xs-12">Tempat Tanggal Lahir <span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="tempat_tanggal_lahir" class="form-control col-md-7 col-xs-12" required="required" type="text" name="tempat_tanggal_lahir" value="<?=$tempat_tanggal_lahir;?>">
+                          <input id="tempat_tanggal_lahir" class="form-control col-md-7 col-xs-12" required="required" type="date" name="tempat_tanggal_lahir">
                         </div>
                       </div>
                       <div class="form-group">

@@ -22,7 +22,13 @@
                 </br>
                   <li><a><i class="fa fa-edit"></i>Layanan Penduduk<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a>KTP</a>
+                      <li><a>Pindah</a>
+                        <ul class="nav child_menu">
+<!--                            <li><a href="<?= site_url()?>/admin/surat_keterangan_ktp">Input</a></li>-->
+                        <li><a href="<?= site_url()?>/lurah/list_surat_keterangan_pindah">View</a></li>
+                        </ul>
+                      </li>
+                        <li><a>KTP</a>
                         <ul class="nav child_menu">
 <!--                            <li><a href="<?= site_url()?>/admin/surat_keterangan_ktp">Input</a></li>-->
                         <li><a href="<?= site_url()?>/lurah/list_surat_keterangan_ktp">View</a></li>

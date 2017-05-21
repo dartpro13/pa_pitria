@@ -299,6 +299,78 @@ $where = array(
 $this->m_data->update_data($where,$data,'surat_kelahiran');
 redirect('lurah/list_surat_kelahiran');
 }
+    function not_approve_surat_kelahiran($id){
+	$data = array(
+		'status' => 'Belum Di Setujui'
+		);
+
+$where = array(
+	'id_surat' => $id
+);
+
+$this->m_data->update_data($where,$data,'surat_kelahiran');
+redirect('lurah/list_surat_kelahiran');
+}
+    function approve_surat_keterangan_pindah($id){
+	$data = array(
+		'status' => 'Di Setujui'
+		);
+
+$where = array(
+	'id_surat' => $id
+);
+
+$this->m_data->update_data($where,$data,'surat_keterangan_pindah');
+redirect('lurah/list_surat_keterangan_pindah');
+}
+    function not_approve_surat_keterangan_pindah($id){
+	$data = array(
+		'status' => 'Belum Di Setujui'
+		);
+
+$where = array(
+	'id_surat' => $id
+);
+
+$this->m_data->update_data($where,$data,'surat_keterangan_pindah');
+redirect('lurah/list_surat_keterangan_pindah');
+}
+    function not_approve_surat_kematian($id){
+	$data = array(
+		'status' => 'Belum Di Setujui'
+		);
+
+$where = array(
+	'id_surat' => $id
+);
+
+$this->m_data->update_data($where,$data,'surat_kematian');
+redirect('lurah/list_surat_kematian');
+}
+    function not_approve_surat_keterangan_kk($id){
+	$data = array(
+		'status' => 'Belum Di Setujui'
+		);
+
+$where = array(
+	'id_surat' => $id
+);
+
+$this->m_data->update_data($where,$data,'surat_keterangan_kk');
+redirect('lurah/list_surat_keterangan_kk');
+}
+    function not_approve_surat_keterangan_ktp($id){
+	$data = array(
+		'status' => 'Belum Di Setujui'
+		);
+
+$where = array(
+	'id_surat' => $id
+);
+
+$this->m_data->update_data($where,$data,'surat_keterangan_ktp');
+redirect('lurah/list_surat_keterangan_ktp');
+}
 function import_from_excel_data_penduduk(){
 	$fileNam = time().$_FILES['file']['name'];
     $fileName = str_replace(" ", "_", $fileNam);

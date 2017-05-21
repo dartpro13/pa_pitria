@@ -8,7 +8,7 @@
       <div class="title_right">
         <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search for...">
+             <input type="text" id="myInput" class="form-control" onkeyup="myFunction()" placeholder="Search for names..">
             <span class="input-group-btn">
               <button class="btn btn-default" type="button">Go!</button>
             </span>
@@ -50,11 +50,10 @@
                 <tr>
                   <th>No.</th>
                   <th>Nama Lengkapr</th>
-                  <th>Jenis Kelamin</th>
-                  <th>Tempat Tanggal Lahir</th>
-                  <th>Bangsa / Agama</th>
-                  <th>Pekerjaan</th>
-                    <th>Alamat</th>
+                  <th>Alasan Pindah</th>
+                  <th>Nama Kepala Keluarga</th>
+                  <th>Alamat Sebelumnya</th>
+                  <th>Pindah Ke</th>
                   <th>Status</th>
                   <th>Aksi</th>
                 </tr>
@@ -67,25 +66,24 @@
                 <tr>
                   <td><?= $no++;?></td>
                   <td><?= $row->nama_lengkap;?></td>
-                  <td><?= $row->jenis_kelamin;?></td>
-                  <td><?= $row->tempat_tanggal_lahir;?></td>
-                  <td><?= $row->bangsa_agama;?></td>
-                  <td><?= $row->pekerjaan;?></td>
-                  <td><?= $row->alamat;?></td>
+                  <td><?= $row->alasan_pindah;?></td>
+                  <td><?= $row->nama_kepala_keluarga;?></td>
+                  <td><?= $row->alamat_asal;?> RT.<?= $row->rt_asal;?> RW.<?= $row->rw_asal;?></td>
+                  <td><?= $row->alamat_tujuan;?> RT.<?= $row->rt_tujuan;?> RW.<?= $row->rw_tujuan;?></td>
                   <td><?= $row->status;?></td>
                   <td>
                       <?php 
                             if($row->status=="Di Setujui"){
                                 $button='target="_blank" href="';
-                                $button.=base_url(). 'index.php/lurah/doprint_skktp/'.$row->id_surat.'/"';
-                                $approval_link=base_url(). 'index.php/action/not_approve_surat_keterangan_ktp/';
+                                $button.=base_url(). 'index.php/lurah/doprint_skp/'.$row->id_surat.'/"';
+                                $approval_link=base_url(). 'index.php/action/not_approve_surat_keterangan_pindah/';
                                 $approval_caption = "Batal Setuju";
                             }else{
                                 $button='href=""';
                                 $button.='onClick="';
                                 $button.="alert('Surat belum disetujui!')";
                                 $button.='"';
-                                $approval_link=base_url(). 'index.php/action/approve_surat_keterangan_ktp/';
+                                $approval_link=base_url(). 'index.php/action/approve_surat_keterangan_pindah/';
                                 $approval_caption = "Setujui";
                             }
                       ?>
@@ -105,3 +103,25 @@
     </div>
   </div>
 </div>
+<script>
+function myFunction() {
+  // Declare variables 
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("datatable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    } 
+  }
+}
+</script>

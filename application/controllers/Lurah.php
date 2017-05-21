@@ -182,6 +182,26 @@ public function list_surat_keterangan_ktp()
 				$data['footer_content']=$this->load->view('template/footer_content',$data, true);
 				$this->load->view('template/index',$data);
 }
+    public function list_surat_keterangan_pindah()
+{
+    $data = array(
+					'error' => '',
+					'username' => $this->session->userdata('username'),'active' =>'lurah'
+				);
+				$data['surat'] = $this->m_data->tampil_data_surat_keterangan_pindah()->result();
+				$data['title']='Lurah';
+				$data['assets']=$this->assets;
+				$data['css']=$this->css;
+				$data['js']=$this->js;
+				$data['head']=$this->load->view('template/head',$data, true);
+				$data['menu_profile']=$this->load->view('template/menu_profile',$data, true);
+				$data['menu_footer']=$this->load->view('template/menu_footer',$data, true);
+				$data['sidebar']=$this->load->view('lurah/sidebar',$data, true);
+				$data['top_navigation']=$this->load->view('template/top_navigation',$data, true);
+				$data['content']=$this->load->view('lurah/content_list_surat_keterangan_pindah',$data, true);
+				$data['footer_content']=$this->load->view('template/footer_content',$data, true);
+				$this->load->view('template/index',$data);
+}
     function _gen_pdf($html,$paper='A4')
     {
      ob_end_clean();
@@ -222,6 +242,14 @@ public function list_surat_keterangan_ktp()
 				$data['surat'] = $this->m_data->edit_data($where,'surat_keterangan_ktp')->result();
      $data['tes'] = 'ini print dari HTML ke PDF';
      $output = $this->load->view('template_surat/surat_keterangan_ktp',$data, true);
+     return $this->_gen_pdf($output);
+     }
+    public function doprint_skp($id,$pdf=false)
+    {
+         $where = array('id_surat' => $id);
+				$data['surat'] = $this->m_data->edit_data($where,'surat_keterangan_pindah')->result();
+     $data['tes'] = 'ini print dari HTML ke PDF';
+     $output = $this->load->view('template_surat/surat_keterangan_pindah',$data, true);
      return $this->_gen_pdf($output);
      }
 }

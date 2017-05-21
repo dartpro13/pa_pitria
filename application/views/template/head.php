@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="<?= $assets;?>images/fav.png" type="image/x-icon">
     <title>e-Government | <?= $title; ?> </title>
-
+      <script src="<?= $css.'chart/Chart.bundle.js'?>"></script>
     <!-- Bootstrap -->
     <link href="<?= $css.'bootstrap.min.css';?>" rel="stylesheet">
     <!-- Font Awesome -->

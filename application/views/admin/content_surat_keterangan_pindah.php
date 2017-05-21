@@ -203,22 +203,35 @@
                         </div>
                       </div>
                         <div class="form-group">
-                        <label for="jenis_kepindahan" class="control-label col-md-3 col-sm-3 col-xs-12">Jenis Kepindahan<span class="required">*</span></label>
+                        <label for="jenis_kepindahan" class="control-label col-md-3 col-sm-3 col-xs-12">Jenis Kepindahan <span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="jenis_kepindahan" class="form-control col-md-7 col-xs-12" required="required" type="text" name="jenis_kepindahan" value="<?=$jenis_kepindahan;?>">
+                          <select class="form-control" id="sel1" name="jenis_kepindahan">
+                            <option value="Kep. Keluarga">Kep. Keluarga</option>
+                            <option value="Kep. Keluarga dan  Seluruh Angg. Keluarga">Kep. Keluarga dan  Seluruh Angg. Keluarga</option>
+                            <option value="Kep. Keluarga dan  Sbg. Angg. Keluarga">Kep. Keluarga dan  Sbg. Angg. Keluarga</option>
+                            <option value="Angg. Keluarga">Angg. Keluarga</option>
+                          </select>
                         </div>
                       </div>
                         <div class="form-group">
-                        <label for="status_kk_yang_tidak_pindah" class="control-label col-md-3 col-sm-3 col-xs-12">Status KK yang tidak pindah<span class="required">*</span></label>
+                        <label for="status_kk_yang_tidak_pindah" class="control-label col-md-3 col-sm-3 col-xs-12">Status KK yang tidak pindah <span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="status_kk_yang_tidak_pindah" class="form-control col-md-7 col-xs-12" required="required" type="text" name="status_kk_yang_tidak_pindah" value="<?=$status_kk_yang_tidak_pindah;?>">
+                          <select class="form-control" id="sel1" name="status_kk_yang_tidak_pindah">
+                            <option value="Numpang KK">Numpang KK</option>
+                            <option value="Membuat KK Baru">Membuat KK Baru</option>
+                            <option value="Nomor KK Tetap">Nomor KK Tetap</option>
+                          </select>
                         </div>
                       </div>
                         
                         <div class="form-group">
-                        <label for="status_kk_yang_pindah" class="control-label col-md-3 col-sm-3 col-xs-12">Status KK yang pindah<span class="required">*</span></label>
+                        <label for="status_kk_yang_pindah" class="control-label col-md-3 col-sm-3 col-xs-12">Status KK yang pindah <span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="status_kk_yang_pindah" class="form-control col-md-7 col-xs-12" required="required" type="text" name="status_kk_yang_pindah" value="<?=$status_kk_yang_pindah;?>">
+                          <select class="form-control" id="sel1" name="status_kk_yang_pindah">
+                            <option value="Numpang KK">Numpang KK</option>
+                            <option value="Membuat KK Baru">Membuat KK Baru</option>
+                            <option value="Nomor KK Tetap">Nomor KK Tetap</option>
+                          </select>
                         </div>
                       </div>
                         <div class="form-group">
