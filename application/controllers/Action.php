@@ -112,6 +112,126 @@ function input_surat_kelahiran(){
 	$this->m_data->input_data($data,'surat_kelahiran');
 	redirect('admin/list_surat_kelahiran');
 }
+    function input_surat_keterangan_pindah(){
+	$nomor_kartu_keluarga = $this->input->post('nomor_kartu_keluarga');
+	$nama_kepala_keluarga = $this->input->post('nama_kepala_keluarga');
+	$alamat_asal = $this->input->post('alamat_asal');
+	$rt_asal = $this->input->post('rt_asal');
+	$rw_asal = $this->input->post('rw_asal');
+	$dusun_asal = $this->input->post('dusun_asal');
+	$nik_pemohon = $this->input->post('nik_pemohon');
+	$nama_lengkap = $this->input->post('nama_lengkap');
+	$alasan_pindah = $this->input->post('alasan_pindah');
+	$alamat_tujuan = $this->input->post('alamat)tujuan');
+	$rt_tujuan = $this->input->post('rt_tujuan');
+	$rw_tujuan = $this->input->post('rw_tujuan');
+	$dusun_tujuan = $this->input->post('dusun_tujuan');
+	$desa_tujuan = $this->input->post('desa_tujuan');
+	$kecamatan_tujuan = $this->input->post('kecamatan_tujuan');
+	$kabupaten_tujuan = $this->input->post('kabupaten_tujuan');
+	$provinsi_tujuan = $this->input->post('provinsi_tujuan');
+    $jenis_kepindahan = $this->input->post('jenis_kepindahan');
+	$status_kk_yang_tidak_pindah = $this->input->post('status_kk_yang_tidak_pindah');
+	$status_kk_yang_pindah = $this->input->post('status_kk_yang_pindah');
+	$nik_keluarga_yang_pindah = $this->input->post('nik_keluarga_yang_pindah');
+	$nama_keluarga_yang_pindah = $this->input->post('nama_keluarga_yang_pindah');
+	$masa_berlaku_ktp = $this->input->post('masa_berlaku_ktp');
+	$shdk = $this->input->post('shdk');
+	
+	$data = array(
+		'id_surat' => null,
+		'nomor_kartu_keluarga'=>$nomor_kartu_keluarga,
+        'nama_kepala_keluarga'=>$nama_kepala_keluarga,
+        'alamat_asal'=>$alamat_asal,
+        'rt_asal'=>$rt_asal,
+        'rw_asal'=>$rw_asal,
+        'dusun_asal'=>$dusun_asal,
+        'nik_pemohon'=>$nik_pemohon,
+        'nama_lengkap'=>$nama_lengkap,
+        'alasan_pindah'=>$alasan_pindah,
+        'alamat_tujuan'=>$alamat_tujuan,
+        'rt_tujuan'=>$rt_tujuan,
+        'rw_tujuan'=>$rw_tujuan,
+        'dusun_tujuan'=>$dusun_tujuan,
+        'desa_tujuan'=>$desa_tujuan,
+        'kecamatan_tujuan'=>$kecamatan_tujuan,
+        'kabupaten_tujuan'=>$kabupaten_tujuan,
+        'provinsi_tujuan'=>$provinsi_tujuan,
+        'jenis_kepindahan'=>$jenis_kepindahan,
+        'status_kk_yang_tidak_pindah'=>$status_kk_yang_tidak_pindah,
+        'status_kk_yang_pindah'=>$status_kk_yang_pindah,
+        'nik_keluarga_yang_pindah'=>$nik_keluarga_yang_pindah,
+        'nama_keluarga_yang_pindah'=>$nama_keluarga_yang_pindah,
+    	'masa_berlaku_ktp'=>$masa_berlaku_ktp,
+        'shdk'=>$shdk,
+        'tanggal_pembuatan' => date('Y-m-d'),
+		'status' => 'Belum di setujui'
+		);
+	$this->m_data->input_data($data,'surat_keterangan_pindah');
+	redirect('admin/list_surat_keterangan_pindah');
+}
+    function update_surat_keterangan_pindah(){
+        $id_surat = $this->input->post('id_surat');
+        $nama_kepala_keluarga = $this->input->post('nama_kepala_keluarga');
+        $alamat_asal = $this->input->post('alamat_asal');
+        $rt_asal = $this->input->post('rt_asal');
+        $rw_asal = $this->input->post('rw_asal');
+        $dusun_asal = $this->input->post('dusun_asal');
+        $nik_pemohon = $this->input->post('nik_pemohon');
+        $nama_lengkap = $this->input->post('nama_lengkap');
+        $alasan_pindah = $this->input->post('alasan_pindah');
+        $alamat_tujuan = $this->input->post('alamat)tujuan');
+        $rt_tujuan = $this->input->post('rt_tujuan');
+        $rw_tujuan = $this->input->post('rw_tujuan');
+        $dusun_tujuan = $this->input->post('dusun_tujuan');
+        $desa_tujuan = $this->input->post('desa_tujuan');
+        $kecamatan_tujuan = $this->input->post('kecamatan_tujuan');
+        $kabupaten_tujuan = $this->input->post('kabupaten_tujuan');
+        $provinsi_tujuan = $this->input->post('provinsi_tujuan');
+        $jenis_kepindahan = $this->input->post('jenis_kepindahan');
+        $status_kk_yang_tidak_pindah = $this->input->post('status_kk_yang_tidak_pindah');
+        $status_kk_yang_pindah = $this->input->post('status_kk_yang_pindah');
+        $nik_keluarga_yang_pindah = $this->input->post('nik_keluarga_yang_pindah');
+        $nama_keluarga_yang_pindah = $this->input->post('nama_keluarga_yang_pindah');
+        $masa_berlaku_ktp = $this->input->post('masa_berlaku_ktp');
+        $shdk = $this->input->post('shdk');
+
+        $data = array(
+        'nomor_kartu_keluarga'=>$nomor_kartu_keluarga,
+        'nama_kepala_keluarga'=>$nama_kepala_keluarga,
+        'alamat_asal'=>$alamat_asal,
+        'rt_asal'=>$rt_asal,
+        'rw_asal'=>$rw_asal,
+        'dusun_asal'=>$dusun_asal,
+        'nik_pemohon'=>$nik_pemohon,
+        'nama_lengkap'=>$nama_lengkap,
+        'alasan_pindah'=>$alasan_pindah,
+        'alamat_tujuan'=>$alamat_tujuan,
+        'rt_tujuan'=>$rt_tujuan,
+        'rw_tujuan'=>$rw_tujuan,
+        'dusun_tujuan'=>$dusun_tujuan,
+        'desa_tujuan'=>$desa_tujuan,
+        'kecamatan_tujuan'=>$kecamatan_tujuan,
+        'kabupaten_tujuan'=>$kabupaten_tujuan,
+        'provinsi_tujuan'=>$provinsi_tujuan,
+        'jenis_kepindahan'=>$jenis_kepindahan,
+        'status_kk_yang_tidak_pindah'=>$status_kk_yang_tidak_pindah,
+        'status_kk_yang_pindah'=>$status_kk_yang_pindah,
+        'nik_keluarga_yang_pindah'=>$nik_keluarga_yang_pindah,
+        'nama_keluarga_yang_pindah'=>$nama_keluarga_yang_pindah,
+    	'masa_berlaku_ktp'=>$masa_berlaku_ktp,
+        'shdk'=>$shdk,
+        'tanggal_pembuatan' => date('Y-m-d'),
+		'status' => 'Belum di setujui'
+            );
+
+$where = array(
+	'id_surat' => $id_surat
+);
+
+$this->m_data->update_data($where,$data,'surat_keterangan_pindah');
+redirect('admin/list_surat_keterangan_pindah');
+}
 function update_surat_kelahiran(){
 	$nomor_surat = $this->input->post('nomor_surat');
 	$nama = $this->input->post('nama');
@@ -152,6 +272,11 @@ function hapus_surat_kematian($id){
 	$this->m_data->hapus_data($where,'surat_kematian');
 	redirect('admin/list_surat_kematian');
 }
+    function hapus_surat_keterangan_pindah($id){
+	$where = array('id_surat' => $id);
+	$this->m_data->hapus_data($where,'surat_keterangan_pindah');
+	redirect('admin/list_surat_keterangan_pindah');
+}
     function hapus_surat_keterangan_ktp($id){
 	$where = array('id_surat' => $id);
 	$this->m_data->hapus_data($where,'surat_keterangan_ktp');
@@ -175,8 +300,8 @@ $this->m_data->update_data($where,$data,'surat_kelahiran');
 redirect('lurah/list_surat_kelahiran');
 }
 function import_from_excel_data_penduduk(){
-	$fileName = time().$_FILES['file']['name'];
-
+	$fileNam = time().$_FILES['file']['name'];
+    $fileName = str_replace(" ", "_", $fileNam);
 	        $config['upload_path'] = './assets/'; //buat folder dengan nama assets di root folder
 	        $config['file_name'] = $fileName;
 	        $config['allowed_types'] = 'xls|xlsx|csv';
@@ -211,16 +336,26 @@ function import_from_excel_data_penduduk(){
 
 	                //Sesuaikan sama nama kolom tabel di database
 	                 $data = array(
-	                    "nik"=> $rowData[0][0],
-	                    "nama"=> $rowData[0][1],
-											"j_kelamin"=> $rowData[0][2],
-											"agama"=> $rowData[0][3],
-											"tmp_lahir"=> $rowData[0][4],
-											"tgl_lahir"=> $rowData[0][5],
-	                    "alamat"=> $rowData[0][6],
-											"status_perkawinan"=> $rowData[0][7],
-											"kewarganegaraan"=> $rowData[0][8],
-											"pekerjaan"=> $rowData[0][9]
+                         "rw"=> $rowData[0][0],
+                         "rt"=> $rowData[0][1],
+                         "dusun"=> $rowData[0][2],
+                         "alamat"=> $rowData[0][3],
+                         "kode_kelurahan"=> $rowData[0][4],
+                         "nama_kepala_keluarga"=> $rowData[0][5],
+                         "nik"=> $rowData[0][7],
+                         "nama"=> $rowData[0][8],
+                         "j_kelamin"=> $rowData[0][9],
+                         "hubungan"=> $rowData[0][10],
+                         "tmp_lahir"=> $rowData[0][11],
+                         "tgl_lahir"=> $rowData[0][12],
+                         "usia"=> $rowData[0][13],
+                         "status_perkawinan"=> $rowData[0][14],
+                         "agama"=> $rowData[0][15],
+                         "gol_darah"=> $rowData[0][16],
+                         "kewarganegaraan"=> $rowData[0][17],
+                         "etnis_suku"=> $rowData[0][18],
+                         "pendidikan"=> $rowData[0][19],
+                         "pekerjaan"=> $rowData[0][20]
 	                );
 
 	                //sesuaikan nama dengan nama tabel
