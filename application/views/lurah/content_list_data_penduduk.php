@@ -2,13 +2,14 @@
   <div class="">
     <div class="page-title">
       <div class="title_left">
-        <h3>Kependudukan <small>/ List Data Penduduk</small></h3>
+        <h3>Kependudukan <small>/ List Data Penduduk</small></h3> 
+          
       </div>
 
       <div class="title_right">
         <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search for...">
+            <input type="text" id="myInput" class="form-control" onkeyup="myFunction()" placeholder="Search for names..">
             <span class="input-group-btn">
               <button class="btn btn-default" type="button">Go!</button>
             </span>
@@ -45,7 +46,8 @@
             <p class="text-muted font-13 m-b-30">
               <!-- DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code> -->
             </p>
-            <table id="datatable" class="table table-striped table-bordered">
+              <div style="max-height:500px; overflow-y:scroll;">
+            <table id="datatable" style="table-layout: fixed;word-wrap: break-word;" class="table table-striped table-bordered">
               <thead>
                 <tr>
                   <th>No.</th>
@@ -59,7 +61,6 @@
                   <th>Status Perkawinan</th>
                   <th>kewarganegaraan</th>
                   <th>Pekerjaan</th>
-                  <th>Aksi</th>
                 </tr>
               </thead>
               <tbody>
@@ -79,10 +80,6 @@
                   <td><?= $row->status_perkawinan;?></td>
                   <td><?= $row->kewarganegaraan;?></td>
                   <td><?= $row->pekerjaan;?></td>
-                  <td>
-                    <a href="<?php echo base_url(). 'index.php/admin/update_data_penduduk/'.$row->nik; ?>" style="background-color:cornflowerblue;color:white;padding:5px;border-radius:10px;">update</a><br/><br/>
-                    <a href="<?php echo base_url(). 'index.php/action/hapus_data_penduduk/'.$row->nik; ?>" style="background-color:crimson;color:white;padding:5px;border-radius:10px;">delete</a>
-                  </td>
                 </tr>
                 <?php
                 }
@@ -91,8 +88,31 @@
               </tbody>
             </table>
           </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+<script>
+function myFunction() {
+  // Declare variables 
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("datatable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[2];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    } 
+  }
+}
+</script>

@@ -8,7 +8,17 @@
 ?>
 <div class="profile">
               <div class="profile_pic">
-                <img src="<?= $assets;?>images/img.jpg" alt="..." class="img-circle profile_img">
+                <?php 
+//                  if($foto==''){
+                  ?>
+                  <img src="<?= $foto;?>" alt=""class="img-circle profile_img">
+                  <?php
+//                  }else{
+                  ?>
+<!--                  <img src="<?= $assets;?>images/<?=$active;?>/<?= $foto;?>" alt=""class="img-circle profile_img">-->
+                  <?php
+//                  }
+                  ?>
               </div>
               <div class="profile_info">
                 <span>Welcome, <?= $username?></span>

@@ -17,11 +17,22 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="<?= $assets;?>images/img.jpg" alt=""><?=$username;?>
+                    <?php 
+//                      if($foto=='')
+//                      {
+                      ?>
+                      <img src="<?= $foto;?>" alt=""><?=$username;?>
+                      <?php
+//                      }else{
+                      ?>
+<!--                      <img src="<?= $assets;?>images/<?=$active;?>/<?= $foto;?>" alt=""><?=$username;?>-->
+                      <?php
+//                      }
+                      ?>
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="javascript:;">Edit Profile</a></li>
+                    <li><a href="<?php echo site_url($active.'/edit_profile/'); ?>">Edit Profile</a></li>
 <!--
                     <li>
                       <a href="javascript:;">
@@ -39,21 +50,27 @@
                 <li role="presentation" class="dropdown">
                   <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
                     <i class="fa fa-envelope-o"></i>
-                    <span class="badge bg-green">6</span>
+                    <span class="badge bg-green">0</span>
                   </a>
                   <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
                     <li>
                       <a>
-                        <span class="image"><img src="<?= $assets;?>images/img.jpg" alt="Profile Image" /></span>
+-->
+<!--                        <span class="image"><img src="<?= $assets;?>images/img.jpg" alt="Profile Image" /></span>-->
+<!--
                         <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
+                          <span>e-Government</span>
+-->
+<!--                          <span class="time">3 mins ago</span>-->
+<!--
                         </span>
                         <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                          Notification unavailable
                         </span>
                       </a>
                     </li>
+-->
+<!--
                     <li>
                       <a>
                         <span class="image"><img src="<?= $assets;?>images/img.jpg" alt="Profile Image" /></span>
@@ -97,10 +114,10 @@
                           <i class="fa fa-angle-right"></i>
                         </a>
                       </div>
-                    </li>
+-->
+<!--                    </li>-->
                   </ul>
                 </li>
--->
               </ul>
             </nav>
           </div>

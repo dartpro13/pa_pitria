@@ -67,7 +67,9 @@ var $js;
 		$data['assets']=$this->assets;
 		$data['css']=$this->css;
 		$data['js']=$this->js;
-                $data['head']=$this->load->view('template/head',$data, true);
+        $assets = $this->assets;
+        $data['foto']=$assets.'images/lurah.png';
+        $data['head']=$this->load->view('template/head',$data, true);
                 $data['menu_profile']=$this->load->view('template/menu_profile',$data, true);
                 $data['menu_footer']=$this->load->view('template/menu_footer',$data, true);
                 $data['top_navigation']=$this->load->view('template/top_navigation',$data, true);
@@ -82,26 +84,28 @@ var $js;
 		session_destroy();
 		redirect('login');
 	}
-//	public function list_data_penduduk()
-//{
-//        $data = array(
-//					'error' => '',
-//					'username' => $this->session->userdata('username'),'active' =>'lurah'
-//				);
-//					$data['penduduk'] = $this->m_data->tampil_data_penduduk()->result();
-//					$data['title']='Lurah';
-//					$data['assets']=$this->assets;
-//					$data['css']=$this->css;
-//					$data['js']=$this->js;
-//					$data['head']=$this->load->view('template/head',$data, true);
-//					$data['menu_profile']=$this->load->view('template/menu_profile',$data, true);
-//					$data['menu_footer']=$this->load->view('template/menu_footer',$data, true);
-//					$data['sidebar']=$this->load->view('lurah/sidebar',$data, true);
-//					$data['top_navigation']=$this->load->view('template/top_navigation',$data, true);
-//					$data['content']=$this->load->view('lurah/content_list_data_penduduk',$data, true);
-//					$data['footer_content']=$this->load->view('template/footer_content',$data, true);
-//					$this->load->view('template/index',$data);
-//}
+	public function list_data_penduduk()
+{
+        $data = array(
+					'error' => '',
+					'username' => $this->session->userdata('username'),'active' =>'lurah'
+				);
+					$data['penduduk'] = $this->m_data->tampil_data_penduduk()->result();
+					$data['title']='Lurah';
+					$data['assets']=$this->assets;
+					$data['css']=$this->css;
+					$data['js']=$this->js;
+					$assets = $this->assets;
+                    $data['foto']=$assets.'images/lurah.png';
+                    $data['head']=$this->load->view('template/head',$data, true);
+					$data['menu_profile']=$this->load->view('template/menu_profile',$data, true);
+					$data['menu_footer']=$this->load->view('template/menu_footer',$data, true);
+					$data['sidebar']=$this->load->view('lurah/sidebar',$data, true);
+					$data['top_navigation']=$this->load->view('template/top_navigation',$data, true);
+					$data['content']=$this->load->view('lurah/content_list_data_penduduk',$data, true);
+					$data['footer_content']=$this->load->view('template/footer_content',$data, true);
+					$this->load->view('template/index',$data);
+}
 public function list_surat_kelahiran()
 	{
     $data = array(
@@ -113,6 +117,8 @@ public function list_surat_kelahiran()
 					$data['assets']=$this->assets;
 					$data['css']=$this->css;
 					$data['js']=$this->js;
+    $assets = $this->assets;
+        $data['foto']=$assets.'images/lurah.png';
 					$data['head']=$this->load->view('template/head',$data, true);
 					$data['menu_profile']=$this->load->view('template/menu_profile',$data, true);
 					$data['menu_footer']=$this->load->view('template/menu_footer',$data, true);
@@ -133,6 +139,8 @@ public function list_surat_kelahiran()
 					$data['assets']=$this->assets;
 					$data['css']=$this->css;
 					$data['js']=$this->js;
+	$assets = $this->assets;
+        $data['foto']=$assets.'images/lurah.png';
 					$data['head']=$this->load->view('template/head',$data, true);
 					$data['menu_profile']=$this->load->view('template/menu_profile',$data, true);
 					$data['menu_footer']=$this->load->view('template/menu_footer',$data, true);
@@ -153,6 +161,8 @@ public function list_surat_keterangan_ktp()
 				$data['assets']=$this->assets;
 				$data['css']=$this->css;
 				$data['js']=$this->js;
+	$assets = $this->assets;
+        $data['foto']=$assets.'images/lurah.png';
 				$data['head']=$this->load->view('template/head',$data, true);
 				$data['menu_profile']=$this->load->view('template/menu_profile',$data, true);
 				$data['menu_footer']=$this->load->view('template/menu_footer',$data, true);
@@ -173,6 +183,8 @@ public function list_surat_keterangan_ktp()
 				$data['assets']=$this->assets;
 				$data['css']=$this->css;
 				$data['js']=$this->js;
+	$assets = $this->assets;
+        $data['foto']=$assets.'images/lurah.png';
 				$data['head']=$this->load->view('template/head',$data, true);
 				$data['menu_profile']=$this->load->view('template/menu_profile',$data, true);
 				$data['menu_footer']=$this->load->view('template/menu_footer',$data, true);
@@ -193,6 +205,8 @@ public function list_surat_keterangan_ktp()
 				$data['assets']=$this->assets;
 				$data['css']=$this->css;
 				$data['js']=$this->js;
+	$assets = $this->assets;
+        $data['foto']=$assets.'images/lurah.png';
 				$data['head']=$this->load->view('template/head',$data, true);
 				$data['menu_profile']=$this->load->view('template/menu_profile',$data, true);
 				$data['menu_footer']=$this->load->view('template/menu_footer',$data, true);
@@ -252,4 +266,100 @@ public function list_surat_keterangan_ktp()
      $output = $this->load->view('template_surat/surat_keterangan_pindah',$data, true);
      return $this->_gen_pdf($output);
      }
+    public function doprint_laporan_penduduk($pdf=false)
+    {
+        $data['jumlah_penduduk']=$this->m_data->hitung_data('tb_penduduk');
+        $data['jumlah_pria']=$this->m_data->hitung_data_laki();
+        $data['jumlah_wanita']=$this->m_data->hitung_data_wanita();
+//        $skl=$this->m_data->hitung_data('surat_kelahiran');
+//        $skm=$this->m_data->hitung_data('surat_kematian');
+//        $skkk=$this->m_data->hitung_data('surat_keterangan_kk');
+//        $skktp=$this->m_data->hitung_data('surat_keterangan_ktp');
+//        $data['total_surat']=$skl+$skm+$skkk+$skktp;
+        $data['penduduk'] = $this->m_data->tampil_data_penduduk()->result();
+//        $data['surat'] = $this->m_data->edit_data($where,'surat_keterangan_pindah')->result();
+        $data['tes'] = 'ini print dari HTML ke PDF';
+        $output = $this->load->view('template_surat/laporan_penduduk',$data, true);
+        return $this->_gen_pdf($output);
+     }
+    public function doprint_laporan_skktp($pdf=false)
+    {
+        $data['total']=$this->m_data->hitung_data('surat_keterangan_ktp');
+//        $data['total_surat']=$skl+$skm+$skkk+$skktp;
+        $data['surat'] = $this->m_data->tampil_data_surat_keterangan_ktp()->result();
+//        $data['surat'] = $this->m_data->edit_data($where,'surat_keterangan_pindah')->result();
+        $data['tes'] = 'ini print dari HTML ke PDF';
+        $output = $this->load->view('template_surat/laporan_skktp',$data, true);
+        return $this->_gen_pdf($output);
+     }
+    public function doprint_laporan_skkk($pdf=false)
+    {
+        $data['total']=$this->m_data->hitung_data('surat_keterangan_kk');
+//        $data['total_surat']=$skl+$skm+$skkk+$skktp;
+        $data['surat'] = $this->m_data->tampil_data_surat_keterangan_kk()->result();
+//        $data['surat'] = $this->m_data->edit_data($where,'surat_keterangan_pindah')->result();
+        $data['tes'] = 'ini print dari HTML ke PDF';
+        $output = $this->load->view('template_surat/laporan_skkk',$data, true);
+        return $this->_gen_pdf($output);
+     }
+    public function doprint_laporan_skp($pdf=false)
+    {
+        $data['total']=$this->m_data->hitung_data('surat_keterangan_pindah');
+//        $data['total_surat']=$skl+$skm+$skkk+$skktp;
+        $data['surat'] = $this->m_data->tampil_data_surat_keterangan_pindah()->result();
+//        $data['surat'] = $this->m_data->edit_data($where,'surat_keterangan_pindah')->result();
+        $data['tes'] = 'ini print dari HTML ke PDF';
+        $output = $this->load->view('template_surat/laporan_pindah',$data, true);
+        return $this->_gen_pdf($output);
+     }
+    public function doprint_laporan_skl($pdf=false)
+    {
+        $data['total']=$this->m_data->hitung_data('surat_kelahiran');
+//        $data['total_surat']=$skl+$skm+$skkk+$skktp;
+        $data['surat'] = $this->m_data->tampil_data_surat_kelahiran()->result();
+//        $data['surat'] = $this->m_data->edit_data($where,'surat_keterangan_pindah')->result();
+        $data['tes'] = 'ini print dari HTML ke PDF';
+        $output = $this->load->view('template_surat/laporan_kelahiran',$data, true);
+        return $this->_gen_pdf($output);
+     }
+    public function doprint_laporan_skm($pdf=false)
+    {
+        $data['total']=$this->m_data->hitung_data('surat_kematian');
+//        $data['total_surat']=$skl+$skm+$skkk+$skktp;
+        $data['surat'] = $this->m_data->tampil_data_surat_kematian()->result();
+//        $data['surat'] = $this->m_data->edit_data($where,'surat_keterangan_pindah')->result();
+        $data['tes'] = 'ini print dari HTML ke PDF';
+        $output = $this->load->view('template_surat/laporan_kematian',$data, true);
+        return $this->_gen_pdf($output);
+     }
+    public function edit_profile ()
+    {
+//		$where = array('username' => $id);
+//		$data['surat'] = $this->m_data->edit_data($where,'tb_profile')->result();
+        $data = array(
+					'error' => '',
+					'username' => $this->session->userdata('username'),'active' =>'lurah'
+				);
+		$data['title']='Lurah';
+		$data['sub']='Update';
+		$data['assets']=$this->assets;
+		$data['css']=$this->css;
+		$data['js']=$this->js;
+        $data['username']=$this->session->userdata('username');
+        $data['password']=$this->session->userdata('password');
+        $data['nama_lengkap']=$this->session->userdata('nama_lengkap');
+        $data['email']=$this->session->userdata('email');
+        $assets = $this->assets;
+        $data['foto']=$assets.'images/lurah.png';
+        $data['last_update']=$this->session->userdata('last_update');
+        $data['level']=$this->session->userdata('level');
+		$data['head']=$this->load->view('template/head',$data, true);
+		$data['menu_profile']=$this->load->view('template/menu_profile',$data, true);
+		$data['menu_footer']=$this->load->view('template/menu_footer',$data, true);
+		$data['sidebar']=$this->load->view('lurah/sidebar',$data, true);
+		$data['top_navigation']=$this->load->view('template/top_navigation',$data, true);
+		$data['content']=$this->load->view('lurah/content_edit_profile',$data, true);
+		$data['footer_content']=$this->load->view('template/footer_content',$data, true);
+        $this->load->view('template/index',$data);
+    }
 }

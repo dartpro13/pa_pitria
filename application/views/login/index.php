@@ -24,13 +24,16 @@
     
         <link rel="stylesheet" href="<?= $assets;?>css/style.css">
 
-    
-    
+      <style>
+          body { 
+              background-image: url('<?=$assets?>images/desa/1.jpg');
+          } 
+ 
+      </style>
     
   </head>
 
   <body>
-
     <div class="form">
       
       <ul class="tab-group">
@@ -39,7 +42,6 @@
       
         <div id="login active">   
           <h1>Welcome Back!</h1>
-          
           <form action="login/login_process" method="post">
           
             <div class="field-wrap">

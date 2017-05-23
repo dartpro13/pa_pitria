@@ -17,9 +17,9 @@
     <title>e-Government | <?= $title; ?> </title>
       <script src="<?= $css.'chart/Chart.bundle.js'?>"></script>
     <!-- Bootstrap -->
-    <link href="<?= $css.'bootstrap.min.css';?>" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="<?= $assets;?>fontawesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
     <link href="<?= $css.'nprogress.css';?>" rel="stylesheet">
     <!-- iCheck -->

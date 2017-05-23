@@ -646,6 +646,27 @@ $where = array(
 $this->m_data->update_data($where,$data,'surat_keterangan_kk');
 redirect('admin/list_surat_keterangan_kk');
 }
+    function edit_profile(){
+        $username_old = $this->input->post('username-old');
+        $username = $this->input->post('username');
+        $password = $this->input->post('password');
+        $level = $this->input->post('level');
+
+        $data = array(
+        'username' => $username,
+		'password' => md5($password),
+		'last_update' => date('SYSDATE()'),
+		'level' => $level
+            );
+
+$where = array(
+	'username' => $username_old
+);
+
+$this->m_data->update_data($where,$data,'user');
+        $this->session->set_userdata($data);
+redirect('admin/');
+}
 function approve_surat_keterangan_kk($id){
 	$data = array(
 		'status' => 'Di Setujui'

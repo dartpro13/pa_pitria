@@ -43,6 +43,12 @@
               <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
             </div>
           </div>
+    <a target="_SELF"href="<?=base_url()?>index.php/lurah/doprint_laporan_penduduk/"><button type="button"class="btn btn-default btn-sm">Print Data Penduduk</button></a>
+    <a target="_SELF"href="<?=base_url()?>index.php/lurah/doprint_laporan_skp/"><button type="button"class="btn btn-default btn-sm">Print Data Surat Pindah</button></a>
+    <a target="_SELF"href="<?=base_url()?>index.php/lurah/doprint_laporan_skktp/"><button type="button"class="btn btn-default btn-sm">Print Data Surat Keterangan KTP</button></a>
+    <a target="_SELF"href="<?=base_url()?>index.php/lurah/doprint_laporan_skkk/"><button type="button"class="btn btn-default btn-sm">Print Data Surat Keterangan KK</button></a>
+    <a target="_SELF"href="<?=base_url()?>index.php/lurah/doprint_laporan_skl/"><button type="button"class="btn btn-default btn-sm">Print Data Surat Kelahiran</button></a>
+    <a target="_SELF"href="<?=base_url()?>index.php/lurah/doprint_laporan_skm/"><button type="button"class="btn btn-default btn-sm">Print Data Surat Kematian</button></a>
           <!-- /top tiles -->
      <div >
             <canvas id="myChart" style="max-height:500px;"></canvas>

@@ -13,9 +13,10 @@ class Login extends CI_Controller{
 				redirect('admin/');
 			}elseif($this->session->userdata('level') == 'lurah'){
 				redirect('lurah/');
-			}elseif($this->session->userdata('level') == 'camat'){
-				redirect('camat/');
 			}
+//            elseif($this->session->userdata('level') == 'camat'){
+//				redirect('camat/');
+//			}
 		}
 	}
 
@@ -32,6 +33,7 @@ class Login extends CI_Controller{
 	public function login_process(){
 		$username = $this->input->post('username');
 		$password = md5($this->input->post('password'));
+        $pwd=$this->input->post('password');
 					//calling chech_user() function in Login_model.php
 		$result = $this->login_model->check_user($username, $password); 
 
@@ -39,12 +41,21 @@ class Login extends CI_Controller{
 			foreach ($result->result() as $row) {
 				$id = $row->id;
 				$username = $row->username;
+				$email = $row->email;
+				$nama_lengkap = $row->nama_lengkap;
 				$level = $row->level;
+				$last_update = $row->last_update;
+				$foto = $row->foto;
 			}
 
 			$newdata = array(
 			        'id'  => $id,
 			        'username' => $username,
+//			        'nama_lengkap' => $nama_lengkap,
+			        'last_update' => $last_update,
+//			        'password' => $pwd,
+//			        'email' => $email,
+//			        'foto' => $foto,
 			        'level' => $level,
 			        'logged_in' => TRUE
 			);
@@ -55,9 +66,12 @@ class Login extends CI_Controller{
 				redirect('admin/');
 			}elseif($this->session->userdata('level') == 'lurah'){
 				redirect('lurah/');
-			}elseif($this->session->userdata('level') == 'camat'){
-				redirect('camat/');
-			}
+			}else{
+                redirect('login/');
+            }
+//            elseif($this->session->userdata('level') == 'camat'){
+//				redirect('camat/');
+//			}
 		}
 	}
 

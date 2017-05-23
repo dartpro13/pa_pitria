@@ -1,8 +1,5 @@
 <h2><small>Data Penduduk Desa Sutawinangun</small></h2>
-Total Penduduk : <?=$jumlah_penduduk?> orang<br>
-Total Laki-Laki : <?=$jumlah_pria?> orang<br>
-Total Perempuan : <?=$jumlah_wanita?> orang<br>
-            
+Total Surat : <?=$total?> surat<br>                       
           <div class="x_content">
             <p class="text-muted font-13 m-b-30">
               <!-- DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code> -->
@@ -11,36 +8,30 @@ Total Perempuan : <?=$jumlah_wanita?> orang<br>
               <thead>
                 <tr>
                   <th>No.</th>
-                  <th>NIK</th>
-                  <th>Nama</th>
+                  <th>Nama Lengkapr</th>
                   <th>Jenis Kelamin</th>
-                  <th>Agama</th>
-                  <th>Tempat Lahir</th>
-                  <th>Tanggal Lahir</th>
-                  <th>Alamat</th>
-                  <th>Status Perkawinan</th>
-                  <th>kewarganegaraan</th>
+                  <th>Tempat Tanggal Lahir</th>
+                  <th>Bangsa / Agama</th>
                   <th>Pekerjaan</th>
+                    <th>Alamat</th>
+                  <th>Status</th>
 <!--                  <th>Aksi</th>-->
                 </tr>
               </thead>
               <tbody>
                 <?php
                 $no=1;
-                foreach ($penduduk as $row) {
+                foreach ($surat as $row) {
                 ?>
                 <tr>
                   <td><?= $no++;?></td>
-                  <td><?= $row->nik;?></td>
-                  <td><?= $row->nama;?></td>
-                  <td><?= $row->j_kelamin;?></td>
-                  <td><?= $row->agama;?></td>
-                  <td><?= $row->tmp_lahir;?></td>
-                  <td><?= $row->tgl_lahir;?></td>
-                  <td><?= $row->alamat;?></td>
-                  <td><?= $row->status_perkawinan;?></td>
-                  <td><?= $row->kewarganegaraan;?></td>
+                  <td><?= $row->nama_lengkap;?></td>
+                  <td><?= $row->jenis_kelamin;?></td>
+                  <td><?= $row->tempat_tanggal_lahir;?></td>
+                  <td><?= $row->bangsa_agama;?></td>
                   <td><?= $row->pekerjaan;?></td>
+                  <td><?= $row->alamat;?></td>
+                  <td><?= $row->status;?></td>
 <!--
                   <td>
                     <a href="<?php echo base_url(). 'index.php/admin/update_data_penduduk/'.$row->nik; ?>" style="background-color:cornflowerblue;color:white;padding:5px;border-radius:10px;">update</a><br/><br/>
