@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 21 Mei 2017 pada 06.17
+-- Generation Time: 23 Mei 2017 pada 20.55
 -- Versi Server: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -809,6 +809,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 `id` bigint(20) NOT NULL,
   `username` varchar(30) NOT NULL,
   `password` varchar(255) NOT NULL,
+  `last_update` datetime NOT NULL,
   `level` enum('admin','lurah','camat') NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
@@ -816,10 +817,10 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Dumping data untuk tabel `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `password`, `level`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin'),
-(2, 'lurah', '04960f28e4129aac5bdc9da32056560d', 'lurah'),
-(3, 'camat', 'e0dc1c969db5fa159c0e3ccc290e2314', 'camat');
+INSERT INTO `user` (`id`, `username`, `password`, `last_update`, `level`) VALUES
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', '0000-00-00 00:00:00', 'admin'),
+(2, 'lurah', '04960f28e4129aac5bdc9da32056560d', '0000-00-00 00:00:00', 'lurah'),
+(3, 'camat', 'e0dc1c969db5fa159c0e3ccc290e2314', '0000-00-00 00:00:00', 'camat');
 
 --
 -- Indexes for dumped tables
