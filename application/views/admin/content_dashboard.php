@@ -47,6 +47,7 @@
     <a target="_SELF"href="<?=base_url()?>index.php/admin/doprint_laporan_skkk/"><button type="button"class="btn btn-default btn-sm">Print Data Surat Keterangan KK</button></a>
     <a target="_SELF"href="<?=base_url()?>index.php/admin/doprint_laporan_skl/"><button type="button"class="btn btn-default btn-sm">Print Data Surat Kelahiran</button></a>
     <a target="_SELF"href="<?=base_url()?>index.php/admin/doprint_laporan_skm/"><button type="button"class="btn btn-default btn-sm">Print Data Surat Kematian</button></a>
+    <a target="_SELF"href="<?=base_url()?>index.php/admin/doprint_laporan_surat/"><button type="button"class="btn btn-default btn-sm">Print Data Surat Keseluruhan</button></a>
           <!-- /top tiles -->
     <div >
             <canvas id="myChart" style="max-height:500px;"></canvas>

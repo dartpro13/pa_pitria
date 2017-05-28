@@ -332,6 +332,24 @@ public function list_surat_keterangan_ktp()
         $output = $this->load->view('template_surat/laporan_kematian',$data, true);
         return $this->_gen_pdf($output);
      }
+    public function doprint_laporan_surat($pdf=false)
+    {
+        $data['skktp'] = $this->m_data->tampil_data_surat_keterangan_ktp()->result();
+        $data['skkk'] = $this->m_data->tampil_data_surat_keterangan_kk()->result();
+        $data['skp'] = $this->m_data->tampil_data_surat_keterangan_pindah()->result();
+        $data['skm'] = $this->m_data->tampil_data_surat_kematian()->result();
+        $data['skl'] = $this->m_data->tampil_data_surat_kelahiran()->result();
+        
+        $data['total_skkk']=$this->m_data->hitung_data('surat_keterangan_kk');
+        $data['total_skktp']=$this->m_data->hitung_data('surat_keterangan_ktp');
+        $data['total_skm']=$this->m_data->hitung_data('surat_kematian');
+        $data['total_skl']=$this->m_data->hitung_data('surat_kelahiran');
+        $data['total_skp']=$this->m_data->hitung_data('surat_keterangan_pindah');
+//        $data['total_surat']=$skl+$skm+$skkk+$skktp;
+        $data['tes'] = 'ini print dari HTML ke PDF';
+        $output = $this->load->view('template_surat/laporan_surat',$data, true);
+        return $this->_gen_pdf($output);
+     }
     public function edit_profile ()
     {
 //		$where = array('username' => $id);
