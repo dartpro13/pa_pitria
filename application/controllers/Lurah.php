@@ -7,7 +7,7 @@
  */
 
 /**
- * Description of Admin
+ * Description of Lurah
  *
  * @author NVM Team Creative
  */
@@ -69,6 +69,9 @@ var $js;
 		$data['js']=$this->js;
         $assets = $this->assets;
         $data['foto']=$assets.'images/lurah.png';
+        $wherenotif = array('status' => '0','untuk' => 'Lurah');
+        $data['notif'] = $this->m_data->edit_data($wherenotif,'notification')->result();
+        $data['notif_count']=$this->m_data->hitung_data_notif_lurah();
         $data['head']=$this->load->view('template/head',$data, true);
                 $data['menu_profile']=$this->load->view('template/menu_profile',$data, true);
                 $data['menu_footer']=$this->load->view('template/menu_footer',$data, true);
@@ -97,6 +100,9 @@ var $js;
 					$data['js']=$this->js;
 					$assets = $this->assets;
                     $data['foto']=$assets.'images/lurah.png';
+        $wherenotif = array('status' => '0','untuk' => 'Lurah');
+        $data['notif'] = $this->m_data->edit_data($wherenotif,'notification')->result();
+        $data['notif_count']=$this->m_data->hitung_data_notif_lurah();
                     $data['head']=$this->load->view('template/head',$data, true);
 					$data['menu_profile']=$this->load->view('template/menu_profile',$data, true);
 					$data['menu_footer']=$this->load->view('template/menu_footer',$data, true);
@@ -119,7 +125,10 @@ public function list_surat_kelahiran()
 					$data['js']=$this->js;
     $assets = $this->assets;
         $data['foto']=$assets.'images/lurah.png';
-					$data['head']=$this->load->view('template/head',$data, true);
+		$wherenotif = array('status' => '0','untuk' => 'Lurah');
+        $data['notif'] = $this->m_data->edit_data($wherenotif,'notification')->result();
+        $data['notif_count']=$this->m_data->hitung_data_notif_lurah();
+        			$data['head']=$this->load->view('template/head',$data, true);
 					$data['menu_profile']=$this->load->view('template/menu_profile',$data, true);
 					$data['menu_footer']=$this->load->view('template/menu_footer',$data, true);
 					$data['sidebar']=$this->load->view('lurah/sidebar',$data, true);
@@ -141,7 +150,10 @@ public function list_surat_kelahiran()
 					$data['js']=$this->js;
 	$assets = $this->assets;
         $data['foto']=$assets.'images/lurah.png';
-					$data['head']=$this->load->view('template/head',$data, true);
+		$wherenotif = array('status' => '0','untuk' => 'Lurah');
+        $data['notif'] = $this->m_data->edit_data($wherenotif,'notification')->result();
+        $data['notif_count']=$this->m_data->hitung_data_notif_lurah();
+        			$data['head']=$this->load->view('template/head',$data, true);
 					$data['menu_profile']=$this->load->view('template/menu_profile',$data, true);
 					$data['menu_footer']=$this->load->view('template/menu_footer',$data, true);
 					$data['sidebar']=$this->load->view('lurah/sidebar',$data, true);
@@ -185,7 +197,10 @@ public function list_surat_keterangan_ktp()
 				$data['js']=$this->js;
 	$assets = $this->assets;
         $data['foto']=$assets.'images/lurah.png';
-				$data['head']=$this->load->view('template/head',$data, true);
+		$wherenotif = array('status' => '0','untuk' => 'Lurah');
+        $data['notif'] = $this->m_data->edit_data($wherenotif,'notification')->result();
+        $data['notif_count']=$this->m_data->hitung_data_notif_lurah();
+        		$data['head']=$this->load->view('template/head',$data, true);
 				$data['menu_profile']=$this->load->view('template/menu_profile',$data, true);
 				$data['menu_footer']=$this->load->view('template/menu_footer',$data, true);
 				$data['sidebar']=$this->load->view('lurah/sidebar',$data, true);
@@ -207,7 +222,10 @@ public function list_surat_keterangan_ktp()
 				$data['js']=$this->js;
 	$assets = $this->assets;
         $data['foto']=$assets.'images/lurah.png';
-				$data['head']=$this->load->view('template/head',$data, true);
+		$wherenotif = array('status' => '0','untuk' => 'Lurah');
+        $data['notif'] = $this->m_data->edit_data($wherenotif,'notification')->result();
+        $data['notif_count']=$this->m_data->hitung_data_notif_lurah();
+        		$data['head']=$this->load->view('template/head',$data, true);
 				$data['menu_profile']=$this->load->view('template/menu_profile',$data, true);
 				$data['menu_footer']=$this->load->view('template/menu_footer',$data, true);
 				$data['sidebar']=$this->load->view('lurah/sidebar',$data, true);
@@ -371,7 +389,10 @@ public function list_surat_keterangan_ktp()
         $data['foto']=$assets.'images/lurah.png';
         $data['last_update']=$this->session->userdata('last_update');
         $data['level']=$this->session->userdata('level');
-		$data['head']=$this->load->view('template/head',$data, true);
+		$wherenotif = array('status' => '0','untuk' => 'Lurah');
+        $data['notif'] = $this->m_data->edit_data($wherenotif,'notification')->result();
+        $data['notif_count']=$this->m_data->hitung_data_notif_lurah();
+        $data['head']=$this->load->view('template/head',$data, true);
 		$data['menu_profile']=$this->load->view('template/menu_profile',$data, true);
 		$data['menu_footer']=$this->load->view('template/menu_footer',$data, true);
 		$data['sidebar']=$this->load->view('lurah/sidebar',$data, true);

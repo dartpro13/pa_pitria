@@ -17,6 +17,18 @@ class M_data extends CI_Model{
         $this->db->from('tb_penduduk');
         return $this->db->count_all_results();
     }
+    function hitung_data_notif_admin(){
+        $this->db->like('untuk', 'Admin');
+        $this->db->like('status', '0');
+        $this->db->from('notification');
+        return $this->db->count_all_results();
+    }
+    function hitung_data_notif_lurah(){
+        $this->db->like('untuk', 'Lurah');
+        $this->db->like('status', '0');
+        $this->db->from('notification');
+        return $this->db->count_all_results();
+    }
 	function tampil_data_surat_kelahiran(){
 		return $this->db->get('surat_kelahiran');
 	}

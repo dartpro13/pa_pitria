@@ -46,30 +46,50 @@
                   </ul>
                 </li>
 
-<!--
                 <li role="presentation" class="dropdown">
                   <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
                     <i class="fa fa-envelope-o"></i>
-                    <span class="badge bg-green">0</span>
+                    <span class="badge bg-green"><?=$notif_count;?></span>
                   </a>
                   <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
-                    <li>
-                      <a>
--->
+                    <?php
+                      if($notif_count!=0){
+                      foreach ($notif as $not) {
+                      ?>
+                      <li>
+                      <a href="<?php echo base_url(). 'index.php/action/hapus_notif/'.$not->id; ?>">
 <!--                        <span class="image"><img src="<?= $assets;?>images/img.jpg" alt="Profile Image" /></span>-->
-<!--
                         <span>
+                          <span class="time"><?=$not->waktu;?></span>
                           <span>e-Government</span>
--->
-<!--                          <span class="time">3 mins ago</span>-->
-<!--
                         </span>
                         <span class="message">
-                          Notification unavailable
+                          <?=$not->deskripsi;?>
                         </span>
                       </a>
                     </li>
--->
+                      <li>
+                      <div class="text-center">
+                        <a>
+                          <strong>Klik notif untuk menghapusnya</strong>
+                        </a>
+                      </div>
+                    </li>
+                      <?php }
+                      }else{ ?>
+                      <li>
+                      <a>
+<!--                        <span class="image"><img src="<?= $assets;?>images/img.jpg" alt="Profile Image" /></span>-->
+                        <span>
+                          <span>e-Government</span>
+                          <span class="time">-</span>
+                        </span>
+                        <span class="message">
+                          Tidak ada notifikasi
+                        </span>
+                      </a>
+                    </li>
+                      <?php } ?>
 <!--
                     <li>
                       <a>

@@ -80,9 +80,18 @@ class Action extends CI_Controller{
 	$where = array(
 		'nik' => $nik
 	);
+    }
+function hapus_notif($id){
+		$data = array(
+            'status' => '1'
+			);
 
-	$this->m_data->update_data($where,$data,'tb_penduduk');
-	redirect('admin/list_data_penduduk');
+	$where = array(
+		'id' => $id
+	);
+
+	$this->m_data->update_data($where,$data,'notification');
+	redirect('');
 }
 function input_surat_kelahiran(){
 	$nomor_surat = $this->input->post('nomor_surat');
