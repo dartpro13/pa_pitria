@@ -84,10 +84,12 @@
                     <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post" action="<?= $url?>">
 
                       <div class="form-group">
+<!--
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nomor_surat">Nomor Surat <span class="required">*</span>
                         </label>
+-->
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="nomor_surat" required="required" name="nomor_surat" class="form-control col-md-7 col-xs-12" value="<?=$nomor_surat;?>" <?=$ro;?>>
+                          <input type="hidden" id="nomor_surat" required="required" name="nomor_surat" class="form-control col-md-7 col-xs-12" value="<?=$nomor_surat;?>" <?=$ro;?>>
                         </div>
                       </div>
                       <center><h4>Yang bertanda tangan dibawah ini, menerangkan bahwa:</h4></center>
@@ -115,7 +117,7 @@
                       <div class="form-group">
                         <label for="terlapor_agama" class="control-label col-md-3 col-sm-3 col-xs-12">Agama <span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="terlapor_agama" class="form-control col-md-7 col-xs-12" required="required" type="text" name="terlapor_agama"value="<?=$terlapor_agama;?>">
+                          <input id="terlapor_agama" class="form-control col-md-7 col-xs-12" required="required" type="text" name="terlapor_agama"value="<?=$terlapor_agama;?>" placeholder="cth: Islam">
                         </div>
                       </div>
                       <div class="form-group">
@@ -140,7 +142,7 @@
                       <div class="form-group">
                         <label for="meninggal_pukul" class="control-label col-md-3 col-sm-3 col-xs-12">Pukul <span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="meninggal_pukul" name="meninggal_pukul" class="form-control col-md-7 col-xs-12" required="required" type="time">
+                          <input id="meninggal_pukul" name="meninggal_pukul" class="form-control col-md-7 col-xs-12" required="required" type="time" placeholder="cth: 10:10:10 jika menunjukkan pukul 10 lewat 10 menit 10 detik">
                         </div>
                       </div>
                       <div class="form-group">

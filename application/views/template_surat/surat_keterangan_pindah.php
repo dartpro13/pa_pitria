@@ -132,7 +132,7 @@
         ?> 
         <section class="center bold f12 ">SURAT KETERANGAN PINDAH WNI</section>
         <section class="center underline f8 ">Antar Kabupaten/Kota atau Provinsi</section>
-        <section class="center f12">Nomor: 142 /<?= $tanggal.$row->id_surat; ?> / <?=$bulan?> / Des / <?=$tahun?></section>
+        <section class="center f12">Nomor: <?=$row->id_surat; ?> /<?= $tanggal.$row->id_surat; ?> / <?=$bulan?> / Des / <?=$tahun?></section>
         <br>
         <section class="justify f12">
         <p class="paragraf">DATA DAERAH ASAL :</p>

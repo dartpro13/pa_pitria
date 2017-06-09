@@ -14,7 +14,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="<?= $assets;?>images/fav.png" type="image/x-icon">
-    <title>e-Government | <?= $title; ?> </title>
+    <title>E-Government | <?= $title; ?> </title>
       <script src="<?= $css.'chart/Chart.bundle.js'?>"></script>
     <!-- Bootstrap -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">

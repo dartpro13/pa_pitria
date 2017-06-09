@@ -17,7 +17,7 @@
     <meta charset="UTF-8">
     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
     <link rel="icon" href="<?= $img;?>fav.png" type="image/x-icon">
-    <title>Digital Art Project | <?= $title; ?> </title>
+    <title>E-Government | <?= $title; ?> </title>
 
     <link rel="stylesheet" href="<?= $assets;?>css/normalize.css">
 
@@ -35,13 +35,12 @@
 
   <body>
     <div class="form">
-      
-      <ul class="tab-group">
-        <li class="tab active"style="width:1000px!important; text-align:center;"><a href="#login">Log In</a></li>
-      </ul>
-      
         <div id="login active">   
-          <h1>Welcome Back!</h1>
+            <center>
+                <div style="width:175px;height:175px; border-radius:100%; background:#FFF; overflow:hidden; padding:10px;margin-bottom:20px;">
+                    <img src="<?= base_url()?>/assets/images/logo_kab.jpg" style="width:150px;"/>
+                </div>
+            </center>
           <form action="login/login_process" method="post">
           
             <div class="field-wrap">

@@ -1,3 +1,94 @@
+<html>
+    <head>
+        <style>
+            .center{
+                text-align: center;
+            }
+            .f16{
+                font-size: 16px;
+            }
+            .f20{
+                font-size: 20px;
+            }
+            .f12{
+                font-size: 12px;
+            }
+            .justify{
+                text-align: justify;
+            }
+            .bold{
+                font-weight: bold;
+            }
+            section{
+                margin:0;
+                padding:0;
+            }
+            .underline{
+                border-bottom: 1px solid black;
+                width:40%;
+                margin-left: 30%;
+            }
+            .paragraf{
+                margin-left: 50px;
+                margin-right: 50px;
+            }
+            .pengesahan{
+                display: inline-block;
+                width:50%;
+                text-align: center;
+            }
+            .floatleft{
+                float:left;
+                position: relative;
+            }
+            .floatright{
+                float:right;
+                position: relative;
+            }
+            table{
+                width:80%;
+            }
+            .tdleft{
+                width:40%;
+                padding-left: 20px;
+            }
+            .tdright{
+                width:60%;
+                padding-right: 20px;
+            }
+            .logo_kop{
+                width:85px;
+                float:left;
+                position:absolute;                
+            }
+            .right{
+                position:absolute;
+                float:right;
+            }
+            .inline-block{
+                display: inline-block;
+                width:90%;
+                margin-left: 10%;
+                
+            }
+        </style>
+    </head>
+    <body>
+        <img src="<?= base_url()?>/assets/images/logo_kab.jpg" class="inline-block logo_kop"/>
+        <header class="inline-block center right">
+            <section class="f16">PEMERINTAH KABUPATEN CIREBON</section>
+            <section class="f16 bold">KECAMATAN KEDAWUNG</section>
+            <section class="f20 bold">KANTOR KUWU SUTAWINANGUN</section>
+            <section class="f12"><i>Jalan Pramuka No. 13 Telp. (0231)337037 <span class="bold">Cirebon 45153</span></i></section>
+        </header>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <hr>
+        <br>
+        <br>
 <h2><small>Laporan Surat Desa Sutawinangun</small></h2>
 Total Surat : <?=$total_skl + $total_skm + $total_skktp + $total_skkk + $total_skp?> surat<br>            
           <div class="x_content">
@@ -191,8 +282,5 @@ Total Surat : <?=$total_skl + $total_skm + $total_skktp + $total_skkk + $total_s
               </tbody>
             </table>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+        </body>
+</html>

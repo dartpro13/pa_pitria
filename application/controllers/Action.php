@@ -91,7 +91,10 @@ function hapus_notif($id){
 	);
 
 	$this->m_data->update_data($where,$data,'notification');
-	redirect('');
+    $notif = $this->m_data->edit_data($where,'notification')->result();
+    $active = $this->session->userdata('level');
+    foreach($notif as $not){}
+	redirect($active.'/'.$not->redirect);
 }
 function input_surat_kelahiran(){
 	$nomor_surat = $this->input->post('nomor_surat');

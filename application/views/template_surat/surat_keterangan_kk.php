@@ -105,7 +105,7 @@
              
         ?> 
         <section class="center bold underline f12 ">SURAT KETERANGAN KARTU KELUARGA</section>
-        <section class="center f12">Nomor: 142 /<?= $tanggal.$row->id_surat; ?> / <?=$bulan?> / Des / <?=$tahun?></section>
+        <section class="center f12">Nomor: <?=$row->id_surat; ?> /<?= $tanggal.$row->id_surat; ?> / <?=$bulan?> / Des / <?=$tahun?></section>
         <br>
         <section class="justify f12">
         <p class="paragraf">Yang bertanda tangan di bawah ini Kuwu Desa Sutawinangun Kecamatan Kedawung Kabupaten Cirebon, dengan ini menerangkan :</p>

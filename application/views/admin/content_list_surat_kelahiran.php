@@ -49,7 +49,6 @@
               <thead>
                 <tr>
                   <th>No.</th>
-                  <th>Nomor Surat</th>
                   <th>Nama Pemohon</th>
                   <th>Tempat Tanggal Lahir</th>
                   <th>Jenis Kelamin</th>
@@ -70,7 +69,6 @@
                 ?>
                 <tr>
                   <td><?= $no++;?></td>
-                  <td><?= $row->nomor_surat;?></td>
                   <td><?= $row->nama;?></td>
                   <td><?= $row->tempat_tanggal_lahir;?></td>
                   <td><?= $row->jenis_kelamin;?></td>
@@ -121,7 +119,7 @@ function myFunction() {
 
   // Loop through all table rows, and hide those who don't match the search query
   for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[2];
+    td = tr[i].getElementsByTagName("td")[1];
     if (td) {
       if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
         tr[i].style.display = "";

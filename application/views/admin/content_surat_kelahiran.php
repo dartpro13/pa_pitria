@@ -70,10 +70,12 @@
                     <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post" action="<?= $url?>">
 
                       <div class="form-group">
+<!--
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nomor_surat">Nomor Surat <span class="required">*</span>
                         </label>
+-->
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="nomor_surat" required="required" name="nomor_surat" class="form-control col-md-7 col-xs-12" value="<?=$nomor_surat;?>" <?=$ro;?>>
+                          <input type="hidden" id="nomor_surat" required="required" name="nomor_surat" class="form-control col-md-7 col-xs-12" value="<?=$nomor_surat;?>" <?=$ro;?>>
                         </div>
                       </div>
                       <div class="form-group">

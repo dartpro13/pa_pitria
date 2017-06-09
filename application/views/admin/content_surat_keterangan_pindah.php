@@ -133,7 +133,7 @@
                       <div class="form-group">
                         <label for="dusun_awal" class="control-label col-md-3 col-sm-3 col-xs-12">Dusun Asal<span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="dusun_awal" class="form-control col-md-7 col-xs-12" required="required" type="text" name="dusun_awal" value="<?=$dusun_asal;?>">
+                          <input id="dusun_asal" class="form-control col-md-7 col-xs-12" required="required" type="text" name="dusun_asal" value="<?=$dusun_asal;?>">
                         </div>
                       </div>
                         <div class="form-group">

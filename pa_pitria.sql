@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 01 Jun 2017 pada 23.29
+-- Generation Time: 04 Jun 2017 pada 22.56
 -- Versi Server: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -31,6 +31,7 @@ CREATE TABLE IF NOT EXISTS `notification` (
   `deskripsi` text NOT NULL,
   `dari` varchar(100) NOT NULL,
   `untuk` varchar(100) NOT NULL,
+  `redirect` varchar(250) NOT NULL,
   `waktu` datetime NOT NULL,
   `status` enum('0','1') NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
@@ -39,8 +40,8 @@ CREATE TABLE IF NOT EXISTS `notification` (
 -- Dumping data untuk tabel `notification`
 --
 
-INSERT INTO `notification` (`id`, `deskripsi`, `dari`, `untuk`, `waktu`, `status`) VALUES
-(2, 'Telah diubah surat kelahiran atas nama  Imaduddin Haris Nasution', 'Lurah', 'Admin', '2017-06-02 03:39:54', '1');
+INSERT INTO `notification` (`id`, `deskripsi`, `dari`, `untuk`, `redirect`, `waktu`, `status`) VALUES
+(2, 'Telah diubah surat kelahiran atas nama  Imaduddin Haris Nasution', 'Lurah', 'Admin', 'list_surat_kelahiran', '2017-06-02 03:39:54', '0');
 
 -- --------------------------------------------------------
 
@@ -79,12 +80,12 @@ DELIMITER //
 CREATE TRIGGER `notif_accept_skl` AFTER UPDATE ON `surat_kelahiran`
  FOR EACH ROW INSERT INTO notification 
 values 
-(NULL,CONCAT_WS(' ','Telah diubah surat kelahiran atas nama ' , NEW.nama ) ,'Lurah','Admin',SYSDATE(),'0')
+(NULL,CONCAT_WS(' ','Telah diubah surat kelahiran atas nama ' , NEW.nama ) ,'Lurah','Admin','list_surat_kelahiran',SYSDATE(),'0')
 //
 DELIMITER ;
 DELIMITER //
 CREATE TRIGGER `notif_surat_baru_skl` AFTER INSERT ON `surat_kelahiran`
- FOR EACH ROW INSERT INTO notification values (NULL,'Ada surat kelahiran baru' ,'Admin','Lurah',SYSDATE(),'0')
+ FOR EACH ROW INSERT INTO notification values (NULL,'Ada surat kelahiran baru' ,'Admin','Lurah','list_surat_kelahiran',SYSDATE(),'0')
 //
 DELIMITER ;
 
@@ -130,12 +131,12 @@ DELIMITER //
 CREATE TRIGGER `notif_accept_skm` AFTER UPDATE ON `surat_kematian`
  FOR EACH ROW INSERT INTO notification 
 values 
-(NULL,CONCAT_WS(' ','Telah diubah surat kematian atas nama terlapor ' , NEW.terlapor_nama ) ,'Lurah','Admin',SYSDATE(),'0')
+(NULL,CONCAT_WS(' ','Telah diubah surat kematian atas nama terlapor ' , NEW.terlapor_nama ) ,'Lurah','Admin','list_surat_kematian',SYSDATE(),'0')
 //
 DELIMITER ;
 DELIMITER //
 CREATE TRIGGER `notif_surat_baru_skm` AFTER INSERT ON `surat_kematian`
- FOR EACH ROW INSERT INTO notification values (NULL,'Ada surat kematian baru' ,'Admin','Lurah',SYSDATE(),'0')
+ FOR EACH ROW INSERT INTO notification values (NULL,'Ada surat kematian baru' ,'Admin','Lurah','list_surat_kematian',SYSDATE(),'0')
 //
 DELIMITER ;
 
@@ -164,12 +165,12 @@ DELIMITER //
 CREATE TRIGGER `notif_accept_skkk` AFTER UPDATE ON `surat_keterangan_kk`
  FOR EACH ROW INSERT INTO notification 
 values 
-(NULL,CONCAT_WS(' ','Telah diubah surat keterangan kk atas nama ' , NEW.nama_lengkap ) ,'Lurah','Admin',SYSDATE(),'0')
+(NULL,CONCAT_WS(' ','Telah diubah surat keterangan kk atas nama ' , NEW.nama_lengkap ) ,'Lurah','Admin','list_surat_keterangan_kk',SYSDATE(),'0')
 //
 DELIMITER ;
 DELIMITER //
 CREATE TRIGGER `notif_surat_baru_skkk` AFTER INSERT ON `surat_keterangan_kk`
- FOR EACH ROW INSERT INTO notification values (NULL,'Ada surat keterangan kk baru' ,'Admin','Lurah',SYSDATE(),'0')
+ FOR EACH ROW INSERT INTO notification values (NULL,'Ada surat keterangan kk baru' ,'Admin','Lurah','list_surat_keterangan_kk',SYSDATE(),'0')
 //
 DELIMITER ;
 
@@ -198,12 +199,12 @@ DELIMITER //
 CREATE TRIGGER `notif_accept_skktp` AFTER UPDATE ON `surat_keterangan_ktp`
  FOR EACH ROW INSERT INTO notification 
 values 
-(NULL,CONCAT_WS(' ','Telah diubah surat keterangan ktp atas nama ' , NEW.nama_lengkap ) ,'Lurah','Admin',SYSDATE(),'0')
+(NULL,CONCAT_WS(' ','Telah diubah surat keterangan ktp atas nama ' , NEW.nama_lengkap ) ,'Lurah','Admin','list_surat_keterangan_ktp',SYSDATE(),'0')
 //
 DELIMITER ;
 DELIMITER //
 CREATE TRIGGER `notif_surat_baru_skktp` AFTER INSERT ON `surat_keterangan_ktp`
- FOR EACH ROW INSERT INTO notification values (NULL,'Ada surat keterangan ktp baru' ,'Admin','Lurah',SYSDATE(),'0')
+ FOR EACH ROW INSERT INTO notification values (NULL,'Ada surat keterangan ktp baru' ,'Admin','Lurah','list_surat_keterangan_ktp',SYSDATE(),'0')
 //
 DELIMITER ;
 
@@ -257,12 +258,12 @@ DELIMITER //
 CREATE TRIGGER `notif_accept_skp` AFTER UPDATE ON `surat_keterangan_pindah`
  FOR EACH ROW INSERT INTO notification 
 values 
-(NULL,CONCAT_WS(' ','Telah diubah surat keterangan pindah atas nama ' , NEW.nama_lengkap ) ,'Lurah','Admin',SYSDATE(),'0')
+(NULL,CONCAT_WS(' ','Telah diubah surat keterangan pindah atas nama ' , NEW.nama_lengkap ) ,'Lurah','Admin','list_surat_keterangan_pindah',SYSDATE(),'0')
 //
 DELIMITER ;
 DELIMITER //
 CREATE TRIGGER `notif_surat_baru_skp` AFTER INSERT ON `surat_keterangan_pindah`
- FOR EACH ROW INSERT INTO notification values (NULL,'Ada surat keterangan pindah baru' ,'Admin','Lurah',SYSDATE(),'0')
+ FOR EACH ROW INSERT INTO notification values (NULL,'Ada surat keterangan pindah baru' ,'Admin','Lurah','list_surat_keterangan_pindah',SYSDATE(),'0')
 //
 DELIMITER ;
 

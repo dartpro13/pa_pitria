@@ -49,7 +49,7 @@
               <thead>
                 <tr>
                   <th>No.</th>
-                  <th>Nama Lengkapr</th>
+                  <th>Nama Lengkap</th>
                   <th>Jenis Kelamin</th>
                   <th>Tempat Tanggal Lahir</th>
                   <th>Bangsa / Agama</th>
