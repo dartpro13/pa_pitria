@@ -51,7 +51,7 @@
                     <i class="fa fa-envelope-o"></i>
                     <span class="badge bg-green"><?=$notif_count;?></span>
                   </a>
-                  <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+                  <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu"style="max-height:200px; overflow-y:scroll">
                     <?php
                       if($notif_count!=0){
                       foreach ($notif as $not) {
@@ -71,7 +71,7 @@
                       <li>
                       <div class="text-center">
                         <a>
-                          <strong>Klik notif untuk menghapusnya</strong>
+                          <small>Klik notif untuk menghapusnya</small>
                         </a>
                       </div>
                     </li>
@@ -90,52 +90,6 @@
                       </a>
                     </li>
                       <?php } ?>
-<!--
-                    <li>
-                      <a>
-                        <span class="image"><img src="<?= $assets;?>images/img.jpg" alt="Profile Image" /></span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <a>
-                        <span class="image"><img src="<?= $assets;?>images/img.jpg" alt="Profile Image" /></span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <a>
-                        <span class="image"><img src="<?= $assets;?>images/img.jpg" alt="Profile Image" /></span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <div class="text-center">
-                        <a>
-                          <strong>See All Alerts</strong>
-                          <i class="fa fa-angle-right"></i>
-                        </a>
-                      </div>
--->
-<!--                    </li>-->
                   </ul>
                 </li>
               </ul>
