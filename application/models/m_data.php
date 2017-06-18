@@ -4,12 +4,20 @@ class M_data extends CI_Model{
 	function tampil_data_penduduk(){
 		return $this->db->get('tb_penduduk');
 	}
+    function tampil_data_foto(){
+		return $this->db->get('tb_photos');
+	}
     function hitung_data($table){
         return $this->db->count_all($table);
     }
     function hitung_data_laki(){
         $this->db->like('j_kelamin', 'laki-laki');
         $this->db->from('tb_penduduk');
+        return $this->db->count_all_results();
+    }
+    function hitung_data_foto($nik){
+        $this->db->like('nik', $nik);
+        $this->db->from('tb_photos');
         return $this->db->count_all_results();
     }
     function hitung_data_wanita(){

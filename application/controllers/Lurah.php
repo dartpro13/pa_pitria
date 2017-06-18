@@ -112,6 +112,42 @@ var $js;
 					$data['footer_content']=$this->load->view('template/footer_content',$data, true);
 					$this->load->view('template/index',$data);
 }
+    public function lihat_foto($id)
+{
+    $data = array(
+					'error' => '',
+					'username' => $this->session->userdata('username'),'active' =>'lurah'
+				);
+                $foto = $this->m_data->hitung_data_foto($id);
+               
+                if($foto>=1){
+                  $where = array('nik' => $id);
+				$data['file'] = $this->m_data->edit_data($where,'tb_photos')->result();
+				  foreach ($data['file'] as $value1) {
+                    $data['foto_penduduk']= '<img style="width:300px;" src="'.base_url().'file/'.$value1->file_name.'"';
+                  }
+                }else{
+                    $data['foto_penduduk']= "Belum ada foto";
+                }
+				$data['title']='Admin';
+				$data['sub']='Update';
+				$data['assets']=$this->assets;
+				$data['css']=$this->css;
+				$data['js']=$this->js;
+    $assets = $this->assets;
+        $data['foto']=$assets.'images/users.png';
+		$wherenotif = array('status' => '0','untuk' => 'Admin');
+        $data['notif'] = $this->m_data->edit_data($wherenotif,'notification')->result();
+        $data['notif_count']=$this->m_data->hitung_data_notif_admin();
+        		$data['head']=$this->load->view('template/head',$data, true);
+				$data['menu_profile']=$this->load->view('template/menu_profile',$data, true);
+				$data['menu_footer']=$this->load->view('template/menu_footer',$data, true);
+				$data['sidebar']=$this->load->view('lurah/sidebar',$data, true);
+				$data['top_navigation']=$this->load->view('template/top_navigation',$data, true);
+				$data['content']=$this->load->view('lurah/content_lihat_foto',$data, true);
+				$data['footer_content']=$this->load->view('template/footer_content',$data, true);
+$this->load->view('template/index',$data);
+}
 public function list_surat_kelahiran()
 	{
     $data = array(

@@ -61,6 +61,7 @@
                   <th>Status Perkawinan</th>
                   <th>kewarganegaraan</th>
                   <th>Pekerjaan</th>
+                  <th>Foto</th>
                   <th>Aksi</th>
                 </tr>
               </thead>
@@ -81,6 +82,8 @@
                   <td><?= $row->status_perkawinan;?></td>
                   <td><?= $row->kewarganegaraan;?></td>
                   <td><?= $row->pekerjaan;?></td>
+                  <td><a target="_blank" href="<?php echo base_url(). 'index.php/admin/lihat_foto/'.$row->nik; ?>">klik untuk melihat foto</a></td>
+                    
                   <td>
                     <a href="<?php echo base_url(). 'index.php/admin/update_data_penduduk/'.$row->nik; ?>" style="background-color:cornflowerblue;color:white;padding:5px;border-radius:10px;">update</a><br/><br/>
                     <a href="<?php echo base_url(). 'index.php/action/hapus_data_penduduk/'.$row->nik; ?>" style="background-color:crimson;color:white;padding:5px;border-radius:10px;">delete</a>

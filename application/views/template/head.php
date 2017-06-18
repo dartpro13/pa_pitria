@@ -89,9 +89,21 @@
             padding:0;
             cursor:inherit;
         }
+        
     </style>
+<!--
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+      
+-->
     <!-- Custom Theme Style -->
     <link href="<?= $css.'custom.min.css';?>" rel="stylesheet">
+    <link href="<?= $css.'select2.min.css';?>" rel="stylesheet">
+<!--    <link href="<?= $css.'default.css';?>" rel="stylesheet">-->
+<!--    <link href="<?= $assets.'js/jquery.autocomplete.css';?>" rel="stylesheet">-->
+     
+
   </head>
 
   <body class="nav-md">

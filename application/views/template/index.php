@@ -82,7 +82,7 @@
     <!-- bootstrap-daterangepicker -->
     <script src="<?= $assets.'js/moment/moment.min.js';?>"></script>
     <script src="<?= $assets.'js/datepicker/daterangepicker.js';?>"></script>
-
+<script type="text/javascript" src="<?= $assets.'js/select2.full.min.js';?>"></script>
     <!-- Custom Theme Scripts -->
     <script src="<?= $assets.'js/custom.min.js';?>"></script>
 
@@ -345,5 +345,6 @@
       gauge.setTextField(document.getElementById("gauge-text"));
     </script>
     <!-- /gauge.js -->
+
   </body>
 </html>

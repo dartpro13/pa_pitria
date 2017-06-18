@@ -120,6 +120,7 @@ var $js;
 					'username' => $this->session->userdata('username'),'active' =>'admin'
 				);
 					$data['penduduk'] = $this->m_data->tampil_data_penduduk()->result();
+                    
 					$data['title']='Admin';
 					$data['assets']=$this->assets;
 					$data['css']=$this->css;
@@ -162,6 +163,42 @@ public function update_data_penduduk($id)
 				$data['sidebar']=$this->load->view('admin/sidebar',$data, true);
 				$data['top_navigation']=$this->load->view('template/top_navigation',$data, true);
 				$data['content']=$this->load->view('admin/content_input_data_penduduk',$data, true);
+				$data['footer_content']=$this->load->view('template/footer_content',$data, true);
+$this->load->view('template/index',$data);
+}
+    public function lihat_foto($id)
+{
+    $data = array(
+					'error' => '',
+					'username' => $this->session->userdata('username'),'active' =>'admin'
+				);
+                $foto = $this->m_data->hitung_data_foto($id);
+               
+                if($foto>=1){
+                  $where = array('nik' => $id);
+				$data['file'] = $this->m_data->edit_data($where,'tb_photos')->result();
+				  foreach ($data['file'] as $value1) {
+                    $data['foto_penduduk']= '<img style="width:300px;" src="'.base_url().'file/'.$value1->file_name.'"';
+                  }
+                }else{
+                    $data['foto_penduduk']= "Belum ada foto";
+                }
+				$data['title']='Admin';
+				$data['sub']='Update';
+				$data['assets']=$this->assets;
+				$data['css']=$this->css;
+				$data['js']=$this->js;
+    $assets = $this->assets;
+        $data['foto']=$assets.'images/users.png';
+		$wherenotif = array('status' => '0','untuk' => 'Admin');
+        $data['notif'] = $this->m_data->edit_data($wherenotif,'notification')->result();
+        $data['notif_count']=$this->m_data->hitung_data_notif_admin();
+        		$data['head']=$this->load->view('template/head',$data, true);
+				$data['menu_profile']=$this->load->view('template/menu_profile',$data, true);
+				$data['menu_footer']=$this->load->view('template/menu_footer',$data, true);
+				$data['sidebar']=$this->load->view('admin/sidebar',$data, true);
+				$data['top_navigation']=$this->load->view('template/top_navigation',$data, true);
+				$data['content']=$this->load->view('admin/content_lihat_foto',$data, true);
 				$data['footer_content']=$this->load->view('template/footer_content',$data, true);
 $this->load->view('template/index',$data);
 }
@@ -421,31 +458,61 @@ public function update_surat_keterangan_ktp($id)
 				$data['footer_content']=$this->load->view('template/footer_content',$data, true);
 $this->load->view('template/index',$data);
 }
-    public function surat_keterangan_kk()
-{
+    
+    public function buat_surat_kk($nik)
+    {
         $data = array(
-					'error' => '',
-					'username' => $this->session->userdata('username'),'active' =>'admin'
+				'error' => '',
+				'username' => $this->session->userdata('username'),'active' =>'admin'
 				);
-$data['title']='Admin';
-$data['sub']='Input';
-$data['assets']=$this->assets;
-$data['css']=$this->css;
-$data['js']=$this->js;
+        $where = array('nik' => $nik);
+        $data['penduduk'] = $this->m_data->edit_data($where,'tb_penduduk')->result();
+        $data['title']='Admin';
+        $data['sub']='Input';
+        $data['assets']=$this->assets;
+        $data['css']=$this->css;
+        $data['js']=$this->js;
         $assets = $this->assets;
         $data['foto']=$assets.'images/users.png';
-$wherenotif = array('status' => '0','untuk' => 'Admin');
+        $wherenotif = array('status' => '0','untuk' => 'Admin');
         $data['notif'] = $this->m_data->edit_data($wherenotif,'notification')->result();
         $data['notif_count']=$this->m_data->hitung_data_notif_admin();
         $data['head']=$this->load->view('template/head',$data, true);
-$data['menu_profile']=$this->load->view('template/menu_profile',$data, true);
-$data['menu_footer']=$this->load->view('template/menu_footer',$data, true);
-$data['sidebar']=$this->load->view('admin/sidebar',$data, true);
-$data['top_navigation']=$this->load->view('template/top_navigation',$data, true);
-$data['content']=$this->load->view('admin/content_surat_keterangan_kk',$data, true);
-$data['footer_content']=$this->load->view('template/footer_content',$data, true);
-$this->load->view('template/index',$data);
+        $data['menu_profile']=$this->load->view('template/menu_profile',$data, true);
+        $data['menu_footer']=$this->load->view('template/menu_footer',$data, true);
+        $data['sidebar']=$this->load->view('admin/sidebar',$data, true);
+        $data['top_navigation']=$this->load->view('template/top_navigation',$data, true);
+        $data['content']=$this->load->view('admin/content_surat_keterangan_kk',$data, true);
+        $data['footer_content']=$this->load->view('template/footer_content',$data, true);
+        $this->load->view('template/index',$data);
 }
+    public function surat_keterangan_kk()
+    {
+        $data = array(
+				'error' => '',
+				'username' => $this->session->userdata('username'),'active' =>'admin'
+				);
+        $data['penduduk'] = $this->m_data->tampil_data_penduduk()->result();
+        $data['title']='Admin';
+        $data['sub']='Input';
+        $data['assets']=$this->assets;
+        $data['css']=$this->css;
+        $data['js']=$this->js;
+        $assets = $this->assets;
+        $data['foto']=$assets.'images/users.png';
+        $wherenotif = array('status' => '0','untuk' => 'Admin');
+        $data['notif'] = $this->m_data->edit_data($wherenotif,'notification')->result();
+        $data['notif_count']=$this->m_data->hitung_data_notif_admin();
+        $data['head']=$this->load->view('template/head',$data, true);
+        $data['menu_profile']=$this->load->view('template/menu_profile',$data, true);
+        $data['menu_footer']=$this->load->view('template/menu_footer',$data, true);
+        $data['sidebar']=$this->load->view('admin/sidebar',$data, true);
+        $data['top_navigation']=$this->load->view('template/top_navigation',$data, true);
+        $data['content']=$this->load->view('admin/content_cari_nik',$data, true);
+        $data['footer_content']=$this->load->view('template/footer_content',$data, true);
+        $this->load->view('template/index',$data);
+}
+    
 public function list_surat_keterangan_kk()
 {
     $data = array(

@@ -43,13 +43,15 @@
                     <?php
                     if($sub=="Input"){
                         $id_surat="";
-                        $nama_lengkap="";
-                        $jenis_kelamin="";
-                        $tempat_tanggal_lahir="";
-                        $bangsa_agama="";
-                        $pekerjaan="";
-                        $alamat="";
+                        foreach ($penduduk as $row){
+                        $nama_lengkap=$row->nama;
+                        $jenis_kelamin=$row->j_kelamin;
+                        $tempat_tanggal_lahir=$row->tgl_lahir;
+                        $bangsa_agama=$row->agama;
+                        $pekerjaan=$row->pekerjaan;
+                        $alamat=$row->alamat;
                         $ro="";
+                     }
                         $url=base_url(). 'index.php/action/input_surat_keterangan_kk';
                     }else if($sub=="Update")
                     {foreach ($surat as $row){

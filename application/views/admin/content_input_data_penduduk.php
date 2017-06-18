@@ -69,7 +69,7 @@
                       $ro="readonly";
                       $url=base_url(). 'index.php/action/update_data_penduduk';
                      }}?>
-                    <form id="demo-form2" method="post" action="<?php echo $url; ?>" data-parsley-validate class="form-horizontal form-label-left">
+                    <form id="demo-form2" method="post" action="<?php echo $url; ?>" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data">
 
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name" >NIK <span class="required">*</span>
@@ -131,6 +131,12 @@
                         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Pekerjaan <span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input id="pekerjaan" name="pekerjaan" class="form-control col-md-7 col-xs-12" required="required" type="text" name="middle-name" value="<?= $pekerjaan ?>">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Foto <span class="required">*</span></label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input id="pekerjaan" name="berkas" class="form-control col-md-7 col-xs-12" required="required" type="file" name="middle-name">
                         </div>
                       </div>
                       <div class="ln_solid"></div>

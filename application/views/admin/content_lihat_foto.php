@@ -43,54 +43,7 @@
             <div class="clearfix"></div>
           </div>
           <div class="x_content">
-            <p class="text-muted font-13 m-b-30">
-              <!-- DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code> -->
-            </p>
-              <div style="max-height:500px; overflow-y:scroll;">
-            <table id="datatable" style="table-layout: fixed;word-wrap: break-word;" class="table table-striped table-bordered">
-              <thead>
-                <tr>
-                  <th>No.</th>
-                  <th>NIK</th>
-                  <th>Nama</th>
-                  <th>Jenis Kelamin</th>
-                  <th>Agama</th>
-                  <th>Tempat Lahir</th>
-                  <th>Tanggal Lahir</th>
-                  <th>Alamat</th>
-                  <th>Status Perkawinan</th>
-                  <th>kewarganegaraan</th>
-                  <th>Pekerjaan</th>
-                    <th>Foto</th>
-                  
-                </tr>
-              </thead>
-              <tbody>
-                <?php
-                $no=1;
-                foreach ($penduduk as $row) {
-                ?>
-                <tr>
-                  <td><?= $no++;?></td>
-                  <td><?= $row->nik;?></td>
-                  <td><?= $row->nama;?></td>
-                  <td><?= $row->j_kelamin;?></td>
-                  <td><?= $row->agama;?></td>
-                  <td><?= $row->tmp_lahir;?></td>
-                  <td><?= $row->tgl_lahir;?></td>
-                  <td><?= $row->alamat;?></td>
-                  <td><?= $row->status_perkawinan;?></td>
-                  <td><?= $row->kewarganegaraan;?></td>
-                  <td><?= $row->pekerjaan;?></td>
-                    <td><a target="_blank" href="<?php echo base_url(). 'index.php/lurah/lihat_foto/'.$row->nik; ?>">klik untuk melihat foto</a></td>   
-                </tr>
-                <?php
-                }
-                 ?>
-
-              </tbody>
-            </table>
-          </div>
+            <center><?=$foto_penduduk?></center>
           </div>
         </div>
       </div>

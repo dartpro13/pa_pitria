@@ -21,6 +21,18 @@ class Action extends CI_Controller{
 	}
 
 	function input_data_penduduk(){
+        $config['upload_path'] = './file/';
+		$config['allowed_types'] = 'jpg|png';
+		$config['max_size']	= '1000000'; //in kb
+//		$config['max_width']  = '1024';
+//		$config['max_height']  = '768';
+        $this->upload->initialize($config);
+        $jam=date('H');
+        if ( ! $this->upload->do_upload('berkas')){
+            echo '<script>alert("'.$this->upload->display_errors().'")';
+            //           redirect('admin/list_data_penduduk');
+		//if upload success
+		}else{
     $nik = $this->input->post('nik');
 		$nama = $this->input->post('nama');
     $j_kelamin = $this->input->post('j_kelamin');
@@ -31,7 +43,12 @@ class Action extends CI_Controller{
     $status_perkawinan = $this->input->post('status_perkawinan');
     $kewarganegaraan = $this->input->post('kewarganegaraan');
 		$pekerjaan = $this->input->post('pekerjaan');
-
+            $data_insert = array(
+					            'file_name' => $this->upload->data('file_name'),
+					            'nik' => $nik
+					        );
+			//query to insert into myupload table
+			$this->m_data->input_data($data_insert,'tb_photos');
 		$data = array(
       'nik' => $nik,
 			'nama' => $nama,
@@ -46,6 +63,7 @@ class Action extends CI_Controller{
 			);
 		$this->m_data->input_data($data,'tb_penduduk');
 		redirect('admin/list_data_penduduk');
+        }
 	}
 	function hapus_data_penduduk($id){
 		$where = array('nik' => $id);

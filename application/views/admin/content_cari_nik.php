@@ -2,14 +2,14 @@
   <div class="">
     <div class="page-title">
       <div class="title_left">
-        <h3>Kependudukan <small>/ List Data Penduduk</small></h3> 
+        <h3>Surat Keterangan KK <small>/ </small></h3> 
           
       </div>
 
       <div class="title_right">
         <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
           <div class="input-group">
-            <input type="text" id="myInput" class="form-control" onkeyup="myFunction()" placeholder="Search for names..">
+            <input type="text" id="myInput" class="form-control" onkeyup="myFunction()" placeholder="cari nik">
             <span class="input-group-btn">
               <button class="btn btn-default" type="button">Go!</button>
             </span>
@@ -24,7 +24,7 @@
       <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
           <div class="x_title">
-            <h2>e-Government <small>list data penduduk</small></h2>
+            <h2>e-Government <small>surat keterangan kk</small></h2>
             <ul class="nav navbar-right panel_toolbox">
               <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
               </li>
@@ -50,39 +50,20 @@
             <table id="datatable" style="table-layout: fixed;word-wrap: break-word;" class="table table-striped table-bordered">
               <thead>
                 <tr>
-                  <th>No.</th>
                   <th>NIK</th>
                   <th>Nama</th>
-                  <th>Jenis Kelamin</th>
-                  <th>Agama</th>
-                  <th>Tempat Lahir</th>
-                  <th>Tanggal Lahir</th>
-                  <th>Alamat</th>
-                  <th>Status Perkawinan</th>
-                  <th>kewarganegaraan</th>
-                  <th>Pekerjaan</th>
-                    <th>Foto</th>
-                  
                 </tr>
               </thead>
               <tbody>
                 <?php
-                $no=1;
                 foreach ($penduduk as $row) {
                 ?>
                 <tr>
-                  <td><?= $no++;?></td>
                   <td><?= $row->nik;?></td>
                   <td><?= $row->nama;?></td>
-                  <td><?= $row->j_kelamin;?></td>
-                  <td><?= $row->agama;?></td>
-                  <td><?= $row->tmp_lahir;?></td>
-                  <td><?= $row->tgl_lahir;?></td>
-                  <td><?= $row->alamat;?></td>
-                  <td><?= $row->status_perkawinan;?></td>
-                  <td><?= $row->kewarganegaraan;?></td>
-                  <td><?= $row->pekerjaan;?></td>
-                    <td><a target="_blank" href="<?php echo base_url(). 'index.php/lurah/lihat_foto/'.$row->nik; ?>">klik untuk melihat foto</a></td>   
+                  <td>
+                    <a href="<?php echo base_url(). 'index.php/admin/buat_surat_kk/'.$row->nik; ?>" style="background-color:cornflowerblue;color:white;padding:5px;border-radius:0;">Buat Surat</a><br/><br/>
+                  </td>
                 </tr>
                 <?php
                 }
@@ -108,7 +89,7 @@ function myFunction() {
 
   // Loop through all table rows, and hide those who don't match the search query
   for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[2];
+    td = tr[i].getElementsByTagName("td")[0];
     if (td) {
       if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
         tr[i].style.display = "";
